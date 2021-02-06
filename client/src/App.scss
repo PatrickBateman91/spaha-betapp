@@ -1,0 +1,6059 @@
+@import './Sass/mixins.scss';
+@import './Sass/variables.scss';
+
+
+/***** GENERALNE STVARI *****/
+
+*{
+    font-family: 'Work Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+* a{
+    text-decoration: none;
+}
+
+* ul, input { 
+    padding:0 ; 
+    margin:0; 
+} 
+
+* button{
+    border:none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    overflow-x: hidden;
+    background-color: $backgroundColor;
+}
+
+.fieldset{
+    border-style:none;
+}
+
+.main-container{
+background-color: $backgroundColor;
+width:100vw;
+min-height: 100vh;
+
+}
+
+/***** KEYFRAMES *****/
+
+@keyframes purchaseOptionsVisible{
+    from{ 
+        max-height: 0px;
+        overflow:hidden
+    }
+    to{
+        max-height:700px;
+        overflow:hidden
+    }
+}
+
+@keyframes purchaseOptionsHidden{
+    from {
+        max-height:700px;
+        overflow: hidden;
+    }
+    to{
+        max-height: 0px;
+        overflow:hidden;
+        opacity:0;
+    }
+}
+
+@keyframes item-to-card-animation{
+        0%{ 
+            opacity:100%;
+            transform: scale(1);
+        }
+        99%{
+        top:-350px;
+        left:2200px;
+        transform: scale(0.3);
+        z-index:100;
+        opacity:10%;
+        }
+        100%{
+            opacity:0%;
+        }
+}
+        
+@keyframes single-item-to-animation{
+    0%{ 
+        opacity:100%;
+        transform: scale(1);
+    }
+
+    20%{
+        transform: scale(0.5);
+    }
+
+    99%{
+    top:-200px;
+    left:800px;
+    transform: scale(0.1);
+    z-index:100;
+    opacity:10%;
+    }
+
+    100%{
+        opacity:0%;
+    }
+}
+
+/***** NAVIGACIJA *****/
+
+.navigation-bar{
+    background-color: $mainDarkerColor;
+    width:100vw;
+    a {
+        text-decoration: none;
+    }
+
+    @include mQ-phones(360px){
+        height:30px;
+        font-size:0.5em;
+    }
+
+    @include mQ-other(361px,480px){
+        height:30px;
+        font-size:0.5em;
+    }
+
+    @include mQ-other(481px,768px){
+        font-size:0.65em;
+    }
+
+    @include mQ-other(769px,1149px){
+    font-size:0.7em;
+    }
+
+    @include mQ-other(1150px, 1699px){
+        font-size: 0.8em;
+
+    }
+
+    @include mQ-other(1700px, 2299px){
+    
+    }
+
+    @include mQ-largerDesktops(2299px){
+        height:70px;
+    }
+}
+
+.navigation-bar-right{
+    ul{
+        list-style-type: none;
+        li{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            a{  
+                color: $mainLighterColor;
+                &:hover{
+                    cursor: pointer;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    @include mQ-phones(360px){
+        height:30px;
+        font-size:0.9em;  
+        ul{
+            li{
+                margin:3px;
+                a{
+                    padding: 4px 2px; 
+                }
+            }
+
+            &:last-child{
+                margin-right: 10px;
+            }
+        } 
+    }
+
+    @include mQ-other(361px,480px){
+        height:30px;
+        font-size:9px;  
+        ul{
+            li{
+                margin:3px;
+                a{
+                    padding: 4px 2px; 
+                }
+            }
+
+            &:last-child{
+                margin-right: 10px;
+            }
+        } 
+    }
+
+    @include mQ-other(481px,768px){
+        height:50px;
+        ul {
+            li{
+                margin:5px;
+                a{
+                    padding: 11.5px 10px;
+                }
+            }
+            &:last-child{
+                margin-right: 10px;
+            }
+        }
+    }
+
+    @include mQ-other(769px,1149px){
+     
+        ul {
+            li{
+                margin:6px;
+                a{
+                    padding: 13px 10px;
+                }
+            }
+            &:last-child{
+                margin-right: 10px;
+            }
+        }
+    }
+
+    @include mQ-other(1150px, 1699px){
+        ul {
+            li{
+                margin:8px;
+                a{
+                    padding: 10px 8px;
+                }
+            }
+            &:last-child{
+                margin-right: 50px;
+            }
+        }
+    }
+
+    @include mQ-other(1700px, 2299px){
+        ul {
+            li{
+                margin:0px 10px;
+                a{
+                    padding: 19px 12px;
+                }
+            }
+            &:last-child{
+                margin-right: 70px;
+            }
+        }
+    }
+
+    @include mQ-largerDesktops(2299px){
+        ul {
+            li{
+                margin:10px;
+                a{
+                    padding: 22.5px 12px;
+                }
+            }
+            &:last-child{
+                margin-right: 70px;
+            }
+        }
+    }
+}
+
+.navigation-bar-left{
+    p{
+        margin-top:0px;
+        margin-bottom: 0px;
+        color: $mainLighterColor;
+    }
+
+    @include mQ-phones(360px){
+        height:30px;
+        div{
+            margin-left:3px;
+            font-size:7px;
+        }
+        img{
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        height:30px;
+        div{
+            margin-left:3px;
+            font-size:7px;
+        }
+        img{
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+    }
+
+    @include mQ-other(481px,768px){
+        height:50px;
+        div{
+            margin-left:10px;
+            font-size:1.3em;
+        }
+        img{
+            width: 35px;
+            margin-right: 15px;
+        }
+    }
+
+    @include mQ-other(769px,1149px){
+  
+        div{
+            margin-left:15px;
+            font-size:18px;
+        }
+        img{
+            width: 40px;
+            margin-right: 15px;
+        }
+    }
+
+    @include mQ-other(1150px, 1699px){
+        div{
+            margin-left:20px;
+            font-size:30px;
+        }
+        img{
+            width: 40px;
+            margin-right: 20px;
+        }
+    }
+
+    @include mQ-other(1700px, 2299px){
+        div{
+            margin-left:20px;
+            font-size:2em;
+        }
+        img{
+            width: 70px;
+            margin-right: 20px;
+        }
+    }
+
+    @include mQ-largerDesktops(2299px){
+        div{
+            margin-left:20px;
+            font-size:30px;
+        }
+        img{
+            width: 70px;
+            height: 70px;
+            margin-right: 20px;
+        }
+    }
+}
+
+#mobile-side-menu{
+position: relative;
+left:20px;
+width:calc(90vw - 20px);
+z-index:10;
+margin-bottom: 10px;
+margin-top:10px;
+}
+
+#home-container{
+    @include mQ-phones(360px){
+        flex-direction: column;  
+    }
+    
+    @include mQ-other(361px,480px){
+      flex-direction: column;  
+    }
+}
+
+#mobile-filter-container{
+    display:flex;
+    flex-direction: column;
+    font-size:0.8em;
+    padding:20px;
+    left:0;
+    z-index:20;
+    border-radius:10px;
+    background-color: $mainDarkerColor;
+
+    label{
+        color: $whiteColor;
+    }
+
+    .sizes_section .sizes-box{
+        width:40px;
+    }
+
+    @include mQ-phones(360px){
+        padding:5px;
+    }
+}
+
+.mobile-open{
+    position:absolute;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width:50vw;
+    border-radius: 5px;
+    @include mQ-phones(360px){
+        font-size:0.6em;
+    }
+}
+
+.mobile-closed{
+    display:none;
+}
+
+/***** SEARCH *****/
+
+#search-holder{
+    border:2px dotted black;
+    background-color: $mainDarkerColor;
+    width:100vw; 
+    margin:10px 20px 10px 10px;
+    min-height: 50vh;
+
+    @include mQ-phones(360px){
+        margin:1px 2px 1px 2px;
+    }
+
+    @include mQ-other(361px,480px){
+        margin:1px 2px 1px 2px;
+    }
+
+    @include mQ-other(481px,768px){
+        margin: 10px 0px;
+    }
+}
+
+.search-box{
+    border:none;
+
+    button{
+        color: $mainDarkerColor;
+        font-size:1.06em;
+        padding:5px;
+        margin-left:15px;
+        border-radius: 6px;
+        transition: transform 0.3s ease-in;
+        &:hover{
+            transform: scale(1.1);
+            }
+    }
+
+    @include mQ-phones(360px){
+        button{
+            padding:2px;
+            margin-left:3px;
+            border-radius:2px;
+        }
+        input{
+            width:100px;
+            height:15px;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+    button{
+        padding:2px;
+        margin-left:3px;
+        border-radius:2px;
+    }
+    input{
+        width:100px;
+        height:15px;
+    }
+    }
+
+    @include mQ-other(1150px, 1699px){
+        font-size:0.7em;
+        padding:3px;
+    }
+
+    @include mQ-other(1700px, 2299px){
+        font-size:1.06em;
+
+             
+        form input{
+            font-size:0.8em;
+            width:200px;
+            padding:5px;
+        }
+    }
+
+    @include mQ-largerDesktops(2299px){
+  
+    
+        
+        form input{
+            font-size:1em;
+            padding:6px;
+            width:200px;
+        }
+    }
+}
+
+.warning-search{
+    padding:50px;
+    margin:50px;
+    color:$redWarningColor;
+    font-size:1.3em;
+}
+
+/***** HOME *****/
+
+#home-holder{
+
+    @include mQ-other(361px,480px){
+        width:100vw;
+        border:none;
+        background-color: $backgroundColor;
+    }
+
+    @include mQ-other(481px,767px){
+        margin:5px 10px 5px 5px;
+        width:100vw;
+    }
+
+}
+
+.home-shopping-container{
+position: relative;
+width:100%;
+border:2px dotted black;
+background-image: url(./images//holder-background.jpg);
+min-height:100vh;
+
+@include mQ-other(361px, 480px){
+width:100vw;
+margin:0px;
+border:none;
+padding:0px;
+}
+
+@include mQ-other(768px,1149px){
+    margin:50px 15px 7px 7px;
+}
+
+@include mQ-other(1150px, 1699px){
+    margin:50px 20px 10px 10px;
+}
+
+@include mQ-other(1700px, 2299px){
+    margin:70px 20px 10px 10px;
+}
+
+@include mQ-largerDesktops(2299px){
+    margin:85px 50px 10px 10px;
+}
+}
+
+.home-bottom-holder{
+    position: relative;
+    width:70vw;
+    margin-top:20px;
+    margin-bottom:20px;
+
+    @include mQ-phones(360px){
+        width:100vw;
+        flex-direction: column;
+        left:0vw;
+    }
+
+    @include mQ-other(361px,480px){
+        width:100vw;
+        flex-direction: column;
+        left:0vw;
+    }
+
+    @include mQ-other(481px, 768px){
+        width:100vw;
+        left:0vw;
+    }
+
+    @include mQ-other(769px,1149px){
+        left:3vw;
+    }
+}
+
+.shopping-item{
+    position: relative;
+    border:2px solid black;
+    background: linear-gradient(to bottom, #cedce7 0%,#596a72 100%,#dbeafc 100%);
+    color: $washedBlack;
+    transition:transform 0.2s ease-in;
+
+    p {
+        text-align:center;
+        color:black;
+    }
+
+    img{
+        object-fit: cover;
+        overflow:hidden;
+    }
+
+    &:hover{
+        transform: scale(1.06);
+
+        .favourite-icon-container{
+            display:inline-block;
+    }
+    }
+
+    @include mQ-phones(360px){
+        min-height: 200px;
+        .shopping-item-brand{
+            font-size:7px;
+            p{
+                margin-top:0px;
+                margin-bottom:0px;
+            }
+        }
+
+        .shopping-item-cost{
+            font-size:8px;
+            p{
+                margin-top:0px;
+                margin-bottom:0px;
+            }
+        }
+
+        .shopping-item-image img{
+            height:70px;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        box-shadow: 2px 4px 7px 2px rgba(0,0,0,0.19);
+        min-height: 200px;
+        .shopping-item-brand{
+            font-size:7px;
+            p{
+                margin-top:0px;
+                margin-bottom:0px;
+            }
+        }
+
+        .shopping-item-cost{
+            font-size:8px;
+            p{
+                margin-top:0px;
+                margin-bottom:0px;
+            }
+        }
+
+        .shopping-item-image img{
+            height:90px;
+        }
+    }
+
+    @include mQ-other(481px,768px){
+        min-height: 240px;
+        box-shadow: 5px 8px 15px 4px rgba(0,0,0,0.19);
+        .shopping-item-brand{
+            font-size:8px;
+            p{
+                margin-top:0px;
+                margin-bottom:0px;
+            }
+        }
+
+        .shopping-item-cost{
+            font-size:8px;
+            p{
+                margin-top:0px;
+                margin-bottom:0px;
+            }
+        }
+
+        .shopping-item-image img{
+            height:100px;
+            width:100%;
+        }
+    }
+
+    @include mQ-other(769px,1135px){
+        box-shadow: 8px 12px 25px 6px rgba(0,0,0,0.19);
+
+        p {
+            margin-top:1px;
+            margin-bottom:1px;
+            font-size:0.8em;
+        }
+    }
+
+    @include mQ-other(1135px,1380px){
+        p {
+            margin-top:2px;
+            margin-bottom:2px;
+        }
+    }
+
+    @include mQ-other(1380px, 1699px){
+        box-shadow: 8px 13px 22px 3px rgba(0,0,0,0.19);
+        p {
+            margin-top:2px;
+            margin-bottom:2px;
+        }
+    }
+
+    @include mQ-other(1700px, 2299px){
+        box-shadow: 10px 16px 30px 7px rgba(0,0,0,0.19);
+        p {
+            margin-top:2px;
+            margin-bottom:2px;
+        }
+    }
+
+    @include mQ-largerDesktops(2299px){
+    box-shadow: 10px 16px 30px 7px rgba(0,0,0,0.19);
+    p {
+        margin-top:2px;
+        margin-bottom:2px;
+    }
+    }
+
+}
+
+.sh-item-full{
+    margin: 10px;
+    width: calc(100% * 1 / 6 - 20px);
+    @include mQ-phones(360px){
+        margin: 10px;
+        width: calc(100% * 1 / 2 - 20px);
+    }
+    
+        @include mQ-other(361px, 480px){
+            margin: 10px;
+            width: calc(100% * 1 / 2 - 20px);
+        }
+    
+        @include mQ-other(481px,768px){
+            margin: 10px;
+            width: calc(100% * 1 / 3 - 20px);
+        }
+    
+        @include mQ-other(769px,1149px){
+            margin: 10px;
+            width: calc(100% * 1 / 4 - 20px);
+        }
+    
+        @include mQ-other(1150px,1699px){
+            margin: 10px;
+            width: calc(100% * 1 / 5 - 20px);
+        }
+}
+
+.sh-item-half{
+    margin: 10px;
+    width: calc(100% * 1 / 4 - 20px);
+    @include mQ-phones(360px){
+        margin: 5px;
+        width: calc(100% * 1 / 2 - 10px);
+    }
+    
+        @include mQ-other(361px, 480px){
+            margin: 10px;
+            width: calc(100% * 1 / 2 - 20px);
+        }
+    
+        @include mQ-other(481px,768px){
+            margin: 10px;
+            width: calc(100% * 1 / 3 - 20px);
+        }
+    
+        @include mQ-other(769px,1149px){
+            margin: 10px;
+            width: calc(100% * 1 / 3 - 20px);
+        }
+
+}
+
+.shopping-item-discount{
+    position:absolute;
+    bottom: 10px;
+    right: -30px;
+    width: 140px;
+    height: 30px;
+    transform: rotate(-40deg);
+    background-color: $redWarningColor;
+    border-radius: 30px;
+    div{
+        display: flex;
+        justify-content: center;
+        font-size:22px;
+    }
+
+    @include mQ-phones(360px){
+        width:60px;
+        height:15px;
+        bottom:10px;
+        right:-15px;
+        div{
+            font-size:0.5em;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+      width:60px;
+      height:15px;
+      bottom:10px;
+      right:-15px;
+      div{
+          font-size:0.5em;
+      }
+    }
+
+    @include mQ-other(481px,768px){
+        width:70px;
+        height:20px;
+        bottom:0px;
+        right:-20px;
+        div{
+            font-size:0.7em;
+        }
+    }
+
+
+    @include mQ-other(769px,1149px){
+        width:100px;
+        height:20px;
+        div{
+            font-size:0.7em;
+    }
+}
+
+    @include mQ-other(1699px,2299px){
+       div{
+        font-size:0.9em;
+       }
+    }
+
+}
+
+.shopping-item-title{
+    text-transform: uppercase;
+    border-bottom: 1px solid black;
+
+    @include mQ-phones(360px){
+        font-size:0.5em;
+        margin:0px;
+
+        .bold{
+            font-size:0.8em;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        font-size:0.5em;
+        margin:0px;
+
+        .bold{
+            font-size:0.8em;
+        }
+    }
+
+    @include mQ-other(481px,768px){
+        height:30px;
+        font-size:10px;
+    }
+
+    @include mQ-other(769px,1149px){
+        height:40px;
+        font-size:14px;
+    }
+    
+    @include mQ-other(1150px, 1699px){
+        height:35px;
+        font-size:13.5px;
+    }
+
+    @include mQ-largerDesktops(1700px){
+        height:50px;
+        font-size:18px;
+    }
+}
+
+.shopping-item-favourite{
+    border:4px ridge white;
+    box-shadow: 0 0 20px #9ecaed;
+}
+
+.shopping-item-image {
+    width: 100%;
+
+    img{
+        object-fit: content;
+        width:100%;
+}
+}
+
+/***** FILTER MENI *****/
+
+.fixed-container{
+    width: 12%;
+    margin-bottom:50px;
+    margin-right: 20px;
+
+    @include mQ-other(481px, 768px){
+        width:20%;
+        margin-top:40px;
+        margin-right:5px;
+    }
+
+    @include mQ-other(769px,1149px){
+        width: 20%;
+        margin-top:40px;
+    }
+
+    @include mQ-other(1150px, 1699px){
+        margin-top:50px;
+        margin-right:10px;
+        width:15%;
+    }
+
+    @include mQ-other(1700px, 2299px){
+        margin-top:70px;
+    }
+
+    @include mQ-largerDesktops(2299px){
+        margin-top:85px;
+    }
+}
+
+#filter-menu-container{
+    background-color: $mainDarkerColor;
+    color:$whiteColor;
+    border:1px solid $whiteColor;
+    section{
+        width:80%;
+    }
+
+    @include mQ-phones(360px){
+        font-size:0.7em;
+    }
+
+    @include mQ-other(361px,480px){
+      font-size:0.7em;
+    }
+    
+    @include mQ-other(481px,768px){
+        padding:5px;
+        margin-left:5px;
+        font-size:0.5em;
+        justify-content: center; 
+        section{
+            width: 100%;
+        } 
+    }
+    
+    @include mQ-other(769px,1149px){
+        padding:10px;
+        margin-left:10px;
+        font-size:0.65em;
+        justify-content: center; 
+        section{
+            width: 95%;
+        }
+    }
+
+    @include mQ-other(1150px, 1699px){
+        padding:10px;
+        margin-left:10px;
+        font-size:0.7em;
+        justify-content: center;
+    }
+
+    @include mQ-other(1700px, 2299px){
+        padding:10px;
+        margin-left:10px;
+        font-size:0.8em;
+        justify-content: center;
+    }
+
+    @include mQ-largerDesktops(2299px){
+        padding:10px;
+        margin-left:20px;
+        font-size:1em;
+        justify-content: center;
+    }
+}
+
+.sizes-menu-section{
+width:70%;
+
+@include mQ-other(768px,1149px){
+    justify-content: flex-start !important;
+}
+
+@include mQ-largerDesktops(2299px){
+    width:95%;
+}
+p{
+    width:100%;
+}
+}
+
+.filter-menu-section{
+    @include mQ-other(768px,1149px){
+        &:last-child{
+           p{
+            width: 100%;
+            font-size:0.9em;
+           }
+        }
+    }
+
+    @include mQ-other(1150px, 1699px){
+            p{
+                width: 100%;
+                font-size:0.8em;
+            }
+
+    }
+
+    @include mQ-largerDesktops(2299px){
+  &:last-child{
+        .filter_box{
+            justify-content: space-evenly;
+        }
+
+        p{
+            font-size: 1em;
+            width:100%;
+        }
+    }
+    }
+
+}
+
+.filter-menu-box{
+    width:95%;
+    margin-left:6px;
+
+    @include mQ-other(1150px, 1699px){
+        font-size:0.75em;
+    }
+
+    @include mQ-largerDesktops(2299px){
+        width:95%;
+    }
+}
+
+.sizes-menu-box{
+    align-items:center;
+
+    .filter-input{
+        margin-top:4px;
+        margin-left:10px;
+    }
+
+    
+    @include mQ-phones(360px){
+        div{
+            width:5vw;
+        }
+    }
+
+    @include mQ-other(361px, 480px){
+        div{
+            width:5vw;
+        }
+    }
+
+    @include mQ-other(481px, 768px){
+        margin:2px;
+        width:40px;
+    }
+
+    @include mQ-other(769px,1149px){
+        margin:3px;
+        width:50px;
+    }
+
+    @include mQ-other(1150px, 1699px){
+            font-size:0.8em;
+        @include grid(2, 1%);
+    }
+
+
+    @include mQ-largerDesktops(1700px){
+        @include grid(2, 2%);
+    }
+}
+
+.filter-menu-section p, .sizes-menu-section p{
+    text-decoration: underline;
+    color:$mainLighterColor;
+    letter-spacing: 1.5px;
+}
+
+
+/***** SECONDARY SORT *****/
+
+#items-to-show{
+    position:absolute;
+    z-index:20;
+    background-color: $mainDarkerColor;
+    color:$mainLighterColor;
+
+    div{
+        border-top:1px solid black;
+        border-bottom: 1px solid black;
+        &:last-child{
+            border-bottom: 3px solid black;
+        }
+        p{
+            padding:0px 7px;
+            text-align: center;
+        }
+
+        &:hover{
+            background-color: $hoverLighterColor;
+        }
+    }
+
+    @include mQ-phones(360px){
+        width:120px; 
+        font-size:0.7em; 
+    }
+
+    @include mQ-other(361px,480px){
+        width:150px; 
+        font-size:0.7em; 
+    }
+    
+    @include mQ-other(480px,768px){
+        width:100px;
+        font-size:0.52em;
+    }
+
+    @include mQ-other(769px,1149px){
+        width:150px;
+        font-size:0.8em;
+
+        div {
+            height:45px;
+        }
+    }
+
+    @include mQ-other(1150px, 1699px){
+            width:140px;
+            font-size:0.7em;
+            div{
+                height:35px;
+            }
+    }
+
+    @include mQ-largerDesktops(1700px){
+        width:190px;
+    }
+
+}
+
+.secondary-sort-container{
+    position: absolute;
+    top:-50px;
+    left:0px;
+    cursor: pointer;
+    z-index:20;
+
+    @include mQ-phones(360px){
+        top:-30px;
+        left:55vw;
+        width:120px;
+        font-size:0.8em;
+    }
+
+    @include mQ-other(361px,480px){
+        top:-30px;
+        left:60vw;
+        width:140px;
+    }
+
+    @include mQ-other(481px, 768px){
+        top:-40px;
+    }
+
+    @include mQ-other(769px,1149px){
+        top:-45px;
+    }
+
+    @include mQ-other(1150px, 1699px){
+        top:-40px;
+    }
+
+
+}
+
+.secondary-sort-title{
+    position: relative;
+    background-color:$mainDarkerColor;
+    color:$mainLighterColor;
+ 
+        @include mQ-phones(360px){
+            max-width:150px; 
+            padding:3px 5px;
+            font-size:0.8em;
+        }
+
+        @include mQ-other(361px,480px){
+            max-width:150px; 
+            padding:3px 5px;
+            font-size:0.8em;
+        }
+    
+        @include mQ-other(480px,768px){
+            width:130px;
+            padding:5px;
+            font-size:0.7em;
+        }
+    
+        @include mQ-other(769px,1149px){
+            width:150px;
+            padding:7px;
+            font-size:0.7em;
+        }
+
+        @include mQ-other(1150px, 1699px){
+            width:140px;
+            padding:8px;
+            font-size:0.7em;
+        }
+
+        @include mQ-largerDesktops(1700px){
+            width:190px;
+            padding:10px;
+        }
+}
+
+/***** PAGINATION *****/
+
+#pagination-container{
+    display:flex;
+    position: relative;
+    width:100vw;
+    justify-content: center;
+    margin-top:20px;
+}
+
+.pagination-number{
+    @include mQ-phones(360px){
+        font-size:0.7em;
+        margin: 0px 10px;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size:0.7em;
+        margin: 0px 10px;
+    }
+
+    @include mQ-other(481px, 768px){
+        margin:8px;
+        font-size:0.8em;
+    }
+
+    @include mQ-other(769px,1149px){
+        margin: 0px 10px;
+    }
+
+@include mQ-other(1150px, 1699px){
+padding:13px;
+}
+
+@include mQ-largerDesktops(1700px){
+    padding:20px;
+}
+
+&:hover{
+    cursor: pointer;
+    transform: scale(1.3);
+    text-decoration: underline;
+}
+}
+
+/***** FORME *****/
+
+.general-form-title{
+        font-size: 1.2em;
+        font-weight: bold;
+        text-align: center;
+
+        @include mQ-phones(360px){
+            font-size:0.85em
+        }
+
+        @include mQ-other(361px,480px){
+          font-size:0.85em;
+        }
+}
+
+.general-form-button{
+        margin-top: 20px;
+        padding: 10px 15px;
+        border-radius: 18px;
+        color:$mainDarkerColor;
+
+    @include mQ-phones(360px){
+        margin-top:10px;
+        font-size:0.85em;
+        padding: 4px 7px;
+    }
+
+    @include mQ-other(361px,480px){
+            margin-top:10px;
+            font-size:0.85em;
+            padding: 4px 7px;
+    }
+
+    @include mQ-other(769px,1149px){
+          margin-top:0px;
+           font-size:1.25em;
+    }
+
+    @include mQ-other(1150px, 1698px){ 
+            font-size:1.3em;
+    }
+
+    @include mQ-other(1699px,2299px){
+            font-size:1.4em;
+    }
+
+    @include mQ-largerDesktops(2299px){
+            font-size:1.3em;
+    }
+}
+
+/***** ADD - EDIT ITEM *****/
+
+.add-edit-item-form{
+    padding: 10px 15px 20px 15px;
+    color:$mainLighterColor;
+    text-shadow: 2px 2px 2px #000000;
+
+    @include mQ-phones(360px){
+        padding:5px;
+        font-size:0.8em;
+    }
+
+    @include mQ-other(361px,480px){
+        padding:5px;
+        font-size:0.8em;
+    }
+
+    @include mQ-other(769px,1149px){
+        font-size:0.6em;
+    }
+
+    @include mQ-other(1700px, 2299px){
+        width:80%;
+    }
+
+    @include mQ-largerDesktops(2299px){
+        width:80%;
+    }
+}
+
+.add-edit-item-full-line{
+    margin:10px;
+    width:100%;
+    label{
+        font-size:1em;
+    }
+    input{
+        font-size:0.8;
+        width:250px;
+        height:40px;
+        padding:10px;
+        &:focus{
+            border:2px solid $yellowColor;
+        }
+
+
+    }
+    select{
+        height:40px;
+        padding:10px;
+    }
+
+    @include mQ-phones(360px){
+        width:90vw;
+        label{
+            font-size: 0.7em;
+        }
+        input{
+            font-size:0.7em;
+            width:30vw;
+            height:20px;
+            padding:5px;
+        }
+        select{
+            padding:2px;
+            height: 20px;
+            font-size:0.7em;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        width:100%;
+        label{
+            font-size: 0.7em;
+        }
+        input{
+            font-size:0.7em;
+            width:150px;
+            height:20px;
+            padding:5px;
+        }
+        select{
+            padding:2px;
+            height: 20px;
+            font-size:0.7em;
+        }
+    }
+
+    @include mQ-other(481px, 768px){
+margin:4px;
+input, select{
+    padding:4px;
+    height:25px;
+    font-size:0.8em;
+}
+    }
+
+    @include mQ-other(769px,1149px){
+        margin:5px;
+        input, select{
+            padding:5px;
+            height:25px;
+            font-size:0.7em;
+        }
+    }
+}
+
+.add-edit-item-half-line{
+    margin:15px;
+
+    input{
+        padding:5px;
+        width:50px;    
+        margin-left:5px;
+        text-align:center;
+    }
+
+    @include mQ-phones(360px){
+        font-size:0.9em;
+        margin:7px;
+        input{
+            width:40px;
+            font-size:1em;
+            height:20px;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        font-size:0.9em;
+        margin:7px;
+        input{
+            width:40px;
+            font-size:1em;
+            height:20px;
+        }
+    }
+
+    @include mQ-other(481px, 768px){
+        font-size:0.9em;
+        input{
+            font-size:1em;
+            height:20px;
+        }
+    }
+
+        @include mQ-other(769px,1149px){
+            font-size:0.9em;
+            input{
+                font-size:1.4em;
+                height:20px;
+            }
+        }
+}
+
+.add-edit-item-availability{
+    text-align: center;
+    font-size:1.8em;
+    margin-bottom: 20px;
+    margin-top:20px;
+
+    @include mQ-phones(360px){
+        font-size:1.3em;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size:1.3em;
+    }
+
+    @include mQ-other(481px, 768px){
+        font-size:1.5em;
+    }
+
+    @include mQ-other(769px,1149px){
+        font-size: 1.5em;
+    }
+}
+
+.add-item-image-holder{
+    width:100%;
+    margin:5px;
+    span{
+        width:150px;
+    }
+    img{
+        max-width:75px;
+        border:2px solid black;
+    }
+
+    @include mQ-phones(360px){
+        width:100vw;
+        span{
+            font-size:0.8em;
+            width: 90px;
+        }
+        
+        input{
+            font-size:0.8em;
+        }
+        img{
+            max-width:50px;
+        }
+    }
+    
+    @include mQ-other(361px,480px){
+    span{
+        font-size:0.8em;
+        width: 95px;
+    }
+    
+    input{
+        font-size:0.8em;
+    }
+    img{
+        max-width:50px;
+    }
+    }
+    
+    @include mQ-other(769px,1149px){
+        input{
+            font-size:0.8em;
+        }
+    }
+}
+
+.add-item-image-placeholder{
+    width:75px;
+    
+    @include mQ-phones(360px){
+        width: 50px;
+    }
+
+    @include mQ-other(361px,480px){
+        width: 50px;
+    }
+}
+
+.item-added-success-holder{
+    padding:20px;
+    border-radius:10px;
+    background-color: $whiteColor;
+
+    svg{
+        margin-left:10px;
+        font-size:1.5em;
+    }
+}
+
+.item-added-button{
+    text-align: center;
+    margin:10px;
+    padding:10px 20px;
+    width:350px;
+    font-size:1.3em;
+    background-color: #000;
+    color:$whiteColor;
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+}
+
+#edit-item-container{
+    width:100vw;
+}
+
+#edit-item-holder{
+    width:75vw;
+    margin-top:50px;
+    margin-bottom:50px;
+    background-color: $mainDarkerColor;
+
+    @include mQ-phones(360px){
+        width: 95vw;
+    }
+
+    @include mQ-other(361px,480px){
+        width: 95vw;
+    }
+}
+
+.edit-item-picture-container{
+    padding:10px;
+    width:80%;
+    
+        img{
+            width:250px;
+            margin:10px;
+            border: 2px solid black; 
+        }
+
+        @include mQ-phones(360px){
+            width:100%;
+            padding:5px;
+            img{
+                width:90px;
+                margin:5px;
+            }
+        }
+    
+        @include mQ-other(361px,480px){
+            width:100%;
+            padding:5px;
+            img{
+                width:90px;
+                margin:5px;
+            }
+        }
+    
+        @include mQ-other(481px, 768px){
+            img{
+                width:175px;
+                margin:5px;
+            }
+        }
+    
+        @include mQ-other(769px,1149px){
+            img{
+                width:150px;
+            }
+        }
+    
+        @include mQ-other(1150px, 1699px){
+            width:80%;
+            img{
+                width:200px;
+            }
+        }
+}
+
+.edit-item-picture-holder{
+    font-size:0.8em;
+    text-shadow: none;
+    span{
+        padding:1px 5px;
+        &:hover{
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+    }
+}
+
+.edit-item-button{
+    padding:5px;
+    width:120px;
+    font-size:1.2em;
+    background-color: $mainDarkerColor;
+    color:$mainLighterColor;
+    text-align: center; 
+
+    @include mQ-phones(360px){
+        font-size:0.6em;
+        width: 80px;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size:0.6em;
+        width: 80px;
+    }
+
+    @include mQ-other(481px, 768px){
+        font-size: 0.7em;
+        width:80px;
+    }
+
+    @include mQ-other(769px,1149px){
+        font-size:0.8em;
+    }
+}
+
+.edit-button-inner{
+    position: absolute;
+    right:0px;
+    &:hover{
+        transform:scale(1.2);
+    }
+
+    @include mQ-phones(360px){
+        top:0px;
+    }
+    
+    @include mQ-other(361px,480px){
+    top:0px;
+    }
+}
+
+.availability-holder{
+    width:70%;
+
+    @include mQ-phones(360px){
+        width:95%;
+    }
+
+    @include mQ-other(361px,480px){
+        width:95%;
+    }
+
+    @include mQ-other(481px, 768px){
+        width:85%;
+    }
+}
+
+/***** AUTH - SIGN IN, SIGN UP, LOG OUT *****/
+
+.auth-form-container{
+    width:100vw;
+    height:100vh;
+
+    @include mQ-phones(360px){
+        max-width: 100vw;
+        overflow: hidden;
+    }
+    
+    @include mQ-other(361px, 480px){
+        max-width: 100vw;
+        overflow: hidden;
+    }
+}
+
+.auth-form-holder{
+    width:600px;
+    border: 2px solid $mainDarkerColor;
+    border-radius:20px;
+    padding: 20px;
+    background-color:$mainDarkerColor;
+    color:$mainLighterColor;
+
+    form label{
+        color:$mainLighterColor;
+    }
+
+    @include mQ-phones(360px){
+        width:100vw;
+        border-radius: 1px;
+    }
+
+    @include mQ-other(361px,480px){
+        width:100vw;
+        border-radius: 1px;
+    }
+
+    @include mQ-other(769px,1149px){
+        font-size:0.8em;
+    }
+
+    @include mQ-other(1699px,2299px){
+
+    }
+
+    @include mQ-largerDesktops(2299px){
+        width:800px;
+        font-size:1.5em;
+    }
+}
+
+.auth-form-line{
+    margin:10px;
+    width:500px;
+    label{
+        font-size:1em;
+    }
+    input[type=text], input[type=email], input[type=password]{
+        width:300px;
+        font-size:0.8em;
+        height:40px;
+        padding:10px;
+        &:focus{
+            border:2px solid $yellowColor;
+        }
+    }
+
+    input[type=checkbox]{
+        margin-top:10px;
+        height:15px;
+        width:15px;
+        padding:10px;
+    }
+
+    @include mQ-phones(360px){
+        width:300px;
+        label{
+            font-size: 0.7em;
+        }
+        input[type=text], input[type=email], input[type=password]{
+            font-size:0.6em;
+            width:150px;
+            height:30px;
+        }
+
+        input[type=checkbox]{
+            margin-top:10px;
+            height:12px;
+            width:12px;
+            padding:10px;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        width:300px;
+        label{
+            font-size: 0.7em;
+        }
+        input[type=text], input[type=email], input[type=password]{
+            font-size:0.6em;
+            width:150px;
+            height:30px;
+        }
+
+        input[type=checkbox]{
+            margin-top:10px;
+            height:12px;
+            width:12px;
+            padding:10px;
+        }
+    } 
+
+    @include mQ-other(769px,1149px){
+        width:400px;
+        input[type=text], input[type=email], input[type=password]{
+            width:250px;
+            height:30px;
+            padding:5px;
+        }
+        input[type=checkbox]{
+            height:10px;
+            width: 10px;
+        }
+
+    }
+}
+
+.auth-message{
+    max-width: 500px;
+    margin-top:30px;
+    margin-bottom:30px;
+    text-align: center;
+    text-decoration: none;
+    font-size:1em;
+    text-shadow: 1px 1px 1px black;
+
+    @include mQ-phones(360px){
+        font-size:0.8em;
+        margin-top:10px;
+        margin-bottom: 10px;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size:0.8em;
+        margin-top:10px;
+        margin-bottom: 10px;
+    }
+}
+
+.auth-error{
+    color:$redWarningColor;
+}
+
+.auth-success{
+    color:$greenColor;
+}
+
+.log-out-title{
+    padding:50px;
+    background-color: $mainDarkerColor;
+    border-radius: 8px;
+    color:$whiteColor;
+
+    @include mQ-phones(360px){
+        font-size:0.7em;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size:0.7em;
+    }
+
+    @include mQ-other(481px, 768px){
+        font-size:0.8em;
+    }
+
+    @include mQ-other(769px,1149px){
+        font-size:0.8em;
+    }
+
+    @include mQ-other(1699px,2299px){
+
+    }
+
+    @include mQ-largerDesktops(2299px){
+        font-size:1.5em;
+    }
+}
+
+/***** SINGLE ITEM *****/
+.single-item-container{
+
+    @include mQ-other(1700px, 2299px){
+       margin-top:20px;
+    }
+   
+    @include mQ-largerDesktops(2299px){
+       margin-top:50px;
+   }
+}
+
+.single-item-holder{
+    display:flex;
+    justify-content: space-around;
+    padding:20px 50px;
+
+    @include mQ-phones(360px){
+        flex-direction: column;
+        padding:0px;
+        .margin-bottom{
+            font-size:0.7em;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+    flex-direction: column;
+    padding:0px;
+    .margin-bottom{
+        font-size:0.7em;
+    }
+    }
+
+    @include mQ-other(481px, 768px){
+        flex-direction: column;
+    }
+
+    @include mQ-other(769px,1149px){
+        padding:25px;
+    }
+    
+
+    @include mQ-largerDesktops(1700px){
+        padding:50px 100px;
+    }
+}
+
+.single-item-left-container{
+    border:2px solid black;
+    padding-bottom:5px;
+    img{
+        object-fit: contain;
+        max-width:700px;
+    }
+
+    @include mQ-phones(360px){
+        justify-content: center;
+        text-align: center;
+        img{
+            width:95vw;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        justify-content: center;
+        text-align: center;
+        img{
+            width:75vw;
+        }
+    }
+
+    @include mQ-other(481px, 768px){
+        align-items: center;
+        margin-bottom:20px;
+        img{
+            width:500px;
+        }
+    }
+
+    @include mQ-other(769px,1149px){
+        img{
+            width:500px;
+        }
+    }
+
+    @include mQ-largerDesktops(2299px){
+        img{
+            width:1200px;
+            max-width:1500px;
+        }
+    }
+}
+
+.single-item-right-container{
+    justify-content: flex-start;
+    background-color:$mainDarkerColor;
+    padding:15px;
+    border-radius:5px;
+    color:$mainLighterColor;
+    margin-left:20px;
+
+    @include mQ-phones(360px){
+        font-size:0.7em;
+        margin-left:0px;
+        border-radius:0px;
+        margin-top:10px;
+    }
+
+    @include mQ-other(361px,480px){
+        margin-left:0px;
+        font-size:0.7em;
+        border-radius:0px;
+        margin-top:10px;
+    }
+
+    @include mQ-other(481px, 768px){
+        font-size:0.6em;
+    }
+
+    @include mQ-other(769px,1149px){
+        font-size:0.6em;
+    }
+
+    @include mQ-largerDesktops(2299px){
+     align-self: flex-start; 
+    }
+
+}
+
+.single-item-pictures-container{
+    img{
+        object-fit: contain;
+        margin:5px;
+        border: 1px solid black;
+        width:120px;
+        margin-bottom: 1px;
+    }
+
+    @include mQ-phones(360px){
+        flex-wrap:wrap;
+        img{
+            width: 80px;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        img{
+            width: 60px;
+        }
+    }
+
+    @include mQ-other(481px, 768px){
+        img{
+            width:90px;
+        }
+    }
+
+    @include mQ-other(769px,1149px){
+        img{
+            width:80px;
+        }
+    }
+}
+
+.single-item-amount{
+    position:relative;
+    width:250px;
+    & input{
+        width:50px;
+        height:30px;
+        text-align: center;
+    }
+
+    @include mQ-phones(360px){
+        align-self: flex-start;
+        input{
+            width:40px;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        align-self: flex-start;
+        input{
+            width:40px;
+        }
+    }
+}
+
+.single-item-name{
+    font-size:1.8em;
+
+    @include mQ-phones(360px){
+        font-size:1.5em;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size:1.5em;
+    }
+
+    @include mQ-other(481px, 768px){
+        font-size:1.5em;
+    }
+}
+
+.single-item-cost{
+    font-size:21px;
+    text-decoration: underline;
+}
+
+.single-item-to-animation{
+    animation-name:  single-item-to-animation;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.outer-suggestions-container{
+    margin-top:25px;
+    margin-bottom:40px;
+
+   .outer-suggestions-title{
+        font-size:2em;
+        margin-bottom:20px;
+    }
+
+    @include mQ-phones(360px){
+        .outer-suggestions-title{
+            font-size:1.2em;
+            margin-bottom:20px;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        .outer-suggestions-title{
+            font-size:1.2em;
+            margin-bottom:20px;
+        }
+    }
+}
+
+.outer-suggestions-holder{
+    width:60vw;
+
+    @include mQ-phones(360px){
+        width: 100vw;
+    }
+
+    @include mQ-other(361px,480px){
+        width: 100vw;
+    }
+
+    @include mQ-other(481px,768px){
+        width:80vw;
+    }
+}
+
+.sugesstions-container{
+    min-height: 40vh;
+    width:100%;
+}
+
+.current-directory{
+    height:70px;
+    margin-left:200px;
+    
+    @include mQ-phones(360px){
+        margin-top:0px;
+        margin-bottom:10px;
+        margin-left:0px;
+        font-size:0.4em;
+        height: 40px;
+    }
+
+    @include mQ-other(361px,480px){
+    margin-top:0px;
+    margin-bottom:10px;
+    margin-left:0px;
+    font-size:0.6em;
+    height: 40px;
+    }
+
+    @include mQ-other(481px, 768px){
+        margin-left:15px;
+        height: 40px;
+        font-size:0.7em;
+    }
+
+    @include mQ-other(769px,1149px){
+        margin-left:50px;
+        height:50px;
+        font-size:0.8em;
+    }
+
+
+}
+
+/***** NEWSLETTER ***/
+
+.newsletter-container{
+    width:30%;
+
+    @include mQ-phones(360px){
+        width:100vw;
+        font-size:0.8em;
+    }
+
+    @include mQ-other(361px,480px){
+        width:100vw;
+        font-size:0.8em;
+    }
+}
+
+#newsletter-holder{
+    position: relative;
+    width:500px;
+    height:250px;
+    padding:5px;
+    background-image: url(./images//newsletter-background.jpg);
+    form {
+        input{
+            font-size:9px;
+            padding:4px;
+            margin-right: 15px;
+            width:150px;
+        }
+
+        button{
+            color: $mainDarkerColor;
+            font-size:0.9em;
+            padding:5px;
+            border-radius: 10px;
+
+            &:hover{
+                transform: scale(1.05);
+                padding:4px;
+                border:1px solid $mainDarkerColor;
+            }
+        }
+    }
+
+    @include mQ-phones(360px){
+        height:200px;
+        form {
+            input{
+                font-size:0.60em;
+                margin-right: 8px;
+                width:150px;
+            }
+    
+            button{
+                color: $mainDarkerColor;
+                font-size:0.6em;
+                padding:3px;
+                border-radius: 10px;
+            }
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        height:200px;
+        width:100vw;
+        padding:0px;
+        form {
+            input{
+                font-size:0.60em;
+                margin-right: 8px;
+                width:150px;
+            }
+    
+            button{
+                color: $mainDarkerColor;
+                font-size:0.6em;
+                padding:3px;
+                border-radius: 10px;
+            }
+        }
+    }
+
+    @include mQ-other(481px, 768px){
+    font-size:0.5em;
+    height:150px;
+    width:300px;
+    }
+
+    @include mQ-other(769px,1149px){
+        font-size:0.6em;
+        height:170px;
+    }
+
+    @include mQ-other(1150px, 1699px){
+        margin:10px;
+        form button{
+            font-size:0.7em;
+            padding:5px;
+        }
+    }
+
+    @include mQ-largerDesktops(1700px){
+        margin:20px;
+    }
+
+    
+    @include mQ-other(1699px,2299px){
+
+    }
+
+    @include mQ-largerDesktops(2299px){
+        height:400px;
+        font-size:1.5em;
+
+        form input{
+            font-size:0.5em;
+        }
+    }
+
+}
+
+.newsletter-title{
+    font-size:2em;
+    text-shadow: 1px 1px 1px #000;
+    color:#FFFAE4;
+
+    @include mQ-other(1150px, 1699px){
+        font-size:1.5em;
+    }
+}
+
+.newsletter-green-border{
+    border:1px solid $greenColor;
+}
+
+.newsletter-red-border{
+    border:1px solid $redWarningColor;
+}
+
+.newsletter-success{
+    position: relative;
+    bottom:20px;
+    font-size:0.86em;
+    background-color:#FFFAE4;
+    padding:1px 10px;
+    border-radius: 5px;
+    color:$greenColor;
+    font-weight: normal;
+    text-align: center;
+}
+
+.newsletter-failure{
+    color:$redWarningColor;
+    background-color: $whiteColor;
+    padding:1px 10px;
+    border-radius:5px;
+    font-size:1em;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom:10px;
+}
+
+#newsletter-add-another{
+    color: $mainDarkerColor;
+    font-size:0.9em;
+    padding:5px;
+    border-radius: 10px;
+    &:hover{
+        cursor: pointer;
+        transform:scale(1.05);
+    }
+}
+
+.admin-newsletter-container{
+    width:100%;
+    button{
+        color: $mainDarkerColor;
+        font-size:0.9em;
+        padding:5px;
+        border-radius: 10px;
+        width:150px;
+        margin: 0 auto;
+
+        &:hover{
+            transform:scale(1.05);
+            outline:1px solid $mainDarkerColor;
+        }
+    }
+
+    @include mQ-phones(360px){
+        font-size:0.8em;
+        width:90vw;
+        input, textarea{
+            width:80vw;
+            font-size: 0.8em;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        font-size:0.8em;
+        input{
+            font-size: 0.8em;
+        }
+    }
+
+    @include mQ-other(769px,1149px){
+        font-size:0.8em;
+        input{
+            font-size:0.8em;
+        }
+    }
+
+    @include mQ-other(1699px,2299px){
+
+    }
+
+    @include mQ-largerDesktops(2299px){
+        button{
+            font-size:1.5em;
+        }
+    }
+}
+
+/***** CONTACT *****/
+
+#contact-container{
+    display:flex;
+    justify-content: center;
+    width:100vw;
+
+    @include mQ-phones(360px){
+        width:95vw;
+    }
+
+    @include mQ-other(361px,480px){
+        width:95vw;
+    }
+
+    @include mQ-other(769px,1149px){
+        font-size:0.64em;
+    }
+}
+
+.contact-home-container{
+width: 30%;
+height:250px;
+background-image: url(https://img.freepik.com/free-photo/white-background-texture_23-2148573901.jpg?size=626&ext=jpg);
+
+@include mQ-phones(360px){
+    width: 100vw;
+    margin-top:10px;
+    height:200px;
+    font-size: 0.8em;
+}
+
+@include mQ-other(361px,480px){
+    width: 100vw;
+    margin-top:10px;
+    height:200px;
+    font-size: 0.8em;
+}
+
+@include mQ-other(481px, 768px){
+    font-size:0.6em;
+    height: 150px;
+}
+
+@include mQ-other(769px,1149px){
+    height:170px;
+    font-size:0.8em;
+}
+  
+@include mQ-other(1699px,2299px){
+
+}
+
+@include mQ-largerDesktops(2299px){
+    height:400px;
+    font-size:2em;
+}
+}
+
+.contact-home-title{
+text-align: center;
+margin:5px;
+&:nth-child(2){
+    color: #4E4E4E;
+}
+&:last-child{
+    color:black;
+}
+
+}
+
+#contact-home-button{
+    background-color: $mainDarkerColor;
+    color:$mainLighterColor;
+    border-radius: 10px;
+
+    @include mQ-phones(360px){
+        font-size:0.7em;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size:0.7em;
+    }
+
+    @include mQ-other(1150px, 1699px){
+        font-size:1em;
+        padding:10px;
+    }
+
+    @include mQ-largerDesktops(1700px){
+        font-size:0.9em;
+        padding:5px;
+    }
+
+    &:hover{
+        cursor: pointer;
+        transform:scale(1.05);
+    }
+}
+
+#contact-form{
+    display:flex;
+    position: relative;
+    padding:50px;
+    justify-content: space-around;
+    height:650px;
+    overflow:auto;
+
+    button{
+        color: $mainDarkerColor;
+        font-size:0.9em;
+        padding:5px;
+        border-radius: 10px;
+        width:150px;
+        margin: 0 auto;
+
+        &:hover{
+            transform:scale(1.05);
+            outline:1px solid $mainDarkerColor;
+        }
+    }
+
+    input{
+        padding:5px;
+    }
+    
+    @include mQ-phones(360px){
+        padding:20px 10px;
+    }
+
+    @include mQ-other(361px,480px){
+        padding:20px 10px;
+    }
+}
+
+#contact-response-email{
+display:flex;
+input{
+    margin-left:20px;
+    flex-grow: 2;
+}
+
+@include mQ-phones(360px){
+    font-size:0.8em;
+}
+
+@include mQ-other(361px,480px){
+    font-size:0.8em;
+}
+}
+
+#contact-success{
+    margin-top:50px;
+    font-size:20px;
+}
+
+
+/***** MANAGE FEEDBACK *****/
+
+.contact-list{
+    height:50px;
+    font-weight: normal;
+    width:100%;
+
+
+        .contact-subject{
+            width:15%;
+            margin-left:20px;
+        }
+       .contact-email{
+            width:35%;
+        }
+        .contact-text{
+            width:43%;
+        }
+
+       .contact-status{
+            width:12%;
+            font-size:0.8em;
+            text-align:center;
+            margin-right:15px;
+            font-style: italic;
+            border-radius:15px;
+            .red{
+                font-size:0.6em;
+            }
+        }
+
+        @include mQ-phones(360px){
+            width:95vw;
+            height:40px;
+    
+            div{
+                &:nth-child(1){
+                    font-size:0.65em;
+                    margin-left:10px;
+                }
+                &:nth-child(2){
+                    font-size:0.65em;
+                }
+    
+                &:nth-child(3){
+                    font-size:0.8em;
+                }
+                &:nth-child(4){
+                    font-size:0.7em;
+                    margin-right:4px;
+                    border-radius:15px;
+                    .red{
+                        font-size:0.6em;
+                    }
+                }
+    
+             }
+        }
+
+    @include mQ-other(361px,480px){
+        width:95vw;
+        height:40px;
+
+        div{
+            &:nth-child(1){
+                font-size:0.65em;
+                margin-left:10px;
+            }
+            &:nth-child(2){
+                font-size:0.65em;
+            }
+
+            &:nth-child(3){
+                font-size:0.8em;
+            }
+            &:nth-child(4){
+                font-size:0.7em;
+                margin-right:4px;
+                border-radius:15px;
+                .red{
+                    font-size:0.6em;
+                }
+            }
+
+         }
+    }
+
+    @include mQ-other(481px, 768px){
+        height: 40px;
+    }
+
+    @include mQ-other(769px,1149px){
+        height: 40px;
+    }
+}
+
+.contact-item{
+ 
+.contact-subject{
+    text-decoration: underline;
+    cursor: pointer;
+}
+    
+
+    &:nth-child(even){
+        background-color:$listDarkerColor;
+        color:black;
+    }
+
+    &:nth-child(odd){
+        background-color:$listLighterColor;
+        color:black;
+    }
+
+    &:nth-child(odd) div:first-child:hover{
+        color:grey;
+    }
+
+    &:nth-child(even) div:first-child:hover{
+        color:$listLighterColor;
+    }
+
+    @include mQ-phones(360px){
+        font-size:0.65em;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size:0.65em;
+    }
+
+    @include mQ-other(481px, 768px){
+        font-size:0.7em;
+    }
+}
+
+#contact-header{
+    background-color: black;
+    font-size:1.4em;
+
+    div{
+        &:last-child{
+            text-align:right;
+            margin-right:15px;
+            color:$whiteColor;
+            font-style: normal;
+        }
+    }
+
+    @include mQ-phones(360px){
+        font-size:0.7em;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size:0.7em;
+    }
+
+    @include mQ-other(481px, 768px){
+        font-size:1em;
+    }
+}
+
+#contact-answer-form{
+    div{
+        margin-bottom:20px;
+
+        button:first-child{
+            background-color: $lightGreen;
+
+            &:hover{
+                background-color: $greenColor;
+            }
+        }
+        button:last-child{
+            background-color: $lightRed;
+
+            &:hover{
+                background-color: $redWarningColor;
+            }
+        }
+
+    }
+
+    button{
+        color: $mainDarkerColor;
+        font-size:0.9em;
+        padding:5px;
+        border-radius: 10px;
+        width:150px;
+        margin: 0 auto;
+        position: relative;
+        top:20px;
+
+        &:hover{
+            transform:scale(1.05);
+            outline: 1px solid $mainDarkerColor;
+        }
+    }
+
+    textarea{
+        width:80%;
+        margin: 40px auto;
+        resize: none;
+    }
+
+    @include mQ-phones(360px){
+        textarea{
+            margin: 20px auto;
+        }
+ 
+        button{
+           width:100px;
+           font-size: 0.9em;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+       textarea{
+           margin: 20px auto;
+       }
+
+       button{
+          width:100px;
+          font-size: 0.9em;
+       }
+    }
+}
+
+.contact-answer-text{
+position: relative;
+display: inline-block;
+border:2px solid black;
+border-radius: 5px;
+max-width:800px;
+min-width:160px;
+background-color: $whiteColor;
+color:black;
+margin:10px;
+
+.contact-date{
+    position: absolute;
+    left:-10px;
+    bottom:-20px;
+    font-size:0.7em;
+    text-align: right;
+    color:$whiteColor !important;
+    text-shadow: 1px 1px 1px #000;
+    font-style: italic; 
+}
+
+@include mQ-phones(360px){
+    .contact-date{
+        bottom: -15px;
+    }
+}
+
+@include mQ-other(361px,480px){
+    .contact-date{
+        bottom: -15px;
+    }
+}
+}
+
+.contact-answer-container{
+    width:100%;
+    min-height: 1020px;
+    overflow-Y: auto;
+
+    div{
+        padding:5px;
+
+        span{
+            color:black;
+            margin-left:20px;
+            margin-right: 20px;
+        }
+
+        &:nth-child(2){
+            margin-bottom: 50px;
+        }
+
+    }
+
+    &:first-child{
+        margin-top:30px;
+    }
+
+    @include mQ-phones(360px){
+        min-height:100vh;
+        font-size:0.6em;
+
+        &:first-child{
+            margin-top:0px;
+        }
+        div:nth-child(2){
+           margin-bottom: 0px;; 
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        min-height:100vh;
+        font-size:0.6em;
+
+        &:first-child{
+            margin-top:0px;
+        }
+        div:nth-child(2){
+           margin-bottom: 0px;; 
+        }
+    }
+
+    @include mQ-other(481px, 768px){
+        min-height: 350px;
+        font-size:0.7em;
+    }
+
+    @include mQ-other(769px,1149px){
+        min-height:500px;
+        font-size:0.7em;
+    }
+}
+
+.user-answer-container{
+position: relative;
+align-items: flex-start;
+}
+
+.show-admin-answer{
+margin:10px;
+background-color: $greenColor;
+border-radius: 5px;
+border:2px solid black;
+max-width:800px;
+color: black;
+text-align: right;
+
+.contact-date{
+    position: absolute;
+    right:-10px;
+    bottom:-7px;
+    font-size:0.7em;
+    text-align: right;
+    color:$whiteColor !important;
+    text-shadow: 1px 1px 1px #000;
+    font-style: italic;
+    }
+
+    span{
+        font-size:0.7em;
+    }
+
+    @include mQ-phones(360px){
+        .contact-date{
+            bottom:0px;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        .contact-date{
+            bottom:0px;
+        }
+    }
+}
+
+.admin-answer-container{
+position: relative;
+align-items: flex-end;
+
+div span{
+    position: absolute;
+    bottom:-5px;
+}
+}
+
+.guest-message-info{
+    div{
+        width:500px;
+        padding:15px;
+        border-radius: 7px;
+        background-color: $greyColor;
+        margin-bottom:30px;
+    }
+    div span{
+        font-size:0.75em;
+    }
+    svg{
+        color:#000;
+    }
+}
+
+.green{
+    color:#317D1A;
+    font-weight:bolder;
+}
+
+.yellow{
+    color: yellow;
+    font-weight: bolder;
+}
+
+.red{
+    color: red;
+    font-weight: bolder;
+}
+
+/***** ADS *****/
+.ad-home{
+    width:30%;
+    height:250px;
+    background-image: url(./images/add-background.jpg);
+    a{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width:100%;
+        height: 100%;
+    }
+    a img{
+    position: relative;
+    left:50px;
+    object-fit: contain;
+    width:270px;
+    }
+    a span{
+       color:#FFFAE4;
+       text-align: center;
+       font-size:1.4em;
+       width:100%;
+       font-family: 'Grandstander', cursive;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+
+    @include mQ-phones(360px){
+        width: 100vw;
+        margin-top:10px;
+        height: 200px;
+        font-size:0.8em;
+        a img{
+            width:50vw;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        width: 100vw;
+        margin-top:10px;
+        height: 200px;
+        font-size:0.8em;
+        a img{
+            width:240px;
+        }
+    }
+
+    @include mQ-other(481px, 768px){
+        height:150px;
+        width:250px;
+        a span{
+            font-size:0.7em;
+        }
+        a img{
+            width:100px;
+            left:10px;
+        }
+
+    }
+
+    @include mQ-other(769px,1149px){
+        height:170px;
+        a span{
+            font-size:1em;
+        }
+        a img{
+            left:10px;
+            width:150px;
+        }
+    }
+
+    @include mQ-other(1150px, 1699px){
+        a span{
+            font-size:1.1em;
+        }
+        a img{
+    left:30px;
+    width:200px;
+}
+    }
+
+    
+    @include mQ-other(1699px,2299px){
+
+    }
+
+    @include mQ-largerDesktops(2299px){
+   height:400px;
+   font-size:1.5em;
+   a img{
+       width:400px;
+   }
+    }
+}
+
+/***** PROFILE ******/
+
+.profile-container{
+width:100%;
+
+@include mQ-other(481px, 768px){
+    flex-direction: column;
+    align-items: center !important;
+}
+
+@include mQ-other(769px,1149px){
+    margin:30px;
+    justify-content: space-around;
+}
+
+@include mQ-other(1150px, 1699px){
+margin-top:50px;
+}
+
+@include mQ-largerDesktops(1700px){
+    justify-content: space-around;
+    margin-top:100px;
+    background-color: $backgroundColor;
+}
+
+}
+
+.profile-left{
+    align-items: flex-start;
+    background-color: $mainDarkerColor;
+    color:$mainLighterColor;
+    border:2px solid black;
+    border-radius: 12px;
+
+    ul{
+        width:100%;
+        list-style-type: none;
+
+        li{
+            border:1px solid black; 
+            
+            &:first-child{
+                border-top-left-radius: 12px;
+                border-top-right-radius: 12px;
+            }
+
+            &:last-child{
+                border-bottom-left-radius: 12px;
+                border-bottom-right-radius: 12px;
+            }
+
+            &:hover{
+                cursor:pointer;
+                 background-color:$hoverLighterColor;
+                 color:$whiteColor;
+             }
+
+        }
+    }
+
+    @include mQ-phones(360px){
+        height: 200px;
+        width:100vw;
+        justify-content: center;
+        align-items: center;
+        margin-top:20px;
+        ul{
+            width:50vw;
+            font-size:0.8em;
+            text-align: center;
+        }
+        li{
+            background-color: $listLighterColor;
+            color:$mainDarkerColor;
+            padding:5px;
+            margin:5px;
+            border:2px solid black;
+            
+        &:first-child{
+            border-top : 1px solid black;
+         }
+
+        &:last-child{
+            border-bottom : 1px solid black;
+         }
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        height: 200px;
+        width:100vw;
+        justify-content: center;
+        align-items: center;
+        margin-top:20px;
+        ul{
+            width:50vw;
+            font-size:0.8em;
+            text-align: center;
+        }
+        li{
+            background-color: $listLighterColor;
+            color:$mainDarkerColor;
+            padding:5px;
+            margin:5px;
+            border:2px solid black;
+            
+        &:first-child{
+            border-top : 1px solid black;
+         }
+
+        &:last-child{
+            border-bottom : 1px solid black;
+         }
+        }
+
+    }
+
+    @include mQ-other(481px, 768px){
+        width:300px;
+        text-align: center;
+        margin-top:20px;
+        margin-bottom: 50px;
+        ul li{
+            font-size:0.6em;
+            padding:12px;
+            border:1px solid black;
+}
+    }
+
+    @include mQ-other(769px,1149px){
+        width:150px;
+
+        ul li{
+                font-size:0.6em;
+                padding:12px;
+                border:1px solid black;
+    }
+    }
+
+    @include mQ-other(1150px, 1699px){
+        ul li{
+                font-size:12px;
+                padding:15px;
+                border:1px solid black;
+    }
+}
+
+    @include mQ-largerDesktops(1700px){
+        max-width: 25vw;
+        ul li{
+            font-size:1em;
+            padding:25px;
+            width:300px;
+        }
+    }
+}
+
+.profile-right{
+    flex-wrap: wrap;
+    align-items: baseline;
+    background-color: $mainDarkerColor;
+    color:$mainLighterColor;
+    padding:30px;
+    min-height: 40vh;
+
+    @include mQ-phones(360px){
+        margin-top:50px;
+        margin-bottom:20px;
+        padding-top:20px;
+        width:100vw;
+        min-height:50vh;
+        padding:10px;
+    }
+
+    @include mQ-other(361px,480px){
+        margin-top:50px;
+        margin-bottom:20px;
+        padding-top:20px;
+        width:100vw;
+        min-height:50vh;
+        padding:10px;
+    }
+
+    @include mQ-other(481px, 768px){
+        width:100vw;
+        margin-bottom:20px;
+    }
+
+    @include mQ-other(769px,1149px){
+        width:70%;
+        border-radius:10px;
+        margin-bottom:30px;
+        padding:20px;
+    }
+
+    @include mQ-other(1150px, 1699px){
+        width:70%;
+        border-radius:10px;
+        margin-bottom:30px;
+    }
+
+        
+    @include mQ-other(1699px,2299px){
+        max-width:60vw;
+        min-height:500px;
+        border-radius:10px;
+        margin-bottom:50px;
+    }
+
+    @include mQ-largerDesktops(2299px){
+        width:1500px;
+        min-height: 800px;
+        border-radius:10px;
+        margin-bottom:50px;
+    }
+}
+
+.empty-profile-div{
+    width:500px;
+    min-height: 40vh;
+
+    @include mQ-phones(360px){
+        font-size:0.8em;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size:0.8em;
+    }
+
+    @include mQ-other(1150px, 1699px){
+        font-size:0.9em;
+    }
+
+    @include mQ-largerDesktops(2299px){
+   font-size:1.6em;
+    }
+
+}
+
+/***** CART *****/
+
+.cart-container{
+    width:100%;
+    justify-content: space-evenly;
+
+    @include mQ-phones(360px){
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    @include mQ-other(361px,480px){
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+.cart-item{
+    border:2px solid black;
+
+    &:nth-child(even){
+        background-color:$listDarkerColor;
+        color:black;
+    }
+    &:nth-child(odd){
+        background-color:$listLighterColor;
+        color:black;
+    }
+
+    @include mQ-phones(360px){
+        width:80vw;
+        font-size:0.9em;
+    }
+
+    @include mQ-other(361px,480px){
+        width:80vw;
+        font-size:0.9em;
+    }
+
+    @include mQ-other(1150px, 1699px){
+        font-size:0.8em;
+    }
+}
+
+.cart-picture{
+    margin-right:5px;
+    padding:10px;
+    img{
+        width:150px;
+        border:1px solid black;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    +div{
+        padding:10px;
+        }
+
+        @include mQ-phones(360px){
+            img{
+                width:50px;
+                height:50px;
+            }
+        }
+
+        @include mQ-other(361px,480px){
+            img{
+                width:50px;
+                height:50px;
+            }
+        }
+
+        @include mQ-other(1150px, 1699px){
+            img{
+                width: 120px;
+            }
+        }
+}
+
+.cart-item-details{
+span{
+    display: flex;
+    justify-content: space-between;
+
+    input{
+        width:40px;
+    }
+}
+
+@include mQ-other(361px,480px){
+    font-size:0.7em;
+
+    span input{
+        width:30px;
+        font-size:0.8em;
+    }
+}
+}
+
+.right-cart{
+    @include mQ-phones(360px){
+        width:80vw;
+    }
+
+    @include mQ-other(361px,480px){
+        width:80vw;
+    }
+}
+
+.left-cart{
+    width:500px;
+
+    @include mQ-phones(360px){
+        width: 80vw;
+    }
+
+    @include mQ-other(361px,480px){
+        width: 80vw;
+    }
+
+    @include mQ-other(481px, 768px){
+        width:600px;
+    }
+
+    @include mQ-largerDesktops(2299px){
+        width:700px;
+        font-size:1.1em;
+    }
+}
+
+.cart-title{
+    color:black;
+    font-size:1.2em;
+    margin-bottom:10px;
+
+    @include mQ-phones(360px){
+        font-size:0.8em;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size:0.8em;
+    }
+}
+
+.cart-empty-container{
+    width:100%;
+    min-height: 40vh;
+    @include mQ-phones(360px){
+        width: 40vw;
+        height: 50vh;
+    }
+
+    @include mQ-other(361px,480px){
+        width: 40vw;
+        height: 50vh;
+    }
+}
+
+.cart-empty-inner{
+    padding:5px 10px;
+    border-radius: 2px;
+    background-color: $washedBlack;
+    color:$whiteColor;
+
+    @include mQ-phones(360px){
+        font-size:0.7em;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size:0.7em;
+    }
+}
+
+#cart-hidden-images{
+    position:absolute;
+    z-index:5;
+    padding:15px;
+    background-color:black;
+    top:120px;
+    width:800px;
+    left:-150px;
+    img{
+        margin:2px;
+        border:1px solid black;
+        width:150px;
+    }
+}
+
+.item-to-card-animation{
+    animation-name:  item-to-card-animation;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.cart-empty-button-container{
+margin-top:10px;
+}
+
+.continue-shopping-button{
+    background-color: black;
+    color:white;
+    font-size:1.6em;
+    padding:5px 15px;
+
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+
+    @include mQ-phones(360px){
+        font-size:0.8em;
+        padding: 5px 12px;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size:0.8em;
+        padding: 5px 12px;
+    }
+}
+
+.cart-buttons{
+    margin-right:5px;
+    
+        button{
+            width:80px;
+    
+            &:hover{
+                border:1px solid black;
+                transform: scale(1.10);
+            }
+            &:nth-child(1){
+                background-color:$whiteColor;
+                color:black;
+                border:1px solid black;
+            }
+            &:nth-child(2){
+                background-color:$redWarningColor;
+                color:black;
+            }
+            &:nth-child(3){
+                background-color:$greenColor;
+                color:black;
+            }
+        }
+
+        @include mQ-phones(360px){
+            button{
+                width:50px;
+                font-size:0.5em;
+            }
+        }
+    
+        @include mQ-other(361px,480px){
+            button{
+                width:50px;
+                font-size:0.5em;
+            }
+        }
+    
+        @include mQ-largerDesktops(2299px){
+            button{
+                width:100px;
+                font-size:0.9em,
+            }
+        }
+}
+
+#confirm-edit-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button{
+        background-color: $greenColor;
+        color: $mainDarkerColor;
+        font-size:0.9em;
+        padding:5px;
+        margin-right:10px;
+        border-radius: 10px;
+
+        &:hover{
+            transform:scale(1.05);
+            outline:1px solid $mainDarkerColor;
+        }
+    }
+
+    @include mQ-phones(360px){
+        font-size:0.5em;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size:0.5em;
+    }
+
+    @include mQ-other(1150px, 1699px){
+        font-size:0.8em;
+    }
+}
+
+/***** MODAL CART *****/
+
+.modal-cart{
+    position: absolute;;
+    top:0;
+    left:0;
+    width:100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.9);
+    z-index:200;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-cart-holder{
+    position: relative;
+    min-width:50vw;
+    max-width: 100vw;
+    min-height:50vh;
+    background-color: #F3F3F3;
+    -webkit-box-shadow: inset 6px 38px 95px -83px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 6px 38px 95px -83px rgba(0,0,0,0.75);
+    box-shadow: inset 6px 38px 95px -83px rgba(0,0,0,0.75);
+    padding:20px;
+    overflow-y:scroll;
+
+    @include mQ-phones(360px){
+        width:95vw;
+        padding:5px;
+    }
+
+    @include mQ-other(361px,480px){
+        width:95vw;
+        padding:5px;
+    }
+
+    @include mQ-other(481px, 768px){
+
+    }
+}
+
+.add-to-cart-modal{
+display:flex;
+flex-direction: column;
+justify-content: space-around;
+position: absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-color:rgb(0,0,0);
+opacity: 0.99;
+z-index:10;
+}
+
+.amount-and-buy-on-card{
+    input{
+        width:45px;
+        height:30px;
+        padding:3px;
+        margin-right:5px;
+        text-align: center;
+        font-size:20px;
+
+        @include mQ-phones(360px){
+            font-size:0.65em;
+            width:25px;
+            height:15px;
+        }
+        
+        @include mQ-other(361px,480px){
+            font-size:0.65em;
+            width:25px;
+            height:15px;
+        }
+        
+        @include mQ-other(481px, 768px){
+            font-size:0.8em;
+            width:30px;
+            height:20px;
+            padding:2px;
+        }
+        
+        @include mQ-other(769px,1149px){
+            font-size:0.8em;
+        }
+        
+        @include mQ-other(1150px, 1699px){
+            font-size:0.8em;
+        }
+        
+        @include mQ-other(1700px, 2299px){
+            font-size:0.9em;
+        }
+    }
+    .buy_button{
+        @include mQ-other(361px,480px){
+            margin-bottom:0px;
+            width:75px;
+    }
+    }
+}
+
+#redirect-to-sign-up{
+    position: absolute;
+    bottom:-55px;
+    right:-30px;
+    font-size:0.7em;
+
+    a{
+        color:$whiteColor;
+        font-weight: normal;
+    }
+
+    &:hover{
+        a{
+            text-decoration: underline;
+        }
+    }
+
+    @include mQ-phones(360px){
+        right:0px;
+        font-size:0.5em;
+    }
+
+    @include mQ-other(361px,480px){
+        right:0px;
+        font-size:0.5em;
+    }
+}
+
+/***** ORDER SUMMARY *****/
+
+.order-container{
+    margin-top:50px;
+    margin-bottom:50px;
+    margin-left:50px;
+    color: $mainDarkerColor;
+    background-color:$listLighterColor;
+ 
+    padding:10px;
+
+    > p{
+        text-align:center;
+        font-size:25px;
+        text-transform: uppercase;
+    }
+
+    @include mQ-phones(360px){
+        display:flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        padding:7px;
+        margin-top:20px;
+        margin-left:0px;
+        margin-bottom: 20px;
+        margin-right:0px;
+        p{
+            font-size:0.8em;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        display:flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        padding:7px;
+        margin-top:20px;
+        margin-left:0px;
+        margin-bottom: 20px;
+        margin-right:0px;
+        p{
+            font-size:0.8em;
+        }
+    }
+
+    @include mQ-other(768px,1149px){
+        font-size:0.8em;
+        width:300px;
+    }
+
+    @include mQ-other(1150px, 1699px){
+        font-size:0.8em;
+        width:300px;
+    }
+
+        
+    @include mQ-other(1699px,2299px){
+        width:300px;
+    }
+
+    @include mQ-largerDesktops(2299px){
+    width:400px;
+    }
+    
+}
+
+.order-in-modal{
+    border:3px solid black;
+    -webkit-box-shadow: -1px -1px 9px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px -1px 9px 0px rgba(0,0,0,0.75);
+box-shadow: -1px -1px 9px 0px rgba(0,0,0,0.75);
+}
+
+.order-list-item{
+    border-bottom:1px solid grey;
+    padding:7px;
+
+    div span{
+        position: relative;
+        top:10px;
+        font-size:0.8em;
+        margin-left:20px;
+        color:black;
+        font-style: italic;
+    }
+
+    @include mQ-phones(360px){
+        div{
+            font-size:0.8em;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+            div{
+                font-size:0.8em;
+            }
+    }
+}
+
+.order-total{
+    font-size:18px;
+    color:black;
+}
+
+.go-to-checkout-button{
+    background-color:black;
+    color:$whiteColor;
+    padding:15px;
+    span{
+    text-align:center;
+    text-transform: uppercase;
+    font-size:1.3em;
+
+    @include mQ-phones(360px){
+        font-size:0.7em;
+        padding:7px;
+    }
+
+    @include mQ-other(361px,480px){
+    font-size:0.7em;
+    padding:7px;
+    }
+    }
+
+    svg{
+        font-size:1.35em;
+    }
+    
+   &:hover{
+    cursor: pointer;
+ box-shadow: 0px -2px 24px 4px rgba(0,0,0,0.46);
+ transform: scale(1.02);
+}
+
+@include mQ-other(361px,480px){
+    padding:7px;
+    span, svg{
+        font-size: 0.7em;
+    }
+}
+
+}
+
+/***** PURCHASE TABELA ******/
+
+.purchase-table{
+    width:100%;
+
+    @include mQ-phones(360px){
+        width:100vw;
+    }
+
+    @include mQ-other(361px,480px){
+        width:100vw;
+    }
+
+    
+    @include mQ-other(769px,1149px){
+     font-size:0.8em;
+    }
+}
+
+.purchase-header{
+    background-color:black;
+    div{
+        display:flex;
+        align-items:center;
+        color:$whiteColor;
+    
+        @include mQ-phones(360px){
+            width:100px;
+            font-size:0.7em;
+        }
+    
+        @include mQ-other(361px,480px){
+            width:100px;
+            font-size:0.7em;
+        }
+    
+        @include mQ-other(481px, 768px){
+            font-size:0.8em;
+            width:140px;
+            height:30px;
+        }
+    
+        @include mQ-other(769px,1149px){
+            width:170px;
+            height: 50px;
+        }
+    
+        @include mQ-other(1150px, 1699px){
+            width:170px;
+            height: 50px;
+        }   
+    
+        @include mQ-other(1699px,2299px){
+            width:170px;
+        }
+    
+        @include mQ-largerDesktops(2299px){
+       width:250px;
+        }
+    }
+}
+
+.purchase-item{
+    position: relative;
+    border-bottom:1px solid black;
+    font-size: 0.8em;
+    &:nth-child(even){
+        background-color:$listLighterColor;
+        color:black;
+    }
+    &:nth-child(odd){
+        background-color:$listDarkerColor;
+        color:black;
+    }
+
+    @include mQ-phones(360px){
+        justify-content: space-evenly;
+        div{
+            font-size:0.8em;
+            width:50px;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        justify-content: space-evenly;
+        div{
+            font-size:0.8em;
+            width:50px;
+        }
+    }
+
+    @include mQ-other(481px, 768px){
+        div{
+            width: 140px;
+        }
+    }
+
+    @include mQ-other(769px,1149px){
+        padding: 3px;
+        div{
+            width:160px;
+            height:40px;
+        }
+    }
+    
+
+    @include mQ-other(1150px, 1699px){
+        padding: 3px;
+
+        div{
+            width:160px;
+            height:40px;
+        }
+    }
+        
+    @include mQ-other(1699px,2299px){
+        padding: 5px;
+
+        div{
+            width:160px;
+        }
+    }
+
+    @include mQ-largerDesktops(2299px){
+        padding:5px;
+        div{
+            width:250px;
+        }
+    }
+
+}
+
+.purchase-name{
+    text-align: center;
+
+    @include mQ-phones(360px){
+        font-size:0.6em !important;
+        margin-right:22px;
+    }
+    
+    @include mQ-other(361px,480px){
+        font-size:0.6em !important;
+        margin-right:22px;
+    }
+    
+    @include mQ-other(481px, 768px){
+        margin-left:30px;
+        font-size: 0.8em;
+        margin-right:40px;
+    }
+    
+    @include mQ-other(769px,1149px){
+        margin-left:30px;
+        margin-right:60px;
+    }
+    
+    @include mQ-other(1150px, 1699px){
+        margin-left:30px;
+        margin-right:60px;
+    }
+    
+    @include mQ-largerDesktops(1700px){
+        margin-right:80px;
+    }
+}
+    
+.purchase-brand{
+        margin-right:25px;
+
+        @include mQ-phones(360px){
+            font-size:0.8em;
+        }
+    
+        @include mQ-other(361px,480px){
+            font-size:0.8em;
+        }
+}
+
+.purchase-image{
+    margin-left:4px;
+
+    @include mQ-phones(360px){
+        width:45px !important;
+        img, .table-empty{
+            width:35px;
+            height:35px;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        width:45px !important;
+        img, .table-empty{
+            width:35px;
+            height:35px;
+        }
+    }
+
+    @include mQ-other(481px, 768px){
+        width:50px !important;
+        img, .table-empty{
+            width:40px;
+            height:40px;
+            }
+    }
+
+    @include mQ-other(769px,1149px){
+        width:80px !important;
+        img, .table-empty{
+            width:40px;
+            height:40px;
+            }
+    }
+
+
+    @include mQ-other(1150px, 1699px){
+        width:80px !important;
+        img, .table-empty{
+            width:40px;
+            height:40px;
+            }
+    }
+
+    @include mQ-other(1699px,2299px){
+        width:100px !important;
+        img, .table-empty{
+            width:70px;
+            height:70px;
+        }
+    }
+
+    @include mQ-largerDesktops(2299px){
+        width:180px !important;
+        img, .table-empty{
+            width:80px;
+            height:80px;
+        }
+    }
+
+
+}
+
+.purchase-amount{
+    position:absolute;
+    left:60px;
+    top:25px;
+
+    @include mQ-phones(360px){
+        left:55px;
+        top:25px;
+        font-size: 0.6em !important;
+    }
+
+    @include mQ-other(361px,480px){
+        left:55px;
+        top:25px;
+        font-size: 0.6em !important;
+    }
+
+    @include mQ-other(481px, 768px){
+        font-size:0.7em;
+        left:50px;
+        top:30px;
+    }
+}
+
+.delete-purchase{
+position: absolute;
+padding:4px;
+font-size: 20px;
+right:-145px;
+top:-10px;
+
+@include mQ-phones(360px){
+    right:0px;
+    top:-5px;
+    text-align: right;
+}
+
+@include mQ-other(361px,480px){
+right:0px;
+top:-5px;
+text-align: right;
+}
+
+@include mQ-other(481px, 768px){
+    font-size:0.9em;
+    right:-125px;
+    top:0px;
+}
+
+@include mQ-other(769px,1149px){
+font-size:1em;
+top:-5px;
+}
+    
+@include mQ-other(1699px,2299px){
+
+}
+
+@include mQ-largerDesktops(2299px){
+    right:-200px;
+    top:0px;
+}
+
+&:hover{
+    color:$redWarningColor;
+    cursor: pointer;
+}
+}
+
+/***** ACCOUNT DETAILS *****/
+
+.account-details-holder{
+    min-height: 40vh;
+}
+
+.account-details-holder form, .account-details-holder .account-details-recheck{
+background-color:$listLighterColor;
+color:black;
+
+@include mQ-phones(360px){
+    padding:10px;
+    border-radius:30px;
+
+    div{
+        font-size:0.8em;
+        padding:10px;
+        width:75vw;
+
+        input{
+            font-size:0.75em;
+        }
+        label{
+            color:$mainDarkerColor;
+        }
+    }
+}
+
+@include mQ-other(361px,480px){
+        padding:10px;
+        border-radius:30px;
+
+        div{
+            font-size:0.8em;
+            padding:10px;
+            width:75vw;
+
+            input{
+                font-size:0.75em;
+            }
+            label{
+                color:$mainDarkerColor;
+            }
+        }
+}
+
+@include mQ-other(768px,1149px){
+    margin-left:30px;
+    margin-top:10px;
+    padding:10px;
+    border-radius:30px;
+
+    div{
+        font-size:0.8em;
+        padding:10px;
+        width:350px;
+
+        input{
+            font-size:0.8em;
+        }
+        }
+}
+
+@include mQ-other(1150px, 1699px){
+        margin-left:30px;
+        margin-top:50px;
+        padding:10px;
+        border-radius:30px;
+
+        div{
+            font-size:0.8em;
+            padding:10px;
+            width:350px;
+
+            input{
+                font-size:0.8em;
+            }
+            }
+    }
+@include mQ-other(1699px,2299px){
+        padding:20px;
+        border-radius:30px;
+
+        div{
+            padding:20px;
+            width:500px;
+            }
+    }
+
+@include mQ-largerDesktops(2299px){
+        padding:20px;
+        margin-top:50px;
+        border-radius:30px;
+
+        div{
+            padding:20px;
+            width:500px;
+            }
+}
+}
+
+.account-details-changed{
+    background-color: $yellowColor;
+}
+
+.account-details-buttons{
+    button{  
+        &:nth-child(1){
+            background-color:$lightGreen;
+            color:black;
+            &:hover{
+                background-color: $greenColor;
+            }
+        }
+        &:nth-child(2){
+            background-color:$whiteColor;
+            color:black;
+            &:hover{
+                background-color:$greyColor;
+            }
+        }
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    @include mQ-phones(360px){
+        margin-top:30px;
+        button{
+            padding:5px;
+            border-radius: 3px;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        margin-top:30px;
+        button{
+            padding:5px;
+            border-radius: 3px;
+        }
+    }
+
+    @include mQ-other(768px,1149px){
+        height:45px;
+        button{
+            font-size:11px;
+            margin-top:20px;
+            padding:5px;
+            border-radius: 20px;
+        }
+    }
+    
+    @include mQ-other(1150px, 1699px){
+        height:60px;
+        button{
+            font-size:14px;
+            margin-top:20px;
+            padding:5px;
+            border-radius: 20px;
+        }
+    }
+
+    @include mQ-largerDesktops(1700px){
+        button{
+            font-size:1em;
+            margin-top:20px;
+            padding:10px;
+            border-radius: 30px;
+            }
+    }
+}
+
+.account-details-modal{
+    width:600px;
+    padding:60px 40px;
+    background-color: $mainDarkerColor;
+    border-radius:5px;
+    border:2px solid $whiteColor;
+
+    p, label{
+        color:$whiteColor;
+    }
+
+    @include mQ-phones(360px){
+        width:90vw;
+    }
+
+    @include mQ-other(361px,480px){
+        width:90vw;
+    }
+
+    @include mQ-largerDesktops(2299px){
+        width:1000px;
+    }
+}
+
+.account_modal{
+    padding:30px 60px;
+    border-radius: 10px;
+    background-color: $mainDarkerColor;
+    color:$mainLighterColor;
+
+    button{
+        margin-top: 20px;
+        padding: 10px 15px;
+        border-radius: 18px;
+        color:$mainDarkerColor;
+        cursor: pointer;
+    }
+
+    @include mQ-phones(360px){
+        margin-top:10px;
+        font-size:0.85em;
+        padding: 4px 7px;
+    }
+
+    @include mQ-other(361px,480px){
+            margin-top:10px;
+            font-size:0.85em;
+            padding: 4px 7px;
+    }
+
+    @include mQ-other(769px,1149px){
+          margin-top:0px;
+           font-size:1.25em;
+    }
+
+    @include mQ-other(1150px, 1698px){ 
+            font-size:1.3em;
+    }
+
+    @include mQ-other(1699px,2299px){
+            font-size:1.4em;
+    }
+
+    @include mQ-largerDesktops(2299px){
+            font-size:1.3em;
+    }
+}
+
+
+/**** FAVOURITE ***/
+.favourites-container{
+    width:100%;
+    min-height: 40vh;
+}
+
+.favourite-icon-container{
+    display:none;
+    position:absolute;
+    color:black;
+    top:0px;
+    right:5px;
+
+    @include mQ-phones(360px){
+        top:0px;
+    }
+
+    @include mQ-other(361px,480px){
+      top:0px;
+    }
+    
+    @include mQ-other(481px,767px){
+     
+    }
+    
+    @include mQ-other(768px,1149px){
+        font-size:16px;
+    }
+
+    @include mQ-other(1150px, 1699px){
+        font-size:17px;
+    }
+    
+    @include mQ-largerDesktops(1700px){
+        font-size:22px;
+    }
+}
+
+/**** SIZES ****/
+
+.sizes-container{
+width:50%;
+p{ 
+    width:30px;
+    height:30px;
+    margin:5px;
+    padding:8px;
+    border:1px solid black;
+}
+
+@include mQ-phones(360px){
+    width:150px;
+    align-self: center;
+    p{
+        margin:5px;
+     
+    }
+}
+
+@include mQ-other(361px,480px){
+    width:150px;
+    align-self: center;
+    p{
+        margin:5px;
+     
+    }
+}
+
+@include mQ-other(1150px, 1699px){
+    p{ 
+        width:42px;
+        height:42px;
+        padding:1px;
+        border:1px solid black;
+    } 
+}
+
+@include mQ-other(1700px, 2299px){
+    width:250px;
+
+    p{ 
+        width:42px;
+        height:42px;
+        margin:5px;
+        padding:1px;
+        border:1px solid black;
+    } 
+}
+
+@include mQ-largerDesktops(2299px){
+    width:270px;
+
+    p{ 
+        width:50px;
+        margin:5px;
+        height:50px;
+        border:1px solid black;
+    }
+}
+}
+
+.sizes-checked{
+    background-color:black;
+    color:$whiteColor;
+}
+
+.sizes-available{
+    background-color: rgb(46, 139, 41);
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.sizes-not-available{
+    background-color:$redWarningColor;
+}
+
+.size-on-card-container{
+    width:85%;
+
+    @include mQ-other(481px, 768px){
+        width:95%;
+    }
+}
+
+.size-on-card-number{
+    box-sizing: border-box;
+    justify-content: space-evenly;
+    align-items: center;
+    margin:6px;
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.05);
+        border:2px solid black;
+    }
+
+    @include mQ-phones(360px){
+        width:16.5px;
+        font-size:0.55em;
+        height:16.5px;
+        margin:3px;
+    }
+
+    @include mQ-other(361px,480px){
+        width:16.5px;
+        font-size:0.55em;
+        height:16.5px;
+        margin:3px;
+    }
+
+    @include mQ-other(481px, 768px){
+        width:18px;
+        font-size:0.6em;
+        height:18px;
+        margin:3px;
+    }
+
+    @include mQ-other(769px,1149px){
+        width:23px;
+        height:23px;
+    }
+
+    @include mQ-other(1150px, 1699px){
+        width:30px;
+        height:30px;
+    }
+
+    @include mQ-other(1699px,2299px){
+        width:33px;
+        height: 33px;
+    }
+    @include mQ-largerDesktops(2299px){
+        width:40px;
+        height:40px;  
+    }
+}
+
+.size-title-on-card{
+font-size:1em;
+color:$whiteColor;
+text-align: center;
+margin-top:20px;
+margin-bottom:50px;
+
+@include mQ-phones(360px){
+    font-size:0.6em;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+@include mQ-other(361px,480px){
+    font-size:0.6em;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+@include mQ-other(481px, 768px){
+    font-size:0.65em;
+    margin-top:4px;
+    margin-bottom:4px;
+}
+
+@include mQ-other(769px,1149px){
+    font-size:0.8em;
+    margin-top:7px;
+    margin-bottom:7px;
+}
+
+@include mQ-other(1150px, 1699px){
+    font-size:0.9em;
+    margin-bottom:10px;
+}
+}
+
+.error-size{
+    color: $redWarningColor;
+    text-shadow: 1px 1px 1px rgba(0,0,0, 0.5);
+    margin-top:2px;
+    text-align: center;
+    background-color: $whiteColor;
+    padding:5px;
+
+    @include mQ-phones(360px){
+        font-size: 0.5em;
+        padding:3px;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size: 0.5em;
+        padding:3px;
+    }
+
+    @include mQ-other(481px, 768px){
+        font-size:0.55em;
+    }
+
+    @include mQ-other(769px,1149px){
+        font-size:0.6em;
+    }
+
+    @include mQ-other(1150px, 1699px){
+        font-size:0.65em;
+    }
+
+    @include mQ-other(1700px, 2299px){
+        font-size:0.6em;
+    }
+
+    @include mQ-largerDesktops(2299px){
+        font-size:0.9em;
+    }
+
+    
+}
+
+/* Charts*/
+#charts-holder{
+    display: flex;
+    position: relative;
+    width:100%;
+    justify-content: space-between;
+    margin:20px;
+    flex-wrap: wrap;
+
+
+    @include mQ-phones(360px){
+        width:100vw;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    @include mQ-other(361px,480px){
+        width: 100vw;
+        margin:5px;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    @include mQ-other(481px, 768px){
+        justify-content: center;
+        margin:5px;
+    }
+
+    @include mQ-other(769px,1149px){
+        justify-content: center;
+        margin:10px;
+    }
+}
+
+#other-charts-holder{
+    display: flex;
+    position: relative;
+    width:100%;
+    flex-direction: column;
+    align-items: space-between;
+    margin:20px;
+    flex-wrap: wrap;
+
+    @include mQ-phones(360px){
+        margin:0px;
+        overflow-x: hidden;
+    }
+
+    @include mQ-other(361px,480px){
+        margin:0px;
+        overflow-x: hidden;
+    }
+}
+
+.linear-chart-tip{
+    background-color: $backgroundColor;
+    padding:5px 10px;
+
+    @include mQ-phones(360px){
+        font-size:0.8em;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size:0.8em;
+    }
+}
+
+.single-pie-chart{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    min-width: 40%;
+
+    @include mQ-other(769px,1149px){
+        min-width:50%
+    }
+}
+
+.other-pie-chart{
+    display:flex;
+    min-width: 50%;
+    flex-direction: column-reverse;
+    margin-right:30vw;
+
+    @include mQ-phones(360px){
+    //    width:100vw;
+    }
+
+    @include mQ-other(361px,480px){
+    //    width:75vw;
+    }
+    
+}
+
+.single-pie-title{
+    position: relative;
+    text-align: center;
+    background-color: $backgroundColor;
+    color: black;
+    margin-bottom:10px;
+    width:20vw;
+    @include mQ-phones(360px){
+        width:70vw;
+        border:1px solid $mainDarkerColor;
+    }
+
+    @include mQ-other(361px,480px){
+        width:50vw;
+        border:1px solid $mainDarkerColor;
+    }
+
+    @include mQ-other(481px, 768px){
+        width:35vw;
+    }
+
+    @include mQ-other(769px,1149px){
+        width:25vw;
+    }
+
+    @include mQ-other(1700px, 2299px){
+        margin-bottom: 40px;
+    }
+
+    @include mQ-largerDesktops(2299px){
+        margin-bottom:50px;
+    }
+
+
+}
+
+.other-pie-title{
+    position: relative;
+    text-align: center;
+    background-color: $backgroundColor;
+    color: black;
+    margin-bottom:10px;
+
+    @include mQ-phones(360px){
+        margin-bottom:10px;
+        border: 1px solid $mainDarkerColor;
+        width:100vw;
+    }
+
+    @include mQ-other(361px,480px){
+        margin-bottom:10px;
+        border: 1px solid $mainDarkerColor;
+        width:80vw;
+    }
+
+    @include mQ-other(481px, 768px){
+        margin:0px;
+        border: 1px solid $mainDarkerColor;
+    }
+    
+    @include mQ-other(769px,1149px){
+        margin:0px;
+        border: 1px solid $mainDarkerColor;
+    }
+
+
+
+}
+
+#chart-one,#chart-two{
+    display:flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-top:50px;
+    margin-bottom: 100px;
+    min-width: 40%;
+
+    @include mQ-phones(360px){
+        margin-top:0px;
+        margin-bottom: 0px;
+    }
+
+    @include mQ-other(361px,480px){
+        margin-top:0px;
+        margin-bottom: 0px;
+    }
+
+    
+    @include mQ-other(481px, 768px){
+        margin-top:10px;
+        margin-bottom: 10px;
+    }
+
+    @include mQ-other(769px,1149px){
+        margin-top:10px;
+        margin-bottom: 20px;
+    }
+
+}
+
+.stats-select-container{
+    display:flex;
+    flex-wrap:wrap;
+    position: relative;
+    margin-bottom:10px;
+    @include mQ-phones(360px){
+        margin-bottom:5px;
+    }
+
+    @include mQ-other(361px,480px){
+        margin-bottom:5px;
+    }
+}
+
+.stats-select-item{
+    background-color: $whiteColor;
+    color:black;
+    border:3px solid black;
+    padding:4px 8px;
+    margin:3px;
+    &:hover{
+        cursor: pointer;
+    }
+
+    @include mQ-phones(360px){
+        font-size:0.7em;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size:0.7em;
+    }
+}
+
+.brand-stat-item{
+    background-color: $whiteColor;
+    color:black;
+    border:1px solid black;
+    border-radius:10px;
+    padding:3px;
+    margin:2px;
+    font-size:0.7em;
+    &:hover{
+        cursor: pointer;
+    } 
+}
+
+.gender-stat-item{
+    background-color: $whiteColor;
+    color:black;
+    border:3px solid black;
+    padding:1px 5px;
+    margin:3px;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.selected-stat-item{
+    background-color: $washedBlack;
+    color:$whiteColor;
+    border:2px solid white;
+}
+
+#brand-month-chart-container{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top:30px;
+    width:100%;
+
+    .other-pie-chart svg g .legendCells{
+        font-size:0.75em;
+    }
+
+    @include mQ-phones(360px){
+        justify-content: center;
+        .single-pie-chart{
+            font-size:0.9em;
+        }
+
+        .single-pie-title{
+            width:80vw;;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        justify-content: center;
+
+        .single-pie-title{
+            width:60vw;
+        }
+    }
+}
+
+/*** FINALIZE PURCHASE *****/
+
+.payment-container{
+    margin-top:100px;
+    width:100vw;
+    min-height:100vh;
+
+    @include mQ-phones(360px){
+        flex-direction: column;
+        align-items: center;
+        margin-top:10px;
+        .payment-left{
+            align-items: center;
+            order:1;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        flex-direction: column;
+        align-items: center;
+        margin-top:10px;
+        .payment-left{
+            align-items: center;
+            order:1;
+        }
+    }
+
+    @include mQ-other(481px, 768px){
+        margin-top:30px;
+        flex-direction: column;
+        align-items: center;
+
+        .payment-left{
+            order:1;
+        }
+    }
+}
+
+.payments-holder{
+    margin-top:20px;
+    .payment-line:last-child{
+        border-top:1px solid white;
+    }
+}
+
+.payment-line{
+    width:600px;
+    height:80px;
+    padding:15px;
+    color:$whiteColor;
+    background-color: #281D02;
+    border-bottom:1px solid white;
+    margin-bottom:5px;
+    margin-top:5px;
+
+    div:last-child{
+        border-top:1px solid white;
+    }
+
+    #credit-card-image{
+        height:70px
+    }
+
+    #paypal-image{
+        height:30px;
+    }
+
+    input{
+        margin-right:5px;
+    }
+
+    @include mQ-phones(360px){
+        width:95vw;
+        font-size:0.8em;
+        #credit-card-image{
+            height:50px;
+        }
+        #paypal-image{
+            height:20px;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        width:95vw;
+        font-size:0.8em;
+        #credit-card-image{
+            height:50px;
+        }
+        #paypal-image{
+            height:20px;
+        }
+    }
+
+    @include mQ-largerDesktops(2299px){
+        font-size:1.3em;
+    }
+}
+
+.payment-expiry-line{
+    margin-top:20px;
+    div:not(:first-child){
+        margin-left:30px;
+    }
+    div:first-child{
+        margin-left:8px;
+    }
+    label{
+        margin-bottom:10px;
+
+        &:last-child{
+            font-size:0.8em;
+        }
+    }
+    input{
+        width:75px;
+        padding:2px;
+        text-align: center;
+    }
+}
+
+.payment-address-line{
+    margin-top:20px;
+    div:not(:first-child){
+        margin-left:30px;
+    }
+    div:first-child{
+        margin-left:8px;
+    }
+    label{
+        margin-bottom:10px;
+
+        &:last-child{
+            font-size:0.8em;
+        }
+    }
+    input{
+        width:125px;
+        padding:2px;
+    }
+
+    @include mQ-phones(360px){
+        input{
+            width:80px;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        input{
+            width:80px;
+        }
+    }
+}
+
+.payment-order-holder{
+    margin-top:50px;
+    color: $whiteColor;
+    background-color:#171717;
+    width:400px;
+    padding:10px;
+    border:5px solid black;
+    
+    #payment-order-title{
+        margin-bottom:20px;
+        text-transform: uppercase;
+        text-align: center;
+        font-size:1.6em;
+    }
+
+    p{
+        color:$whiteColor;
+        text-align:center;
+        font-size:1.3em;
+        text-transform: uppercase;
+    }
+
+    .payment-total{
+        color: #E8B64A;
+    }
+
+    @include mQ-phones(360px){
+        width:95vw;
+        padding:7px;
+        margin-top:20px;
+        p{
+            font-size:0.8em;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+        width:95vw;
+        padding:7px;
+        margin-top:20px;
+        p{
+            font-size:0.8em;
+        }
+    }
+
+    @include mQ-other(481px, 768px){
+        margin-top:20px;
+    }
+
+    @include mQ-largerDesktops(2299px){
+        font-size:1.2em;
+        width:500px;
+        p{
+            font-size:1.5em;
+        }
+    }
+}
+
+.payment-cart-item{
+    border-bottom:1px solid grey;
+    padding:5px;
+    font-size:0.7em;
+
+    div span{
+        position: relative;
+        top:0px;
+        font-size:1em;
+        margin-left:20px;
+        font-weight: 400;
+        color:$whiteColor;
+        font-style: italic;
+    }
+
+    @include mQ-phones(360px){
+        div{
+            font-size:0.8em;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+            div{
+                font-size:0.8em;
+            }
+    }
+}
+
+#payment-secure-title{
+    font-size:1.5em;
+    width:250px;
+    margin-bottom:20px;
+
+    @include mQ-phones(360px){
+        font-size:1.2em;
+        margin-top:20px;
+        width:200px;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size:1.2em;
+        margin-top:20px;
+        width:200px;
+    }
+}
+
+.payment-disclaimer{
+    @include mQ-phones(360px){
+        font-size:0.8em;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size:0.8em;
+    }
+}
+
+.payment-checkout-button{
+    button {
+        font-size:1.3em;
+        border-radius:6px;
+        margin-top:30px;
+        margin-bottom:30px;
+        padding: 5px 10px;
+        font-weight: 600;
+        background-color:#E8B64A;
+        &:hover{
+            transform: scale(1.1);
+            border:1px solid black;
+            padding:4px;
+        }
+    }
+}
+
+.payment-error{
+    margin-top:30px;
+    margin-bottom:10px;
+    color:$redWarningColor;
+}
+
+.payment-success-container{
+    background-color: $whiteColor;
+    width:500px;
+    height:300px;
+    border:2px solid black;
+    div div:first-child{
+        color:$greenColor;
+
+        svg{
+            font-size:2em;
+        }
+    }
+    div{
+        margin:10px;
+    }
+
+    @include mQ-largerDesktops(2299px){
+        font-size:1.7em;
+        width:1000px;
+        height:600px;
+    }
+}
+
+.payment-complete-title{
+    font-size:3em;
+}
+
+.payment-visible{
+    animation-name: purchaseOptionsVisible !important;
+    animation-duration: 0.7s  !important;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards  !important;
+}
+
+.payment-not-visible{
+    animation-name: purchaseOptionsHidden  !important;;
+    animation-duration: 0.3s  !important;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards  !important;
+}
+
+#credit-card-container{
+    width:600px;
+    background-color: #281D02;
+    color:$whiteColor;
+    margin-right:3px;
+form{
+    padding:10px;
+}
+
+@include mQ-phones(360px){
+    width:95vw;
+    font-size:0.7em;
+    form input{
+        font-size:0.75em;
+    }
+}
+
+@include mQ-other(361px,480px){
+    width:95vw;
+    font-size:0.7em;
+    form input{
+        font-size:0.75em;
+    }
+}
+
+@include mQ-largerDesktops(2299px){
+   font-size:1.2em;
+   form input{
+       font-size:0.8em;
+   }
+}
+}
+
+.credit-card-line{
+    padding:7px;
+    margin-top:10px;
+
+    label{
+        margin-bottom:10px;
+    }
+
+    input{
+        padding:3px 10px;
+        width:300px;
+    }
+}
+
+.credit-card-dummy{
+position: relative;
+top:200px;
+width:400px;
+background-color: $mainDarkerColor;
+color:$mainLighterColor;
+padding:30px;
+border-radius: 10px;
+span{
+    margin-left:10px;
+}
+
+@include mQ-phones(360px){
+    top:0px;
+    margin-top:20px;
+    font-size:0.55em;
+    padding:8px;
+    width:90vw;
+    margin-bottom:10px;
+}
+
+@include mQ-other(361px,480px){
+top:0px;
+margin-top:20px;
+font-size:0.55em;
+padding:8px;
+width:90vw;
+margin-bottom:10px;
+}
+
+@include mQ-other(481px, 768px){
+
+    top:0px;
+    left:150px;
+    margin-top:30px;
+    margin-bottom: 30px;
+    font-size:0.7em;
+    padding:10px;
+}
+
+@include mQ-largerDesktops(2299px){
+width:500px;
+font-size:1.35em;
+}
+}
+
+#paypal-container{
+    background-color: #281D02;
+    width:600px;
+    padding:20px;
+    font-size:0.8em;
+    color:$whiteColor;
+    border-radius: 5px;
+    border-top:1px solid white;
+    overflow: hidden !important;
+
+    @include mQ-phones(360px){
+        width:95vw;
+    }
+
+    @include mQ-other(361px,480px){
+        width:95vw;
+    }
+}
+
+.paypal-disclaimer{
+    font-weight: 100;
+    margin-bottom:50px;
+
+    @include mQ-phones(360px){
+        font-size: 0.8em;
+        margin-bottom: 20px;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size: 0.8em;
+        margin-bottom: 20px;
+    }
+}
+
+.paypal-container-class{
+width:350px;
+margin-top:30px;
+
+@include mQ-phones(360px){
+    width:150px;
+    margin-top:15px;
+}
+
+@include mQ-other(361px,480px){
+    width:150px;
+    margin-top:15px;
+}
+}
+
+.paypal-bold{
+    margin-left:5px;
+    margin-right:5px;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+/* Discounts Admins */
+.admin-discount-container{
+    margin-top:50px;
+    width:100%;
+
+    button{
+        color: $mainDarkerColor;
+        font-size:0.9em;
+        padding:5px;
+        width:150px;
+        border-radius: 10px;
+        margin-top:30px;
+        &:hover{
+            transform: scale(1.05);
+            outline:1px solid $mainDarkerColor;
+        }
+    }
+
+    @include mQ-phones(360px){
+        margin-top:10px;
+        font-size:0.5em;
+    
+        button{
+            margin-top:10px;
+            margin-bottom:10px;
+        }
+    }
+
+    @include mQ-other(361px,480px){
+    margin-top:10px;
+    font-size:0.5em;
+
+    button{
+        margin-top:10px;
+        margin-bottom:10px;
+    }
+    }
+
+    @include mQ-other(481px, 768px){
+        font-size:0.7em;
+    }
+
+    @include mQ-other(769px,1149px){
+        font-size:0.6em;
+    }
+
+    @include mQ-other(1150px, 1699px){
+        font-size:0.8em;
+    }
+
+    @include mQ-other(1699px,2299px){
+
+    }
+
+    @include mQ-largerDesktops(2299px){
+   font-size:1.2em;
+   margin-top:50px;
+
+   input{
+       font-size:1em;
+   }
+   button{
+       font-size:1.4em;
+       width:200px;
+   }
+    }
+}
+
+.admin-discount-change-button{
+    width:150px;
+}
+
+.admin-discount-fields-container{
+width:350px;
+padding:10px;
+border-bottom: 2px solid black;
+
+    label{
+        width:150px;
+        font-size: 1.2em;
+    }
+    input{
+        &:first-child{
+            padding:5px;
+            width:150px;
+            max-width:120px;
+        }
+        &:nth-child(2){
+            padding:5px;
+            width:60px;
+        }
+    }
+
+    #delete-discount{
+        &:hover{
+            color: $redWarningColor;
+            cursor: pointer;
+    }
+    }
+
+    @include mQ-phones(360px){
+        input{
+            font-size:1.3em;
+            text-align: center;
+        }
+    }
+
+    @include mQ-other(361px,480px)
+    {
+        input{
+            font-size:1.3em;
+            text-align: center;
+        }
+    }
+}
+
+.admin-discount-edit{
+    transform:scale(0.85);
+&:hover{
+    cursor: pointer;
+    transform: scale(1.25);   
+}
+}
+
+#admin-discount-title{
+    width:100%;
+    margin-left:50px;
+    font-size: 1.5em;
+    text-decoration: underline;
+    margin-bottom:20px;
+}
+
+#admin-add-discount-title{
+text-decoration: underline;
+font-size: 1.3em;
+margin-top:50px;
+margin-bottom:30px;
+
+@include mQ-phones(360px){
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+@include mQ-other(361px,480px){
+    margin-top:10px;
+    margin-bottom:10px;
+}
+}
+
+#admin-discount-label-input-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height:130px;
+    input{
+        &:last-child{
+            width:50px;
+        }
+    }
+}
+
+/***** 404 PAGE *****/
+.container404{
+    width:100vw;
+    height:100vh;
+
+    span{
+        &:first-child{
+            font-size:10em;
+            color:$redWarningColor
+        }
+
+        &:nth-child(2){
+            font-size:2em;
+        }
+    }
+}
+
+/** Star Ratings**/
+.rating-my-container{
+    display:flex;
+    align-items: center;
+
+    @include mQ-phones(360px){
+        height:30px;
+        font-size:0.3em;
+    }
+
+    @include mQ-other(361px,480px){
+    height:30px;
+    font-size:0.3em;
+    }
+
+    @include mQ-other(481px,768px){
+        font-size:0.35em;
+    }
+
+    @include mQ-other(769px,1149px){
+        font-size:0.6em;
+    }
+
+    @include mQ-other(1150px, 1699px){
+       font-size:0.7em;
+    }
+
+    @include mQ-other(1700px, 2299px){
+    font-size: 0.9em;
+    }
+    
+
+}
+
+.rating, .user-rating { 
+    border: none;
+    float:left;
+}
+
+.rating fieldset, .rating label, .user-rating fieldset, .user-rating label { 
+    margin: 0; 
+    padding: 0; 
+}
+
+.rating > input, .user-rating > input { 
+    display: none; 
+} 
+
+.rating > label:before, .user-rating > label:before { 
+  font-family: "Font Awesome 5 Free";
+  display: inline-block;
+  font-weight: 900;
+  content: "\f005";
+  margin:5px;
+
+  @include mQ-phones(360px){
+    margin:3px;
+}
+
+  @include mQ-other(361px,480px){
+    margin:3px;
+  }
+
+  @include mQ-largerDesktops(1700px){
+    margin: 5px;
+    font-size: 1.25em;
+  }
+}
+
+.rating > .half:before, .user-rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+
+}
+
+.rating > label, .user-rating > label { 
+color:black; 
+float: right; 
+}
+
+.rating > input:checked ~ label {
+    color:$yellowColor;
+}
+
+.user-rating > input:checked ~ label {
+    color: $buyButtonColor;
+}
+
+.user-rating:hover > input:checked ~ label {
+    color: black;
+}
+
+.rating:hover > input:checked ~ label {
+    color:black;
+}
+
+.user-rating:not(:checked) > label:hover, 
+.user-rating:not(:checked) > label:hover ~ label,
+.rating:not(:checked) > label:hover, 
+.rating:not(:checked) > label:hover ~ label
+{
+    color: $buyButtonColor;
+}
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: $buyButtonColor;  } 
+
+.user-rating > input:checked + label:hover, /* hover current star when changing rating */
+.user-rating > input:checked ~ label:hover,
+.user-rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.user-rating > input:checked ~ label:hover ~ label { color: $buyButtonColor;  } 
+
+/* The rest */
+
+.buy_button{
+    text-align: center;
+    margin-bottom: 5px;
+    width: 65%;   
+    background-color: $buyButtonColor;
+    color: $mainDarkerColor;
+    border:2px solid black;
+    border-radius:5px;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+        cursor: pointer;
+        background-color: $mainDarkerColor;
+        color:$buyButtonColor;
+    }
+
+    @include mQ-phones(360px){
+        font-size:0.65em;
+    }
+
+    @include mQ-other(361px,480px){
+      font-size:0.65em;
+    }
+    
+    @include mQ-other(481px,768px){
+     font-size:0.7em;
+    }
+    
+    @include mQ-other(769px,1149px){
+        font-size: 0.8em;
+    }
+
+    @include mQ-other(1150px, 1699px){
+        font-size:1.1em;
+    }
+    
+    @include mQ-largerDesktops(1700px){
+        font-size:1.5em;
+    }
+}
+
+.confirmation-button{
+    transition: all 0.4s ease-in-out;
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.1);
+        background-color: $greenColor;
+    }
+}
+
+.detailed-buy-button{
+    text-align: center;
+    width: 200px;   
+    background-color: $buyButtonColor;
+    color: $mainDarkerColor;
+    border-top: 2px solid black;
+    border-bottom:  2px solid black;
+    border-radius:5px;
+    &:hover{
+        cursor: pointer;
+        background-color: $greenColor;
+        color:$mainDarkerColor;
+    }
+
+    @include mQ-phones(360px){
+        font-size:0.8em;
+        width:100px;
+        height:20px;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @include mQ-other(361px,480px){
+      font-size:0.8em;
+      width:100px;
+      height:20px;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    @include mQ-other(481px,767px){
+     
+    }
+    
+    @include mQ-other(768px,1149px){
+        font-size: 20px;
+    }
+
+    @include mQ-other(1150px, 1699px){
+        font-size:20px;
+    }
+    
+    @include mQ-largerDesktops(1700px){
+        font-size:25px;
+    }
+}
+
+.back-to-store-button{
+span{
+    padding:5px;
+    margin-top:5px;
+    background-color: $yellowColor;
+    border:1px solid black;
+    border-radius: 5px;
+}
+}
+
+#footer{
+    position: relative;
+    bottom:0px;
+    height:40px;
+    background: $mainDarkerColor;
+    text-shadow:1px 1px 1px #000;
+    color:$whiteColor;
+
+    @include mQ-phones(360px){
+        font-size:0.7em;
+        height:25px;  
+    }
+
+    @include mQ-other(361px,480px){
+      font-size:0.7em;
+      height:25px;  
+    }
+
+    @include mQ-other(769px,1149px){
+        font-size:0.8em;
+        height:30px;
+    }
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.heavy-bold{
+    font-weight: 1000;
+}
+
+.normal{
+    font-weight: normal;
+    color:$washedBlack;
+}
+
+.width-max{
+    width:100%;
+}
+
+.inline{
+    display: inline-block;
+}
+
+.relative{
+    position: relative;
+}
+
+.display-none{
+    display:none;
+}
+
+.margin-bottom{
+
+    @include mQ-phones(360px){
+        margin-bottom:4px;
+        font-size:0.4em;
+    }
+
+    @include mQ-other(361px,480px){
+      margin-bottom:4px;
+      font-size:0.4em;
+    }
+
+    @include mQ-other(481px,768px){
+     font-size:0.5em;
+     margin-bottom:7px;
+    }
+
+    @include mQ-other(769px,1149px){
+        margin-bottom: 8px;
+        font-size:0.6em;
+    }
+
+    @include mQ-other(1150px, 1699px){
+        margin-bottom: 10px;
+        font-size:10.5px;
+    }
+
+    @include mQ-largerDesktops(1700px){
+        margin-bottom: 12px;
+        font-size:13.5px;
+}
+}
+
+.spinner-container{
+width: 100vw;
+height: 50vw;
+}
+
+.visibility-none{
+    visibility: hidden;
+}
+
+/**** FLEXBOX KLASE *****/
+
+
+.fx-basic{
+    display:flex;
+}
+
+.fx-column{
+    display:flex;
+    flex-direction: column;
+}
+
+.fx-center-all{
+    justify-content: center;
+    align-items: center;
+}
+
+.fx-align-center{
+    align-items: center;
+}
+
+.fx-align-around{
+    align-items: space-around;
+}
+
+.fx-align-start{
+    align-items: flex-start;
+}
+
+.fx-justify-start{
+    justify-content: flex-start;
+}
+
+.fx-justify-center{
+    justify-content: center;
+}
+
+.fx-justify-between{
+    justify-content: space-between;
+}
+
+.fx-justify-around{
+    justify-content: space-around;
+}
+
+.fx-justify-end{
+    justify-content: flex-end;
+}
+
+.fx-wrap{
+    flex-wrap: wrap;
+}
