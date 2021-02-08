@@ -96,7 +96,6 @@ const NavigationBar = (props) => {
             props.pageReady(true);
          
         }).catch(err => {
-            console.log(err);
             props.pageReady(true);
         })
     }
@@ -128,12 +127,12 @@ const NavigationBar = (props) => {
     return (
         
         <Fragment>
-            <div className="fx-basic fx-justify-between fx-align-center navigation-bar">
+            <div className="fx-basic fx-justify-between fx-align-center fx-wrap navigation-bar">
                 <div className=" fx-basic fx-align-center navigation-bar-left">
                     <NavLink to="/"><Logo onClick={reDirect.bind(this, "/")} /></NavLink>
 
                 </div>
-                <div className=" fx-basic navigation-bar-right">
+                <div className=" fx-basic navigation-bar-right fx-justify-end">
                     {props.appLoaded ? props.user !== "guest" && props.user.hasOwnProperty("_id") && props.appLoaded ?
                         <LinksSignedIn
                             cartLength={props.user.userCart.length}

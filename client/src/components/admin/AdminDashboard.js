@@ -25,6 +25,7 @@ class AdminDashboard extends Component {
   
 
 componentDidMount() {
+  window.scrollTo(0,0);
   this.getAdminData();
 }
 
@@ -68,7 +69,6 @@ this.setState({
   discountSelected:""
 })
 }).catch(err => {
-  console.log(err.response);
   this.setState({
     error:true,
     errorMessage:err.response.data || "Could not change discounts!"
@@ -102,8 +102,6 @@ getAdminData(){
       pageLoaded:true
     })
   }).catch(err => {
-    console.log("Ovaj error")
-    console.log(err);
   if(err.response.status === 401){
     this.props.history.push('/sign-in')
   } else{
@@ -153,7 +151,6 @@ if(name !== "" && amount && (typeof amount === "number")){
       discountSelected:""
     })
   }).catch(err => {
-    console.log(err);
     this.setState({
       error:true,
       errorMessage:err.response.data || "Could not add discount!"

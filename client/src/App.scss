@@ -116,6 +116,10 @@ min-height: 100vh;
 .navigation-bar{
     background-color: $mainDarkerColor;
     width:100vw;
+    max-width:100vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-size:0.5em;
     a {
         text-decoration: none;
     }
@@ -139,27 +143,30 @@ min-height: 100vh;
     }
 
     @include mQ-other(1150px, 1699px){
-        font-size: 0.8em;
-
+    font-size: 0.8em;
     }
 
     @include mQ-other(1700px, 2299px){
-    
+    height:60px;
+    font-size:0.9em;
     }
 
     @include mQ-largerDesktops(2299px){
-        height:70px;
+        font-size:0.8em;
     }
 }
 
 .navigation-bar-right{
+    width:70%;
     ul{
         list-style-type: none;
         li{
             display:flex;
             justify-content: center;
             align-items: center;
-            a{  
+            margin:3px;
+            a{
+                padding: 4px 2px; 
                 color: $mainLighterColor;
                 &:hover{
                     cursor: pointer;
@@ -168,9 +175,10 @@ min-height: 100vh;
             }
         }
     }
-
+    justify-content: flex-end;
     @include mQ-phones(360px){
         height:30px;
+        width:80%;
         font-size:0.9em;  
         ul{
             li{
@@ -188,6 +196,7 @@ min-height: 100vh;
 
     @include mQ-other(361px,480px){
         height:30px;
+        width:80%;
         font-size:9px;  
         ul{
             li{
@@ -219,7 +228,6 @@ min-height: 100vh;
     }
 
     @include mQ-other(769px,1149px){
-     
         ul {
             li{
                 margin:6px;
@@ -277,6 +285,12 @@ min-height: 100vh;
 }
 
 .navigation-bar-left{
+    width: 30%;
+    img{
+        max-width:10vw;
+        max-height: 10vw;
+    }
+
     p{
         margin-top:0px;
         margin-bottom: 0px;
@@ -285,6 +299,7 @@ min-height: 100vh;
 
     @include mQ-phones(360px){
         height:30px;
+        width:20%;
         div{
             margin-left:3px;
             font-size:7px;
@@ -297,6 +312,7 @@ min-height: 100vh;
     }
 
     @include mQ-other(361px,480px){
+        width:20%;
         height:30px;
         div{
             margin-left:3px;
@@ -317,6 +333,7 @@ min-height: 100vh;
         }
         img{
             width: 35px;
+            height:30px;
             margin-right: 15px;
         }
     }
@@ -329,6 +346,7 @@ min-height: 100vh;
         }
         img{
             width: 40px;
+            height:30px;
             margin-right: 15px;
         }
     }
@@ -340,6 +358,7 @@ min-height: 100vh;
         }
         img{
             width: 40px;
+            height:30px;
             margin-right: 20px;
         }
     }
@@ -351,6 +370,7 @@ min-height: 100vh;
         }
         img{
             width: 70px;
+            height:55px;
             margin-right: 20px;
         }
     }
@@ -362,7 +382,7 @@ min-height: 100vh;
         }
         img{
             width: 70px;
-            height: 70px;
+            height: 60px;
             margin-right: 20px;
         }
     }
@@ -378,6 +398,8 @@ margin-top:10px;
 }
 
 #home-container{
+    width:100vw;
+    justify-content: space-between;
     @include mQ-phones(360px){
         flex-direction: column;  
     }
@@ -395,7 +417,7 @@ margin-top:10px;
     left:0;
     z-index:20;
     border-radius:10px;
-    background-color: $mainDarkerColor;
+    background-color: #000;
 
     label{
         color: $whiteColor;
@@ -433,7 +455,11 @@ margin-top:10px;
     background-color: $mainDarkerColor;
     width:100vw; 
     margin:10px 20px 10px 10px;
-    min-height: 50vh;
+    min-height: 80vh;
+
+    .auth-message{
+        margin-top:35vh;
+    }
 
     @include mQ-phones(360px){
         margin:1px 2px 1px 2px;
@@ -450,7 +476,7 @@ margin-top:10px;
 
 .search-box{
     border:none;
-
+  
     button{
         color: $mainDarkerColor;
         font-size:1.06em;
@@ -463,6 +489,10 @@ margin-top:10px;
             }
     }
 
+    input{
+        width:20vw;
+    }
+
     @include mQ-phones(360px){
         button{
             padding:2px;
@@ -470,7 +500,7 @@ margin-top:10px;
             border-radius:2px;
         }
         input{
-            width:100px;
+            width:25vw;
             height:15px;
         }
     }
@@ -482,14 +512,33 @@ margin-top:10px;
         border-radius:2px;
     }
     input{
-        width:100px;
+        width:25vw;
         height:15px;
     }
     }
 
+    @include mQ-other(481px,768px){
+      input{
+          width:25vw;
+          padding:5px;
+      }
+    }
+
+    @include mQ-other(769px,1149px){
+        input{
+            width:15vw;
+            padding:5px;
+        }
+    }
+    
+
     @include mQ-other(1150px, 1699px){
         font-size:0.7em;
         padding:3px;
+        input{
+            padding:5px;
+            width:13vw;
+        }
     }
 
     @include mQ-other(1700px, 2299px){
@@ -498,19 +547,16 @@ margin-top:10px;
              
         form input{
             font-size:0.8em;
-            width:200px;
+            width:15vw;
             padding:5px;
         }
     }
 
     @include mQ-largerDesktops(2299px){
-  
-    
-        
         form input{
-            font-size:1em;
+            font-size:1.5em;
             padding:6px;
-            width:200px;
+            width: 15vw;
         }
     }
 }
@@ -541,10 +587,17 @@ margin-top:10px;
 
 .home-shopping-container{
 position: relative;
-width:100%;
+width:83%;
 border:2px dotted black;
 background-image: url(./images//holder-background.jpg);
 min-height:100vh;
+
+@include mQ-phones(360px){
+    width:100vw;
+    margin:0px;
+    border:none;
+    padding:0px;
+}
 
 @include mQ-other(361px, 480px){
 width:100vw;
@@ -553,28 +606,35 @@ border:none;
 padding:0px;
 }
 
-@include mQ-other(768px,1149px){
-    margin:50px 15px 7px 7px;
+@include mQ-other(481px, 768px){
+    width:70%;
+    margin:20px 10px 7px 7px;
+}
+
+@include mQ-other(769px,1149px){
+    width:80%;
+    margin:50px 10px 7px 7px;
 }
 
 @include mQ-other(1150px, 1699px){
-    margin:50px 20px 10px 10px;
+    margin:50px 10px 10px 10px;
 }
 
 @include mQ-other(1700px, 2299px){
-    margin:70px 20px 10px 10px;
+    margin:70px 10px 10px 10px;
 }
 
 @include mQ-largerDesktops(2299px){
-    margin:85px 50px 10px 10px;
+    margin:85px 10px 10px 10px;
 }
 }
 
 .home-bottom-holder{
     position: relative;
-    width:70vw;
+    width:100vw;
     margin-top:20px;
     margin-bottom:20px;
+    flex-direction: column;
 
     @include mQ-phones(360px){
         width:100vw;
@@ -589,12 +649,19 @@ padding:0px;
     }
 
     @include mQ-other(481px, 768px){
+        flex-direction: row;
         width:100vw;
         left:0vw;
     }
 
     @include mQ-other(769px,1149px){
+        flex-direction: row;
         left:3vw;
+    }
+
+    @include mQ-largerDesktops(1150px){
+        flex-direction: row;
+        width:70vw;
     }
 }
 
@@ -613,6 +680,31 @@ padding:0px;
     img{
         object-fit: cover;
         overflow:hidden;
+        max-width:50vw;
+    }
+
+    .shopping-item-brand{
+        margin:2px;
+    }
+
+    .shopping-item-cost{
+        font-size:1.5em;
+        font-weight: bold;
+        margin:2px;
+    }
+
+    .shopping-people-number{
+        margin-bottom: 12px;
+        font-size:0.9em;
+    }
+
+    .shopping-top{
+    position:absolute;
+    top:0px;
+    background-image: url(./images/best.png);
+    background-size: 100% 100%;
+    width:40px;
+    height:40px;
     }
 
     &:hover{
@@ -626,7 +718,7 @@ padding:0px;
     @include mQ-phones(360px){
         min-height: 200px;
         .shopping-item-brand{
-            font-size:7px;
+            font-size:0.6em;
             p{
                 margin-top:0px;
                 margin-bottom:0px;
@@ -634,12 +726,24 @@ padding:0px;
         }
 
         .shopping-item-cost{
-            font-size:8px;
+            font-size:0.8em;
+            margin:2px;
             p{
                 margin-top:0px;
                 margin-bottom:0px;
             }
         }
+
+        .shopping-people-number{
+            margin-bottom:4px;
+            font-size:0.55em;
+        }
+
+        .shopping-top{
+            width:30px;
+            height:30px;
+        }
+
 
         .shopping-item-image img{
             height:70px;
@@ -650,7 +754,7 @@ padding:0px;
         box-shadow: 2px 4px 7px 2px rgba(0,0,0,0.19);
         min-height: 200px;
         .shopping-item-brand{
-            font-size:7px;
+            font-size:0.65em;
             p{
                 margin-top:0px;
                 margin-bottom:0px;
@@ -658,11 +762,22 @@ padding:0px;
         }
 
         .shopping-item-cost{
-            font-size:8px;
+            font-size: 0.8em;
+            margin:2px;
             p{
                 margin-top:0px;
                 margin-bottom:0px;
             }
+        }
+
+        .shopping-people-number{
+              margin-bottom:8px;
+              font-size:0.65em;
+        }
+
+        .shopping-top{
+            width:30px;
+            height:30px;
         }
 
         .shopping-item-image img{
@@ -671,7 +786,6 @@ padding:0px;
     }
 
     @include mQ-other(481px,768px){
-        min-height: 240px;
         box-shadow: 5px 8px 15px 4px rgba(0,0,0,0.19);
         .shopping-item-brand{
             font-size:8px;
@@ -682,11 +796,23 @@ padding:0px;
         }
 
         .shopping-item-cost{
-            font-size:8px;
+            margin:3px;
+            font-size:0.8em;
             p{
                 margin-top:0px;
                 margin-bottom:0px;
             }
+        }
+
+        .shopping-people-number{
+            font-size:0.6em;
+            margin-bottom:7px;
+        }
+        
+        .shopping-top{
+            top:2px;
+            width:25px;
+            height:25px;
         }
 
         .shopping-item-image img{
@@ -703,6 +829,20 @@ padding:0px;
             margin-bottom:1px;
             font-size:0.8em;
         }
+
+        .shopping-people-number{
+            margin-bottom: 8px;
+            font-size:0.6em;
+        }
+
+        .shopping-item-cost{
+            font-size:1.1em;
+        }
+
+        .shopping-top{
+            width:35px;
+            height:35px;
+        }
     }
 
     @include mQ-other(1135px,1380px){
@@ -710,6 +850,20 @@ padding:0px;
             margin-top:2px;
             margin-bottom:2px;
         }
+ 
+    .shopping-people-number{
+        margin-bottom: 10px;
+        font-size:10.5px;
+    }
+
+    .shopping-item-cost{
+        font-size:1.1em;
+    }
+
+    .shopping-top{
+        width:35px;
+        height:35px;
+    }
     }
 
     @include mQ-other(1380px, 1699px){
@@ -718,6 +872,15 @@ padding:0px;
             margin-top:2px;
             margin-bottom:2px;
         }
+        
+        .shopping-item-cost{
+            font-size:1.2em;
+        }
+        
+    .shopping-people-number{
+        margin-bottom: 10px;
+        font-size:10.5px;
+    }
     }
 
     @include mQ-other(1700px, 2299px){
@@ -726,6 +889,15 @@ padding:0px;
             margin-top:2px;
             margin-bottom:2px;
         }
+
+        .shopping-people-number{
+            margin-bottom: 12px;
+            font-size:0.95em;
+    }
+
+    .shopping-item-cost{
+        font-size:1.1em;
+    }
     }
 
     @include mQ-largerDesktops(2299px){
@@ -734,17 +906,27 @@ padding:0px;
         margin-top:2px;
         margin-bottom:2px;
     }
+
+    .shopping-people-number{
+        margin-bottom: 12px;
+        font-size:1em;
     }
 
+    .shopping-top{
+        width:50px;
+        height:50px;
+    }
+
+    }
 }
 
 .sh-item-full{
     margin: 10px;
     width: calc(100% * 1 / 6 - 20px);
-    @include mQ-phones(360px){
+        @include mQ-phones(360px){
         margin: 10px;
         width: calc(100% * 1 / 2 - 20px);
-    }
+         }
     
         @include mQ-other(361px, 480px){
             margin: 10px;
@@ -799,6 +981,7 @@ padding:0px;
     width: 140px;
     height: 30px;
     transform: rotate(-40deg);
+    color:#FFC300;
     background-color: $redWarningColor;
     border-radius: 30px;
     div{
@@ -859,7 +1042,7 @@ padding:0px;
     border-bottom: 1px solid black;
 
     @include mQ-phones(360px){
-        font-size:0.5em;
+        font-size:0.6em;
         margin:0px;
 
         .bold{
@@ -868,7 +1051,7 @@ padding:0px;
     }
 
     @include mQ-other(361px,480px){
-        font-size:0.5em;
+        font-size:0.7em;
         margin:0px;
 
         .bold{
@@ -900,6 +1083,10 @@ padding:0px;
 .shopping-item-favourite{
     border:4px ridge white;
     box-shadow: 0 0 20px #9ecaed;
+
+    @include mQ-phones(360px){
+        border:1px ridge white;
+    }
 }
 
 .shopping-item-image {
@@ -919,20 +1106,20 @@ padding:0px;
     margin-right: 20px;
 
     @include mQ-other(481px, 768px){
-        width:20%;
+        width:16%;
         margin-top:40px;
         margin-right:5px;
     }
 
     @include mQ-other(769px,1149px){
-        width: 20%;
+        width: 15%;
         margin-top:40px;
     }
 
     @include mQ-other(1150px, 1699px){
         margin-top:50px;
         margin-right:10px;
-        width:15%;
+        width:13%;
     }
 
     @include mQ-other(1700px, 2299px){
@@ -1303,10 +1490,12 @@ padding:13px;
         text-align: center;
 
         @include mQ-phones(360px){
+            max-width: 100vw;
             font-size:0.85em
         }
 
         @include mQ-other(361px,480px){
+         max-width: 100vw;
           font-size:0.85em;
         }
 }
@@ -1319,14 +1508,19 @@ padding:13px;
 
     @include mQ-phones(360px){
         margin-top:10px;
-        font-size:0.85em;
-        padding: 4px 7px;
+        font-size:1em;
+        padding: 10px 20px;
     }
 
     @include mQ-other(361px,480px){
             margin-top:10px;
-            font-size:0.85em;
-            padding: 4px 7px;
+            font-size:1em;
+            padding: 10px 20px;
+    }
+
+    @include mQ-other(481px,768px){
+        font-size:1.25em;
+            padding: 15px 30px;
     }
 
     @include mQ-other(769px,1149px){
@@ -1355,13 +1549,17 @@ padding:13px;
     text-shadow: 2px 2px 2px #000000;
 
     @include mQ-phones(360px){
-        padding:5px;
+        padding:0px;
+        margin:0;
         font-size:0.8em;
+        overflow-x: hidden;
     }
 
     @include mQ-other(361px,480px){
-        padding:5px;
+        padding:0px;
+        margin:0;
         font-size:0.8em;
+        overflow-x: hidden;
     }
 
     @include mQ-other(769px,1149px){
@@ -1378,7 +1576,7 @@ padding:13px;
 }
 
 .add-edit-item-full-line{
-    margin:10px;
+    margin:10px 0px;
     width:100%;
     label{
         font-size:1em;
@@ -1400,13 +1598,15 @@ padding:13px;
     }
 
     @include mQ-phones(360px){
-        width:90vw;
+        width:auto;
+        max-width:90vw;
         label{
             font-size: 0.7em;
         }
         input{
             font-size:0.7em;
-            width:30vw;
+            width:auto;
+            max-width:50vw;
             height:20px;
             padding:5px;
         }
@@ -1418,13 +1618,15 @@ padding:13px;
     }
 
     @include mQ-other(361px,480px){
-        width:100%;
+        width:auto;
+        max-width:90vw;
         label{
             font-size: 0.7em;
         }
         input{
             font-size:0.7em;
-            width:150px;
+            width:auto;
+            max-width:50vw;
             height:20px;
             padding:5px;
         }
@@ -1509,10 +1711,12 @@ input, select{
 
     @include mQ-phones(360px){
         font-size:1.3em;
+        max-width: 100vw;
     }
 
     @include mQ-other(361px,480px){
         font-size:1.3em;
+        max-width: 100vw;
     }
 
     @include mQ-other(481px, 768px){
@@ -1546,7 +1750,7 @@ input, select{
             font-size:0.8em;
         }
         img{
-            max-width:50px;
+           display:none;
         }
     }
     
@@ -1751,27 +1955,30 @@ input, select{
 /***** AUTH - SIGN IN, SIGN UP, LOG OUT *****/
 
 .auth-form-container{
+    position: relative;
     width:100vw;
-    height:100vh;
+    min-height:100vh;
+    overflow-x: hidden;
 
     @include mQ-phones(360px){
         max-width: 100vw;
-        overflow: hidden;
     }
     
     @include mQ-other(361px, 480px){
         max-width: 100vw;
-        overflow: hidden;
     }
 }
 
 .auth-form-holder{
-    width:600px;
     border: 2px solid $mainDarkerColor;
     border-radius:20px;
-    padding: 20px;
+    padding: 20px 0px;
     background-color:$mainDarkerColor;
     color:$mainLighterColor;
+    margin-top:20px;
+    margin-bottom:20px;
+    overflow-x: hidden;
+    width:100vw;
 
     form label{
         color:$mainLighterColor;
@@ -1785,35 +1992,51 @@ input, select{
     @include mQ-other(361px,480px){
         width:100vw;
         border-radius: 1px;
+        padding:40px 0px;
+        font-size:1.3em;
+    }
+
+    @include mQ-other(481px,768px){
+        width:80vw;
+        padding:40px 20px;
     }
 
     @include mQ-other(769px,1149px){
+        width:50vw;
+        padding:40px 20px;
         font-size:0.8em;
     }
 
-    @include mQ-other(1699px,2299px){
+     @include mQ-other(1150px, 1699px){
+         width:50vw;
+         padding:40px 20px;
+    }
 
+
+    @include mQ-other(1700px,2298px){
+        width:50vw;
+        padding:50px 20px;
+        font-size:1.25em;
     }
 
     @include mQ-largerDesktops(2299px){
-        width:800px;
+        width:50vw;
+        padding:50px 20px;
         font-size:1.5em;
     }
 }
 
 .auth-form-line{
     margin:10px;
-    width:500px;
+
     label{
         font-size:1em;
     }
     input[type=text], input[type=email], input[type=password]{
-        width:300px;
         font-size:0.8em;
-        height:40px;
         padding:10px;
         &:focus{
-            border:2px solid $yellowColor;
+            border:1px solid $yellowColor;
         }
     }
 
@@ -1825,33 +2048,45 @@ input, select{
     }
 
     @include mQ-phones(360px){
-        width:300px;
+        width:100vw;
+        flex-direction: column-reverse;
+
         label{
-            font-size: 0.7em;
+            display:none;
         }
+
+        #newsletter-label{
+            display:inline;
+            margin-top:10px;
+        }
+
         input[type=text], input[type=email], input[type=password]{
-            font-size:0.6em;
-            width:150px;
-            height:30px;
+            font-size:16px;
+            width:80vw;
         }
 
         input[type=checkbox]{
             margin-top:10px;
-            height:12px;
-            width:12px;
+            height:16px;
+            width:16px;
             padding:10px;
         }
     }
 
     @include mQ-other(361px,480px){
-        width:300px;
+        width:100vw;
+        flex-direction: column-reverse;
         label{
-            font-size: 0.7em;
+            display:none;
         }
+
+        #newsletter-label{
+            display:block;
+        }
+
         input[type=text], input[type=email], input[type=password]{
-            font-size:0.6em;
-            width:150px;
-            height:30px;
+            font-size:16px;
+            width:70vw;
         }
 
         input[type=checkbox]{
@@ -1860,25 +2095,61 @@ input, select{
             width:12px;
             padding:10px;
         }
-    } 
+    }
+
+    @include mQ-other(481px,768px){
+        width:65vw;
+        input[type=text], input[type=email], input[type=password]{
+            width:60%;
+        }
+        ::placeholder{
+           margin-left:10px;
+        }
+    }
 
     @include mQ-other(769px,1149px){
-        width:400px;
+        width:40vw;
         input[type=text], input[type=email], input[type=password]{
-            width:250px;
-            height:30px;
-            padding:5px;
+            width:65%;
         }
-        input[type=checkbox]{
-            height:10px;
-            width: 10px;
+        ::placeholder{
+           margin-left:10px;
         }
+    }
 
+    @include mQ-other(1150px, 1699px){
+    width:30vw;
+    input[type=text], input[type=email], input[type=password]{
+        width:60%;
+    }
+    ::placeholder{
+       margin-left:10px;
+    }
+    }
+
+    @include mQ-other(1700px, 2299px){
+        width:30vw;
+        input[type=text], input[type=email], input[type=password]{
+            width:60%;
+        }
+        ::placeholder{
+           margin-left:10px;
+        }
+    }
+
+    @include mQ-largerDesktops(2299px){
+        width:30vw;
+        input[type=text], input[type=email], input[type=password]{
+            width:60%;
+        }
+        ::placeholder{
+            margin-left:10px;
+        }
     }
 }
 
 .auth-message{
-    max-width: 500px;
+    max-width: 100%;
     margin-top:30px;
     margin-bottom:30px;
     text-align: center;
@@ -1890,12 +2161,14 @@ input, select{
         font-size:0.8em;
         margin-top:10px;
         margin-bottom: 10px;
+        max-width: 100vw;
     }
 
     @include mQ-other(361px,480px){
         font-size:0.8em;
         margin-top:10px;
         margin-bottom: 10px;
+        max-width: 100vw;
     }
 }
 
@@ -1955,10 +2228,15 @@ input, select{
     justify-content: space-around;
     padding:20px 50px;
 
+    .shopping-people-number{
+        margin-top:20px;
+        margin-bottom:20px;
+    }
+
     @include mQ-phones(360px){
         flex-direction: column;
         padding:0px;
-        .margin-bottom{
+        .shopping-people-number{
             font-size:0.7em;
         }
     }
@@ -1966,7 +2244,7 @@ input, select{
     @include mQ-other(361px,480px){
     flex-direction: column;
     padding:0px;
-    .margin-bottom{
+    .shopping-people-number{
         font-size:0.7em;
     }
     }
@@ -2033,11 +2311,16 @@ input, select{
 
 .single-item-right-container{
     justify-content: flex-start;
+    align-items: center;
     background-color:$mainDarkerColor;
     padding:15px;
     border-radius:5px;
     color:$mainLighterColor;
     margin-left:20px;
+
+    .rating-my-container{
+        justify-content: center;
+    }
 
     @include mQ-phones(360px){
         font-size:0.7em;
@@ -2128,6 +2411,7 @@ input, select{
 
 .single-item-name{
     font-size:1.8em;
+    text-align: center;
 
     @include mQ-phones(360px){
         font-size:1.5em;
@@ -2143,8 +2427,44 @@ input, select{
 }
 
 .single-item-cost{
-    font-size:21px;
+    margin:3px;
+    font-size: 2em;
+    font-weight: bold;
     text-decoration: underline;
+    color:white;
+
+    @include mQ-phones(360px){
+        font-size: 2.2em;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size: 2.3em;
+    }
+
+    @include mQ-other(481px,768px){
+        font-size:2.5em;
+    }
+    
+
+}
+
+.single-item-brand{
+    font-size:1.2em;
+    margin:3px;
+
+    @include mQ-phones(360px){
+        font-size: 1.6em;
+    }
+
+    @include mQ-other(361px,480px){
+        font-size: 1.6em;
+    }
+
+    @include mQ-other(481px,768px){
+        font-size:1.5em;
+    }
+    
+
 }
 
 .single-item-to-animation{
@@ -2200,37 +2520,69 @@ input, select{
 }
 
 .current-directory{
-    height:70px;
-    margin-left:200px;
+    margin-top:10px;
+    margin-bottom:10px;
+    width:100vw;
+
+    button{
+        padding:10px 30px;
+        background-color: white;
+        font-size:1em;
+        border:1px solid black;
+    
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.2);
+    }
+    }
     
     @include mQ-phones(360px){
-        margin-top:0px;
+        margin-top:10px;
         margin-bottom:10px;
-        margin-left:0px;
         font-size:0.4em;
-        height: 40px;
+
+        button{
+            font-size:1.3em;
+            padding: 8px 20px;
+        }
     }
 
     @include mQ-other(361px,480px){
-    margin-top:0px;
+    margin-top:10px;
     margin-bottom:10px;
-    margin-left:0px;
     font-size:0.6em;
-    height: 40px;
+
+    button{
+        padding: 8px 20px;
+    }
     }
 
     @include mQ-other(481px, 768px){
-        margin-left:15px;
-        height: 40px;
         font-size:0.7em;
+        margin-top:20px;
+        margin-bottom: 0px;
     }
 
     @include mQ-other(769px,1149px){
-        margin-left:50px;
-        height:50px;
         font-size:0.8em;
+        margin-top:30px;
+        margin-bottom: 10px;
     }
 
+    @include mQ-other(1150px, 1699px){
+    margin-top:30px;
+    margin-bottom: 10px;
+    }
+
+    @include mQ-other(1700px, 2299px){
+     margin-top:20px;
+     margin-bottom: 0px;
+    }
+
+    @include mQ-largerDesktops(2299px){
+        margin-top:10px;
+        margin-bottom: 0px;
+    }
 
 }
 
@@ -2532,13 +2884,16 @@ margin:5px;
     background-color: $mainDarkerColor;
     color:$mainLighterColor;
     border-radius: 10px;
+    padding:8px 15px;
 
     @include mQ-phones(360px){
-        font-size:0.7em;
+        padding:8px 15px;
+        font-size:0.85em;
     }
 
     @include mQ-other(361px,480px){
-        font-size:0.7em;
+        padding:8px 15px;
+        font-size:0.85em;
     }
 
     @include mQ-other(1150px, 1699px){
@@ -3183,7 +3538,7 @@ margin-top:50px;
         align-items: center;
         margin-top:20px;
         ul{
-            width:50vw;
+            width:70vw;
             font-size:0.8em;
             text-align: center;
         }
@@ -3280,6 +3635,7 @@ margin-top:50px;
     color:$mainLighterColor;
     padding:30px;
     min-height: 40vh;
+    min-width:60vw;
 
     @include mQ-phones(360px){
         margin-top:50px;
@@ -4426,12 +4782,27 @@ color:black;
         color:$whiteColor;
     }
 
+    button{
+        padding:10px 20px;
+        border-radius: 10px;
+    }
+
     @include mQ-phones(360px){
-        width:90vw;
+        width:100vw;
+        padding:5px;
+        p{
+            width:80%;
+            text-align: center;
+        }
     }
 
     @include mQ-other(361px,480px){
-        width:90vw;
+        width:100vw;
+        padding:5px;
+        p{
+            width:80%;
+            text-align: center;
+        }
     }
 
     @include mQ-largerDesktops(2299px){
@@ -4621,29 +4992,29 @@ p{
     }
 
     @include mQ-phones(360px){
-        width:16.5px;
+        width:7vw;
         font-size:0.55em;
-        height:16.5px;
+        height:7vw;
         margin:3px;
     }
 
     @include mQ-other(361px,480px){
-        width:16.5px;
+        width:7vw;
         font-size:0.55em;
-        height:16.5px;
+        height:7vw;
         margin:3px;
     }
 
     @include mQ-other(481px, 768px){
-        width:18px;
+        width:3.5vw;
         font-size:0.6em;
-        height:18px;
-        margin:3px;
+        height:3vw;
+        margin:3.5px;
     }
 
     @include mQ-other(769px,1149px){
-        width:23px;
-        height:23px;
+        width:25px;
+        height:25px;
     }
 
     @include mQ-other(1150px, 1699px){
@@ -5305,6 +5676,7 @@ margin-bottom:50px;
         font-weight: 600;
         background-color:#E8B64A;
         &:hover{
+            cursor: pointer;
             transform: scale(1.1);
             border:1px solid black;
             padding:4px;
@@ -5690,6 +6062,7 @@ margin-bottom:30px;
 .rating-my-container{
     display:flex;
     align-items: center;
+    font-size:0.5em;
 
     @include mQ-phones(360px){
         height:30px;
@@ -5804,10 +6177,12 @@ float: right;
 
 .buy_button{
     text-align: center;
-    margin-bottom: 5px;
-    width: 65%;   
+    margin-bottom: 15px;
+    min-width: 65%;   
+    max-width: 100%;
     background-color: $buyButtonColor;
     color: $mainDarkerColor;
+    font-size:0.7em;
     border:2px solid black;
     border-radius:5px;
     transition: all 0.3s ease-in-out;
@@ -5818,27 +6193,38 @@ float: right;
     }
 
     @include mQ-phones(360px){
-        font-size:0.65em;
+        font-size:0.75em;
+        margin-bottom:5px;
+        padding: 3px 8px;
     }
 
     @include mQ-other(361px,480px){
-      font-size:0.65em;
+      font-size:0.8em;
+      margin-bottom:5px;
+      padding: 5px 10px;
     }
     
     @include mQ-other(481px,768px){
-     font-size:0.7em;
+     margin-bottom: 5px;
+     font-size:0.8em;
+     padding:5px 10px;
     }
     
     @include mQ-other(769px,1149px){
         font-size: 0.8em;
+        padding:7px 15px;
+        margin-bottom: 10px;
     }
 
     @include mQ-other(1150px, 1699px){
         font-size:1.1em;
+        padding:8px 15px;
     }
     
     @include mQ-largerDesktops(1700px){
-        font-size:1.5em;
+        min-width:70%;
+        font-size:1.2em;
+        padding:8px 15px;
     }
 }
 
@@ -5853,7 +6239,6 @@ float: right;
 
 .detailed-buy-button{
     text-align: center;
-    width: 200px;   
     background-color: $buyButtonColor;
     color: $mainDarkerColor;
     border-top: 2px solid black;
@@ -5866,37 +6251,45 @@ float: right;
     }
 
     @include mQ-phones(360px){
-        font-size:0.8em;
-        width:100px;
-        height:20px;
+        font-size:1.3em;
+        width:50vw;
+        padding:7px 15px;
         display:flex;
         justify-content: center;
         align-items: center;
     }
 
     @include mQ-other(361px,480px){
-      font-size:0.8em;
-      width:100px;
-      height:20px;
+      font-size:1.3em;
+      width:50vw;
+      padding:7px 15px;
       display:flex;
       justify-content: center;
       align-items: center;
     }
     
-    @include mQ-other(481px,767px){
-     
+    @include mQ-other(481px,768px){
+        width:200px;
+        padding:7px 15px;
+        font-size:1.5em
     }
     
-    @include mQ-other(768px,1149px){
-        font-size: 20px;
+    @include mQ-other(769px,1149px){
+        width:200px;
+        padding:7px 15px;
+        font-size:1.5em;
     }
 
     @include mQ-other(1150px, 1699px){
-        font-size:20px;
+        width:250px;
+        padding:10px 20px;
+        font-size:1.5em;
     }
     
     @include mQ-largerDesktops(1700px){
-        font-size:25px;
+        width:300px;
+        padding:10px 20px;
+        font-size:1.7em;
     }
 }
 
@@ -5963,39 +6356,6 @@ span{
     display:none;
 }
 
-.margin-bottom{
-
-    @include mQ-phones(360px){
-        margin-bottom:4px;
-        font-size:0.4em;
-    }
-
-    @include mQ-other(361px,480px){
-      margin-bottom:4px;
-      font-size:0.4em;
-    }
-
-    @include mQ-other(481px,768px){
-     font-size:0.5em;
-     margin-bottom:7px;
-    }
-
-    @include mQ-other(769px,1149px){
-        margin-bottom: 8px;
-        font-size:0.6em;
-    }
-
-    @include mQ-other(1150px, 1699px){
-        margin-bottom: 10px;
-        font-size:10.5px;
-    }
-
-    @include mQ-largerDesktops(1700px){
-        margin-bottom: 12px;
-        font-size:13.5px;
-}
-}
-
 .spinner-container{
 width: 100vw;
 height: 50vw;
@@ -6003,6 +6363,14 @@ height: 50vw;
 
 .visibility-none{
     visibility: hidden;
+}
+
+@include mQ-phones(481px){
+    input[type=text]
+    input[type=number],
+    textarea {
+      font-size: 16px !important;
+    }
 }
 
 /**** FLEXBOX KLASE *****/

@@ -56,7 +56,6 @@ class Home extends Component {
           successMessage:"Item added to the cart!"
         })
       }).catch(err => {
-        console.log(err);
         this.setState({
           error: true,
           errorMessage: err.response.data || "Something went wrong!"
@@ -72,7 +71,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-
+    window.scrollTo(0,0);
     if(this.props.appStates.filteredReady){
      if(this.props.appStates.usingFilter){
       if(this.props.appStates.filters.brand.length !== 0){
@@ -273,7 +272,6 @@ class Home extends Component {
                 })
             }, 800)
             }).catch(err => {
-                console.log(err.response);
                 this.setState({
                     error:true,
                     errorMessage:err.response.data || "Something went wrong!"
@@ -290,7 +288,6 @@ class Home extends Component {
           }  
         })
     }).catch(err => {
-      console.log(err);
         document.getElementById('loginForm').elements[0].disabled = false;
         document.getElementById('loginForm').elements[1].disabled = false;
         return this.setState({
@@ -439,7 +436,6 @@ class Home extends Component {
         }
       }
     } else if(e.target.className === 'buy_button'){
-      console.log(item);
       guestAction = {
         type:"buy",
         payload:item
@@ -517,14 +513,15 @@ class Home extends Component {
     */
   }
 
-  handleMobileMenu = (type) => {
+  handleMobileMenu = (e, type) => {
+   if(e.target.nodeName === "I"){
     if (type === "close") {
       this.setState({ mobileMenuOpen: false })
     }
     else {
       this.setState({ mobileMenuOpen: true })
     }
-
+   }
   }
 
   handlePrice(items, filteredItems) {
@@ -695,9 +692,9 @@ class Home extends Component {
     `;
 
     return (
-      <div className="fx-column" onClick={this.closeSort} >
-        <div className="fx-basic fx-justify-around" id="home-container">
-          {windowWidth(480) ? null : <div id="mobile-side-menu" onClick={e => this.handleMobileMenu(this.state.mobileMenuOpen ? "close" : "open")}>
+      <div onClick={this.closeSort} >
+        <div className="fx-basic fx-wrap fx-justify-around" id="home-container">
+          {windowWidth(480) ? null : <div id="mobile-side-menu" onClick={e => this.handleMobileMenu(e, this.state.mobileMenuOpen ? "close" : "open")}>
             <i className="fas fa-bars"></i>
             {<FilterMenu
             brands={this.props.adminData.brands}

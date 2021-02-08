@@ -78,6 +78,7 @@ class MainProfile extends Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0,0);
         if (this.props.items.length !== 0) {
             const notifications = this.props.user.contactForms.reduce((acc, curr) => {
                 if (!curr.answerRead) {
@@ -371,7 +372,6 @@ class MainProfile extends Component {
                 error: true,
                 errorMessage: err.response.data
             })
-            console.log(err)
         })
     }
 

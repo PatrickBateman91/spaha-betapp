@@ -31,9 +31,8 @@ class FinalizePurchase extends Component {
             pageLoaded:false,
             selectedPaymentMethod: "credit-card",
             success:false
-        }
+    }
     
-
     componentDidMount(){
         if(this.props.items.length > 0){
             this.gettingCartData();
@@ -172,7 +171,7 @@ class FinalizePurchase extends Component {
         let total = detailedCart.reduce((acc, curr) => {
             return (curr.cost * curr.amount) + acc;
         }, 0);
-        if(total === 0){
+        if(total === 0 && !this.state.success){
             this.props.history.push('/');
         }
         this.setState({
@@ -253,14 +252,20 @@ class FinalizePurchase extends Component {
        newFormData.cardCity = copyFields.cardCity;
        newFormData.cardCountry = copyFields.cardCountry;
        newFormData.cardPostalCode = copyFields.cardPostalCode;
+       
+        document.body.style.pointerEvents = "none";
+        document.body.style.cursor = "wait";
+
        const creditCardPromise = creditCardRequest('credit card', newFormData);
        creditCardPromise.then(res => {
-        this.props.updatePurchases(res.data);
-        this.props.updateCart([]);
-        this.props.needsUpdateFunction(true);
-
            this.setState({
                success:true
+           }, () => {            
+       document.body.style.pointerEvents = "auto";
+       document.body.style.cursor = "auto";
+            this.props.updatePurchases(res.data);
+            this.props.updateCart([]);
+            this.props.needsUpdateFunction(true);
            })
        }).catch(err => {
            let errorMessage = ""
@@ -272,18 +277,22 @@ class FinalizePurchase extends Component {
                errorMessage
            })
        })
+
     }
 
     handlePayPal = (order) => {
-        console.log(order);
+        document.body.style.pointerEvents = "none";
+        document.body.style.cursor = "wait";
        const payPalPromise = payPalRequest("paypal");
        payPalPromise.then(res => {
-        this.props.updatePurchases(res.data);
-        this.props.updateCart([]);
-        this.props.needsUpdateFunction(true);
-
            this.setState({
                success:true
+           }, () => {
+            document.body.style.pointerEvents = "auto";
+            document.body.style.cursor = "auto";
+            this.props.updatePurchases(res.data);
+            this.props.updateCart([]);
+            this.props.needsUpdateFunction(true);
            })
        }).catch(err => {
         let errorMessage = ""

@@ -89,7 +89,8 @@ class AddItem extends Component {
         }
 
     componentDidMount(){
-        uploadNewItemRequest('remove-temp-files');
+        window.scrollTo(0,0);
+       // uploadNewItemRequest('remove-temp-files');
     }
 
     componentWillUnmount(){
@@ -255,7 +256,6 @@ class AddItem extends Component {
                         }
                  
                     }).catch(err => {
-                        console.log(err);
                         return this.setState({
                             error: true,
                             errorMessage: "Could not upload image!"

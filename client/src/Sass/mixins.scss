@@ -8,9 +8,15 @@
 }
 
 @mixin mQ-phones($arg){
-        @media screen and (max-width: $arg) and (orientation: portrait){
+        @media screen and (max-width: $arg){
             @content;
         }
+}
+
+@mixin mQ-phones-landscape($arg){
+    @media screen and (max-width: $arg) and (orientation: landscape){
+        @content;
+    }
 }
 
 @mixin mQ-other($min, $max){

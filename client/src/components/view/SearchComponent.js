@@ -55,6 +55,7 @@ addToCart = (size, amount) => {
 }
 
 componentDidMount(){
+  window.scrollTo(0,0);
     if(this.props.items.length !== 0){
         this.setState({pageLoaded: true}, () => {
             this.updateSearch();
@@ -153,7 +154,6 @@ handleCredentials = (e) => {
                       })
                   }, 800)
                   }).catch(err => {
-                      console.log(err.response);
                       this.setState({
                           error:true,
                           errorMessage:err.response.data || "Something went wrong!"
@@ -180,7 +180,6 @@ handleCredentials = (e) => {
             
         })
     }).catch(err => {
-      console.log(err.response);
         document.getElementById('loginForm').elements[0].disabled = false;
         document.getElementById('loginForm').elements[1].disabled = false;
         return this.setState({
@@ -225,7 +224,6 @@ handleModal = (e,item) => {
               }
             }
           } else if(e.target.className === 'buy_button'){
-            console.log(item);
             guestAction = {
               type:"buy",
               payload:item

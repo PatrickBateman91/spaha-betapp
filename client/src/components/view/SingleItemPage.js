@@ -13,7 +13,7 @@ import { currentUrl } from '../dumbComponents/Mode';
 
 
 class SingleItemPage extends Component {
-        state={
+    state={
         currentImage: "",
         earlierRating: null,
         error: false,
@@ -66,7 +66,6 @@ addToCart = () => {
                       successMessage:"Item added to the cart!"
                     })
                   }).catch(err => {
-                      console.log(err.response);
                     this.setState({
                       error: true,
                       errorMessage: err.response.data || "Something went wrong!"
@@ -87,7 +86,6 @@ addToCart = () => {
                   )}
       }
       else if(this.state.selectedSize === null){
-          console.log("Ja 2")
         this.setState({
             error:true,
             errorMessage:`Please select size!`})  
@@ -143,6 +141,7 @@ this.setState({
 }
 
 componentDidMount(){
+    window.scrollTo(0,0);
     if(this.props.items.length !== 0){
     let item = null;
     for(let i = 0; i < this.props.items.length; i++){
@@ -242,7 +241,7 @@ componentDidUpdate(prevProps){
             currentImage: 0
         }, () => {
               this.getRandomSuggestions();
-
+              window.scrollTo(0,0);
         })
   }else{
     this.props.history.push('/404');
@@ -367,7 +366,6 @@ handleCredentials = (e) => {
                     })
                 }, 800)
                 }).catch(err => {
-                    console.log(err.response);
                     this.setState({
                         error:true,
                         errorMessage:err.response.data || "Something went wrong!"
@@ -384,7 +382,6 @@ handleCredentials = (e) => {
               }  
         })
     }).catch(err => {
-      console.log(err.response);
         document.getElementById('loginForm').elements[0].disabled = false;
         document.getElementById('loginForm').elements[1].disabled = false;
         return this.setState({
@@ -534,6 +531,10 @@ handleSize = (newSize) => {
     }
 }
 
+reDirect = () => {
+    this.props.history.push('/');
+  }
+
 updateRating(value,id){
 
     let newRating = {
@@ -550,7 +551,6 @@ updateRating(value,id){
             numberOfVotes : response.data.numberOfVotes});
         this.props.needsUpdateFunction(true);
     }).catch(err => {
-        console.log(err);
         this.setState({
             error:true,
             errorMessage:err.response.data || "Something went wrong!"
@@ -559,7 +559,6 @@ updateRating(value,id){
 }
 
 render() {
-
     let otherImages = [];
     let newCost;
     if(this.state.pageReady){
@@ -579,8 +578,9 @@ render() {
             <Fragment>
                 {this.state.pageReady ?
                 <div className="fx-column single-item-container" onClick={this.closeModal}>
-                <div className="fx-basic fx-align-center current-directory">
+                <div className="fx-basic fx-justify-around fx-align-center current-directory">
                     <span >{`Amar Shop / Shoes / ${this.state.item.brand} / ${this.state.item.fullName}`}</span>
+                    <button onClick={this.reDirect}>Back</button>
                 </div>
                 <div className="single-item-holder">
                     <div className="fx-column single-item-left-container relative">
@@ -598,9 +598,9 @@ render() {
                     </div>
 
                     <div className="fx-column single-item-right-container">
-                        <div className="fx_center">
+                        <div className="fx-column fx-center-all">
                             <p className="single-item-name">{this.state.item.fullName}</p>
-                            <p>{this.state.item.brand}</p>
+                            <p className="single-item-brand">{this.state.item.brand}</p>
                         </div>
                         <p className="single-item-cost">{newCost.toFixed(2)} $</p>
                         <div>
@@ -611,7 +611,7 @@ render() {
                                 userRatings={this.props.user.userRatings}
                                 userId={this.props.user._id}
                             /> : null}
-                             <div className="margin-bottom center">{this.state.item.numberOfVotes} people rated this item!</div>
+                             <div className="shopping-people-number center">{this.state.item.numberOfVotes} people rated this item!</div>
                         </div>
                         <Sizes
                             item={this.state.item}
@@ -671,11 +671,7 @@ render() {
                 user="guest"
          /> : null}
             </div>
-
-
-                : null}
-      
-            
+                : null}      
             </Fragment>
         )
 }}

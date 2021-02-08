@@ -10,9 +10,6 @@ const PayPalPayment = (props) => {
      });
 //Da budu max dvije decimale da paypal ne izbacuje error
      const totalNumber = parseFloat(formatter.format(total));
-
-     console.log("Ja?")
-     console.log(document.getElementById('paypal-button-container'))
      
     useEffect(() => {
         window.paypal.getFundingSources().forEach(function(fundingSource) {

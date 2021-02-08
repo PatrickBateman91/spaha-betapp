@@ -22,6 +22,10 @@ const itemPictureStorage = multer.diskStorage({
 })
 const upload = multer({
     storage: itemPictureStorage,
+    onError: (err, next) => {
+        res.send(err);
+        next(err);
+    },
     fileFilter: (req, file, cb) => {
 
         if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {

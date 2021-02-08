@@ -115,30 +115,30 @@ if(!errorTrigger){
                         <div className="signUpFields">
                             <div className="auth-form-line  fx-basic fx-justify-between fx-align-center">
                                 <label htmlFor="firstName">First Name</label>
-                                <input type="text" id="firstName" placeholder="Enter your first name"></input>
+                                <input type="text" id="firstName" placeholder="First name"></input>
                             </div>
 
-                            <div className="auth-form-line  fx-basic fx-justify-between fx-align-center">
+                            <div className="auth-form-line fx-basic fx-justify-between fx-align-center">
                                 <label htmlFor="lastName">Last Name</label>
-                                <input type="text" id="lastName" placeholder="Enter your last name"></input>
+                                <input type="text" id="lastName" placeholder="Last name"></input>
                             </div>
 
-                            <div className="auth-form-line  fx-basic fx-justify-between fx-align-center">
+                            <div className="auth-form-line fx-basic fx-justify-between fx-align-center">
                                 <label htmlFor="userAddress">Address</label>
-                                <input type="text" id="userAddress" placeholder="Enter your address"></input>
+                                <input type="text" id="userAddress" placeholder="Address"></input>
                             </div>
 
-                            <div className="auth-form-line  fx-basic fx-justify-between fx-align-center">
+                            <div className="auth-form-line fx-basic fx-justify-between fx-align-center">
                                 <label htmlFor="email">Email</label>
-                                <input type="email" id="email" placeholder="Enter your email adress"></input>
+                                <input type="email" id="email" placeholder="Email"></input>
                             </div>
 
-                            <div className="auth-form-line  fx-basic fx-justify-between fx-align-center">
+                            <div className="auth-form-line fx-basic fx-justify-between fx-align-center">
                                 <label htmlFor="password">Password</label>
-                                <input type="password" id="password" placeholder="Enter your password" autoComplete="password"></input>
+                                <input type="password" id="password" placeholder="Password" autoComplete="password"></input>
                             </div>
-                            <div className="auth-form-line  fx-basic fx-justify-between fx-align-center">
-                                <label htmlFor="newsletter">Sign up for newsletter</label>
+                            <div className="auth-form-line fx-basic fx-justify-between fx-align-center">
+                                <label htmlFor="newsletter" id="newsletter-label">Sign up for newsletter</label>
                                 <input defaultChecked={true} type="checkbox" id="newsletter"></input>
                             </div>
 

@@ -16,6 +16,7 @@ class ManageFeedback extends Component {
     
 
     componentDidMount() {
+        window.scrollTo(0,0);
         if (this.props.user.hasOwnProperty("_id") && this.props.type === "user" && !this.props.user.admin) {
             this.setState({
                 pageLoaded: true
@@ -36,7 +37,6 @@ class ManageFeedback extends Component {
                 })
             }).catch(err => {
                 let errorMessage = "Something went wrong";
-                console.log(err.response)
                 if(typeof err.response.data === "string"){
                     errorMessage = err.response.data;
                 }

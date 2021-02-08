@@ -24,6 +24,7 @@ class Charts extends Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0,0);
         if (this.props.chartsData.length > 0) {
             this.getCurrentData();
         }

@@ -10,8 +10,6 @@ export const accountDetailsRequest = (type, details) => {
             type
         }
     }
-    console.log(type);
-    console.log(details);
     return new Promise((resolve,reject) =>{
         axios.post(`${currentUrl}/profile:id`, {details}, config).then(response => {
             return resolve(response);

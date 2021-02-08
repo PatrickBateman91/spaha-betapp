@@ -74,7 +74,6 @@ const ShoppingItem = (props) =>  {
                numberOfVotes : response.data.numberOfVotes});
            props.needsUpdateFunction(true);
         }).catch(err => {
-            console.log(err);
         })
     }
 
@@ -102,7 +101,6 @@ const ShoppingItem = (props) =>  {
             props.updateFavourites(response.data);
             props.needsUpdateFunction(true);
          }).catch(err => {
-             console.log(err);
          })
         }
         else{
@@ -113,10 +111,15 @@ const ShoppingItem = (props) =>  {
 
     let items;
     let slicedItems = [];
-        let firstValue = (parseInt(props.currentPage) - 1) * 24;
-        let secondValue = (parseInt(props.currentPage) * 24);
+    let maxNumber = 24;
+    if(window.screen.width > 1149 && window.screen.width < 1700){
+        maxNumber = 20;
+    }
+
+        let firstValue = (parseInt(props.currentPage) - 1) * maxNumber;
+        let secondValue = (parseInt(props.currentPage) * maxNumber);
         slicedItems = props.items.slice(firstValue, secondValue); 
-    
+
 
     if(props.currentPage === undefined){
         slicedItems = props.items

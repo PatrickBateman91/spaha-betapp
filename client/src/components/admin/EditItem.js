@@ -295,7 +295,6 @@ class EditItem extends Component {
                             item:copyItem
                         })
                     }).catch(err => {
-                        console.log(err);
                         return this.setState({
                             error: true,
                             errorMessage: "Could not upload image!"

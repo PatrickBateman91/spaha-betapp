@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import { sendNewsletterRequest } from '../axios/AdminRequests';
+import {windowWidth} from '../dumbComponents/ReusableFunctions';
 
 const SendNewsletter = (props) => {
+    window.scrollTo(0,0);
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [success, setSuccess] = useState(false);
@@ -53,7 +55,7 @@ const SendNewsletter = (props) => {
                      <form name="send-newsletter" id="send-newsletter" className="fx-column" onChange={handleChange} onSubmit={handleSubmit}>
                             <label htmlFor="contact-subject">Subject</label>
                             <input type="text" id="contact-subject" placeholder="What is email about?"></input>
-                            <textarea rows={window.innerWidth > 1280 ? "25" : window.innerWidth > 1000 ? "20" : window.innerWidth > 768 ? "15" : "10"} cols={window.innerWidth > 1280 ? "100" : window.innerWidth > 1000 ? "85" : window.innerWidth > 768 ? "75" : "50"}></textarea>
+                            <textarea rows={window.innerWidth > 1280 ? "25" : window.innerWidth > 1000 ? "20" : window.innerWidth > 768 ? "15" : "10"} cols={window.innerWidth > 1280 ? "100" : window.innerWidth > 1000 ? "85" : window.innerWidth > 768 ? "75" : "30"}></textarea>
                             <div className={`fx-basic fx-justify-center ${error ? "" : "visibility-none"}`}><span className={`auth-message auth-error`}>{error ? errorMessage : "Basic error"}</span></div>
                             <button form="send-newsletter">Submit</button>
                         </form>

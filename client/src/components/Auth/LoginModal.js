@@ -48,7 +48,7 @@ const LoginModal = (props) => {
             </div>
         </div> : null}
         <div className={`${!props.error && !props.success ? "visibility-none auth-message" : props.error ? "fx-basic fx-justify-center auth-error auth-message" : "fx-basic fx-justify-center auth-success auth-message"} `}><span>{props.error ? props.errorMessage : props.successMessage}</span></div>
-                            <div className="formButton fx-basic fx-justify-center">
+                            <div className="fx-basic fx-justify-center">
                     <button type="submit" onClick={e => props.handleCredentials(e)} form="loginForm">{props.buttonText}</button>
                             </div>
                     </form>

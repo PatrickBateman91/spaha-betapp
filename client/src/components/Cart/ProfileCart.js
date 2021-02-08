@@ -57,7 +57,6 @@ class ProfileCart extends Component {
             clickedCartId: cartId,
             clickedItemId: itemId
         }, () => {
-            console.log(this.state)
             this.handleEditChange(cartId, itemId, "amount")
         })
     }
@@ -109,12 +108,10 @@ class ProfileCart extends Component {
         }
         const moveToFavouritesPromise = profileCartRequest('move to favourites', idObject);
         moveToFavouritesPromise.then(response => {
-            console.log(response);
             this.props.updateFavourites(response.data.newFavourites);
             this.props.updateCart(response.data.newCart);
             this.props.needsUpdateFunction(true);
         }).catch(err => {
-            console.log(err);
             this.setState({
                 error: true,
                 errorMessage: "Something went wrong"
@@ -128,7 +125,6 @@ class ProfileCart extends Component {
             this.props.updateCart(res.data);
             this.props.needsUpdateFunction(true);
         }).catch(err => {
-            console.log(err)
             this.setState({
                 error: true,
                 errorMessage: err.response.data || "Something went wrong"

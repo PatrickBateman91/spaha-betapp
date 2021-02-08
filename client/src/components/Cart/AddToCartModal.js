@@ -32,7 +32,6 @@ const AddToCartModal = (props) => {
         );
     }
     else{
-        console.log(props);
     }
 };
 
