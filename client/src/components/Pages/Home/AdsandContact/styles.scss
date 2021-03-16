@@ -1,0 +1,213 @@
+@use '../../../../assets/Sass/mixins.scss';
+@use '../../../../assets/Sass/variables.scss';
+
+.ads-and-contact-container{
+    @include mixins.homeSectionMargin;
+
+    @include mixins.mQ-phones(480px){
+        flex-direction: column;
+    }
+}
+
+.ad-home{
+    width:40%;
+    height:400px;
+    background-image: url(../../../../assets/images/add-background.jpg);
+
+    a{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width:100%;
+        height: 100%;
+
+        img{
+            position: relative;
+            left:50px;
+            object-fit: contain;
+            width:350px;
+        }
+
+        span{
+            color:#FFFAE4;
+            text-align: center;
+            font-size:2.4em;
+            width:100%;
+            font-family: 'Grandstander', cursive;
+         }
+    }
+
+    &:hover{
+        cursor: pointer;
+    }
+
+    @include mixins.mQ-phones(480px){
+        width: 100vw;
+        margin-top:10px;
+        height: 200px;
+        font-size:0.6em;
+        a img{
+            left:0px;
+            width:50vw;
+        }
+    }
+
+
+    @include mixins.mQ-other(481px, 768px){
+        height:200px;
+        width:45%;
+
+        a{
+            span{
+                font-size:1em;
+            }
+
+            img{
+                width:200px;
+                left:0px;
+            }
+        }
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        height:200px;
+
+        a{
+            span{
+                font-size: 1em;
+            }
+
+            img{
+                left:10px;
+                width: 150px;
+            }
+        }
+    }
+
+    @include mixins.mQ-other(1150px, 1699px){
+        width: 40%;
+        font-size: 1.4em;
+
+        a{
+            span{
+                font-size:1.1em;
+            }
+
+            img{
+                left:30px;
+                width:300px;
+            }
+        }
+    }
+
+    @include mixins.mQ-other(1700px, 2298px){
+        font-size:0.8em;
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        height:400px;
+        width:35%;
+        font-size:1em;
+
+            a img{
+                width:400px;
+            }
+    }
+}
+
+.contact-home-container{
+    width: 40%;
+    height:400px;
+    background-image: url(https://img.freepik.com/free-photo/white-background-texture_23-2148573901.jpg?size=626&ext=jpg);
+
+    @include mixins.mQ-phones(360px){
+        width: 100vw;
+        margin-top:10px;
+        height:200px;
+        font-size: 0.8em;
+    }
+    
+    @include mixins.mQ-other(361px,480px){
+        width: 100vw;
+        margin-top:10px;
+        height:200px;
+        font-size: 0.8em;
+    }
+    
+    @include mixins.mQ-other(481px, 768px){
+        font-size:0.75em;
+        height:200px;
+        width:45%;
+    }
+    
+    @include mixins.mQ-other(769px,1149px){
+        height:200px;
+        font-size:0.8em;
+    }
+
+    @include mixins.mQ-other(1150px,1699px){
+        width: 40%;
+    }
+
+    @include mixins.mQ-other(1700px, 2298px){
+        font-size:0.8em;
+    }
+    
+    @include mixins.mQ-largerDesktops(2299px){
+        width:35%;
+        height:400px;
+        font-size:1em;
+    }
+}
+
+.contact-home-title{
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    text-align: center;
+    margin:5px;
+
+    &:nth-child(2){
+        color: #4E4E4E;
+    }
+    
+    &:last-child{
+        color:black;
+    }
+}
+
+#contact-home-button{
+    background-color: variables.$mainDarkerColor;
+    color:variables.$mainLighterColor;
+    border-radius: 10px;
+    padding:8px 15px;
+    border:2px solid black;
+
+    @include mixins.mQ-phones(360px){
+        padding:8px 15px;
+        font-size:0.85em;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        padding:8px 15px;
+        font-size:0.85em;
+    }
+
+    @include mixins.mQ-other(1150px, 1699px){
+        font-size:1em;
+        padding:10px;
+    }
+
+    @include mixins.mQ-largerDesktops(1700px){
+        font-size:1.7em;
+        padding:10px 20px;
+    }
+
+    &:hover{
+        cursor: pointer;
+        transform:scale(1.05);
+        color: variables.$mainDarkerColor;
+        background-color:variables.$whiteColor;
+        border:2px solid black;
+    }
+}

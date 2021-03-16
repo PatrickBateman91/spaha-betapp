@@ -1,0 +1,151 @@
+@use '../../../assets/Sass/mixins.scss';
+@use '../../../assets/Sass/variables.scss';
+
+/***** HOME *****/
+#home-container{
+    width:100vw;
+    justify-content: space-between;
+
+    @include mixins.mQ-phones(360px){
+        flex-direction: column;  
+    }
+    
+    @include mixins.mQ-other(361px,480px){
+      flex-direction: column;  
+    }
+}
+
+#mobile-side-menu{
+    position: relative;
+    width:100vw;
+    z-index:10;
+    margin-bottom: 10px;
+    margin-top:10px;
+    
+    i{
+        margin-left:20px;
+    }
+}
+
+#home-holder{
+    width:98%;
+    background-image: url(../../../assets/images/holder-background.jpg);
+
+    @include mixins.mQ-other(361px,480px){
+        width:100vw;
+        border:none;
+        background-color: variables.$backgroundColor;
+    }
+
+    @include mixins.mQ-other(481px,767px){
+        margin:5px 10px 5px 5px;
+        width:100vw;
+    }
+}
+
+.home-shopping-container{
+    position: relative;
+    width:83%;
+    min-height:100vh;
+
+    @include mixins.mQ-phones(360px){
+        width:100vw;
+        border:none;
+        padding:0px;    
+    }
+
+    @include mixins.mQ-other(361px, 480px){
+        border:none;
+        width:100vw;
+        padding:0px;
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        width:70%;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        width:80%;
+    }
+}
+
+.home-bottom-holder{
+    position: relative;
+    width:100vw;
+    margin-top:20px;
+    margin-bottom:20px;
+    flex-direction: column;
+
+    @include mixins.mQ-phones(360px){
+        width:100vw;
+        flex-direction: column;
+        left:0vw;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        width:100vw;
+        flex-direction: column;
+        left:0vw;
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        flex-direction: row;
+        width:100vw;
+        left:0vw;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        flex-direction: row;
+        left:3vw;
+    }
+
+    @include mixins.mQ-largerDesktops(1150px){
+        flex-direction: row;
+        width:70vw;
+    }
+}
+
+/***** PAGINATION *****/
+
+#pagination-container{
+    display:flex;
+    position: relative;
+    width:100vw;
+    justify-content: center;
+    margin-top:20px;
+}
+
+.pagination-number{
+    @include mixins.mQ-phones(360px){
+        font-size:0.7em;
+        margin: 0px 10px;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        font-size:0.7em;
+        margin: 0px 10px;
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        margin:8px;
+        font-size:0.8em;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        margin: 0px 10px;
+    }
+
+    @include mixins.mQ-other(1150px, 1699px){
+        padding:13px;
+    }
+
+    @include mixins.mQ-largerDesktops(1700px){
+        padding:20px;
+    }
+
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.3);
+        text-decoration: underline;
+    }
+}

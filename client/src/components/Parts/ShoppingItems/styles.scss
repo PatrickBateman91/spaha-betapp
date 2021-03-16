@@ -1,0 +1,711 @@
+@use '../../../assets/Sass/mixins.scss';
+@use '../../../assets/Sass/variables.scss';
+
+/***** SHOPPING ITEM *****/
+.shopping-item{
+    position: relative;
+    border:2px solid black;
+    background: linear-gradient(to bottom, #cedce7 0%,#596a72 100%,#dbeafc 100%);
+    color: variables.$washedBlack;
+    transition:transform 0.2s ease-in;
+
+    p {
+        text-align:center;
+        color:black;
+    }
+
+    img{
+        object-fit: cover;
+        overflow:hidden;
+        max-width:50vw;
+    }
+
+    .shopping-item-brand{
+        margin:2px;
+    }
+
+    .shopping-item-cost{
+        font-size:1.5em;
+        font-weight: bold;
+        margin:2px;
+    }
+
+    .shopping-people-number{
+        margin-bottom: 12px;
+        font-size:0.9em;
+    }
+
+    .shopping-top{
+        position:absolute;
+        top:0px;
+        background-image: url(../../../assets/images/best.png);
+        background-size: 100% 100%;
+        width:40px;
+        height:40px;
+    }
+
+    &:hover{
+        transform: scale(1.06);
+        z-index:5;
+
+        .favourite-icon-container{
+            display:inline-block;
+        }
+    }
+
+    @include mixins.mQ-phones(360px){
+        min-height: 200px;
+
+        .shopping-item-brand{
+            font-size:0.6em;
+
+            p{
+                margin-top:0px;
+                margin-bottom:0px;
+            }
+        }
+
+        .shopping-item-cost{
+            font-size:0.8em;
+            margin:2px;
+
+            p{
+                margin-top:0px;
+                margin-bottom:0px;
+            }
+        }
+
+        .shopping-people-number{
+            margin-bottom:4px;
+            font-size:0.55em;
+        }
+
+        .shopping-top{
+            width:30px;
+            height:30px;
+        }
+
+        .shopping-item-image img{
+            height:70px;
+        }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        box-shadow: 2px 4px 7px 2px rgba(0,0,0,0.19);
+        min-height: 200px;
+
+        .shopping-item-brand{
+            font-size:0.65em;
+
+            p{
+                margin-top:0px;
+                margin-bottom:0px;
+            }
+        }
+
+        .shopping-item-cost{
+            font-size: 0.8em;
+            margin:2px;
+
+            p{
+                margin-top:0px;
+                margin-bottom:0px;
+            }
+        }
+
+        .shopping-people-number{
+              margin-bottom:8px;
+              font-size:0.65em;
+        }
+
+        .shopping-top{
+            width:30px;
+            height:30px;
+        }
+
+        .shopping-item-image img{
+            height:90px;
+        }
+    }
+
+    @include mixins.mQ-other(481px,768px){
+        box-shadow: 5px 8px 15px 4px rgba(0,0,0,0.19);
+
+        .shopping-item-brand{
+            font-size:8px;
+
+            p{
+                margin-top:0px;
+                margin-bottom:0px;
+            }
+        }
+
+        .shopping-item-cost{
+            margin:3px;
+            font-size:0.8em;
+
+            p{
+                margin-top:0px;
+                margin-bottom:0px;
+            }
+        }
+
+        .shopping-people-number{
+            font-size:0.6em;
+            margin-bottom:7px;
+        }
+        
+        .shopping-top{
+            top:2px;
+            width:25px;
+            height:25px;
+        }
+
+        .shopping-item-image img{
+            height:100px;
+            width:100%;
+        }
+    }
+
+    @include mixins.mQ-other(769px,1135px){
+        box-shadow: 8px 12px 25px 6px rgba(0,0,0,0.19);
+
+        p {
+            margin-top:1px;
+            margin-bottom:1px;
+            font-size:0.8em;
+        }
+
+        .shopping-people-number{
+            margin-bottom: 8px;
+            font-size:0.6em;
+        }
+
+        .shopping-item-cost{
+            font-size:1.1em;
+        }
+
+        .shopping-top{
+            width:35px;
+            height:35px;
+        }
+    }
+
+    @include mixins.mQ-other(1135px,1380px){
+        p {
+            margin-top:2px;
+            margin-bottom:2px;
+        }
+
+        .shopping-people-number{
+            margin-bottom: 10px;
+            font-size:10.5px;
+        }
+    
+        .shopping-item-cost{
+            font-size:1.1em;
+        }
+    
+        .shopping-top{
+            width:35px;
+            height:35px;
+        }
+    }
+
+    @include mixins.mQ-other(1380px, 1699px){
+        box-shadow: 8px 13px 22px 3px rgba(0,0,0,0.19);
+
+        p {
+            margin-top:2px;
+            margin-bottom:2px;
+        }
+        
+        .shopping-item-cost{
+            font-size:1.2em;
+        }
+        
+        .shopping-people-number{
+            margin-bottom: 10px;
+            font-size:10.5px;
+        }
+    }
+
+    @include mixins.mQ-other(1700px, 2299px){
+        box-shadow: 10px 16px 30px 7px rgba(0,0,0,0.19);
+
+        p {
+            margin-top:2px;
+            margin-bottom:2px;
+        }
+
+        .shopping-people-number{
+            margin-bottom: 12px;
+            font-size:0.95em;
+        }
+
+        .shopping-item-cost{
+            font-size:1.1em;
+        }
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        box-shadow: 10px 16px 30px 7px rgba(0,0,0,0.19);
+
+        p {
+            margin-top:2px;
+            margin-bottom:2px;
+        }
+    
+        .shopping-people-number{
+            margin-bottom: 12px;
+            font-size:1em;
+        }
+    
+        .shopping-top{
+            width:50px;
+            height:50px;
+        }
+    }
+}
+
+.sh-item-full{
+    margin: 10px;
+    width: calc(100% * 1 / 6 - 20px);
+
+    @include mixins.mQ-phones(360px){
+        margin: 10px;
+        width: calc(100% * 1 / 2 - 20px);
+    }
+    
+    @include mixins.mQ-other(361px, 480px){
+        margin: 10px;
+        width: calc(100% * 1 / 2 - 20px);
+    }
+
+    @include mixins.mQ-other(481px,768px){
+        margin: 10px;
+        width: calc(100% * 1 / 3 - 20px);
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        margin: 10px;
+        width: calc(100% * 1 / 4 - 20px);
+    }
+
+    @include mixins.mQ-other(1150px,1699px){
+        margin: 10px;
+        width: calc(100% * 1 / 5 - 20px);
+    }
+}
+
+.sh-item-half{
+    margin: 10px;
+    width: calc(100% * 1 / 4 - 20px);
+
+    @include mixins.mQ-phones(360px){
+        margin: 5px;
+        width: calc(100% * 1 / 2 - 10px);
+    }
+
+    @include mixins.mQ-other(361px, 480px){
+        margin: 10px;
+        width: calc(100% * 1 / 2 - 20px);
+    }
+
+    @include mixins.mQ-other(481px,768px){
+        margin: 10px;
+        width: calc(100% * 1 / 3 - 20px);
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        margin: 10px;
+        width: calc(100% * 1 / 3 - 20px);
+    }
+}
+
+.shopping-item-discount{
+    position:absolute;
+    bottom: 10px;
+    right: -30px;
+    width: 140px;
+    height: 30px;
+    transform: rotate(-40deg);
+    color:#FFC300;
+    background-color: variables.$redWarningColor;
+    border-radius: 30px;
+    z-index:5;
+
+    div{
+        display: flex;
+        justify-content: center;
+        font-size:22px;
+    }
+
+    @include mixins.mQ-phones(360px){
+        width:60px;
+        height:15px;
+        bottom:10px;
+        right:-15px;
+
+        div{
+            font-size:0.5em;
+        }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+      width:60px;
+      height:15px;
+      bottom:10px;
+      right:-15px;
+
+      div{
+          font-size:0.5em;
+      }
+    }
+
+    @include mixins.mQ-other(481px,768px){
+        width:70px;
+        height:20px;
+        bottom:0px;
+        right:-20px;
+
+        div{
+            font-size:0.7em;
+        }
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        width:100px;
+        height:20px;
+
+        div{
+            font-size:0.7em;
+    }
+}
+
+    @include mixins.mQ-other(1699px,2299px){
+       div{
+            font-size:0.9em;
+       }
+    }
+}
+
+.shopping-item-title{
+    text-transform: uppercase;
+    border-bottom: 1px solid black;
+
+    @include mixins.mQ-phones(360px){
+        font-size:0.6em;
+        margin:0px;
+
+        .bold{
+            font-size:0.8em;
+        }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        font-size:0.7em;
+        margin:0px;
+
+        .bold{
+            font-size:0.8em;
+        }
+    }
+
+    @include mixins.mQ-other(481px,768px){
+        height:30px;
+        font-size:10px;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        height:40px;
+        font-size:14px;
+    }
+    
+    @include mixins.mQ-other(1150px, 1699px){
+        height:35px;
+        font-size:13.5px;
+    }
+
+    @include mixins.mQ-largerDesktops(1700px){
+        height:50px;
+        font-size:18px;
+    }
+}
+
+.shopping-item-favourite{
+    border:4px ridge white;
+    box-shadow: 0 0 20px #9ecaed;
+
+    @include mixins.mQ-phones(360px){
+        border:1px ridge white;
+    }
+}
+
+.shopping-item-image {
+    width: 100%;
+
+    img{
+        object-fit: content;
+        width:100%;
+    }
+}
+
+.favourite-icon-container{
+    display:none;
+    position:absolute;
+    color:black;
+    top:0px;
+    right:5px;
+
+    @include mixins.mQ-phones(360px){
+        top:0px;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+      top:0px;
+    }
+    
+    @include mixins.mQ-other(768px,1149px){
+        font-size:16px;
+    }
+
+    @include mixins.mQ-other(1150px, 1699px){
+        font-size:17px;
+    }
+    
+    @include mixins.mQ-largerDesktops(1700px){
+        font-size:22px;
+    }
+}
+
+/**** SIZES ****/
+
+.sizes-container{
+    width:50%;
+
+    p{ 
+        width:30px;
+        height:30px;
+        margin:5px;
+        padding:8px;
+        border:1px solid black;
+    }
+    
+    @include mixins.mQ-phones(360px){
+        width:75%;
+        margin-bottom: 10px;
+        align-self: center;
+
+        p{
+            margin:5px;    
+        }
+    }
+    
+    @include mixins.mQ-other(361px,480px){
+        width:75%;
+        align-self: center;
+        margin-bottom:10px;
+
+        p{
+            margin:5px;   
+        }
+    }
+    
+    @include mixins.mQ-other(1150px, 1699px){
+        p{ 
+            width:42px;
+            height:42px;
+            padding:1px;
+            border:1px solid black;
+        } 
+    }
+    
+    @include mixins.mQ-other(1700px, 2299px){
+        width:250px;
+    
+        p{ 
+            width:42px;
+            height:42px;
+            margin:5px;
+            padding:1px;
+            border:1px solid black;
+        } 
+    }
+    
+    @include mixins.mQ-largerDesktops(2299px){
+        width:270px;
+    
+        p{ 
+            width:50px;
+            margin:5px;
+            height:50px;
+            border:1px solid black;
+        }
+    }
+}
+
+.sizes-checked{
+    background-color:black;
+    color:variables.$whiteColor;
+}
+
+.sizes-available{
+    background-color: rgb(46, 139, 41);
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.sizes-not-available{
+    background-color:variables.$redWarningColor;
+}
+
+.error-size{
+    color: variables.$redWarningColor;
+    text-shadow: 1px 1px 1px rgba(0,0,0, 0.5);
+    margin-top:2px;
+    text-align: center;
+    background-color: variables.$whiteColor;
+    padding:5px;
+
+    @include mixins.mQ-phones(360px){
+        font-size: 0.5em;
+        padding:3px;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        font-size: 0.5em;
+        padding:3px;
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        font-size:0.55em;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        font-size:0.6em;
+    }
+
+    @include mixins.mQ-other(1150px, 1699px){
+        font-size:0.65em;
+    }
+
+    @include mixins.mQ-other(1700px, 2299px){
+        font-size:0.6em;
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        font-size:0.9em;
+    } 
+}
+    
+/** Star Ratings**/
+.rating-my-container{
+    display:flex;
+    align-items: center;
+    font-size:0.5em;
+
+    @include mixins.mQ-phones(360px){
+        height:30px;
+        font-size:0.3em;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        height:30px;
+        font-size:0.3em;
+    }
+
+    @include mixins.mQ-other(481px,768px){
+        font-size:0.35em;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        font-size:0.6em;
+    }
+
+    @include mixins.mQ-other(1150px, 1699px){
+       font-size:0.7em;
+    }
+
+    @include mixins.mQ-other(1700px, 2299px){
+        font-size: 0.9em;
+    }
+}
+
+.rating, .user-rating { 
+    border: none;
+    float:left;
+}
+
+.rating fieldset, .rating label, .user-rating fieldset, .user-rating label { 
+    margin: 0; 
+    padding: 0; 
+}
+
+.rating > input, .user-rating > input { 
+    display: none; 
+} 
+
+.rating > label:before, .user-rating > label:before { 
+  font-family: "Font Awesome 5 Free";
+  display: inline-block;
+  font-weight: 900;
+  content: "\f005";
+  margin:5px;
+
+    @include mixins.mQ-phones(360px){
+        margin:3px;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        margin:3px;
+    }
+    
+    @include mixins.mQ-largerDesktops(1700px){
+        margin: 5px;
+        font-size: 1.25em;
+    }
+}
+
+.rating > .half:before, .user-rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label, .user-rating > label { 
+    color:black; 
+    float: right; 
+}
+
+.rating > input:checked ~ label {
+    color:variables.$yellowColor;
+}
+
+.user-rating > input:checked ~ label {
+    color: variables.$buyButtonColor;
+}
+
+.user-rating:hover > input:checked ~ label {
+    color: black;
+}
+
+.rating:hover > input:checked ~ label {
+    color:black;
+}
+
+.user-rating:not(:checked) > label:hover, 
+.user-rating:not(:checked) > label:hover ~ label,
+.rating:not(:checked) > label:hover, 
+.rating:not(:checked) > label:hover ~ label { color: variables.$buyButtonColor; }
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: variables.$buyButtonColor;  } 
+
+.user-rating > input:checked + label:hover, /* hover current star when changing rating */
+.user-rating > input:checked ~ label:hover,
+.user-rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.user-rating > input:checked ~ label:hover ~ label { color: variables.$buyButtonColor;  } 

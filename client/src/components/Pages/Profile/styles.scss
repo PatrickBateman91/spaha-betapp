@@ -1,0 +1,835 @@
+@use '../../../assets/Sass/mixins.scss';
+@use '../../../assets/Sass/variables.scss';
+
+
+/***** ACCOUNT DETAILS *****/
+.account-details-holder{
+    min-height: 40vh;
+}
+
+.account-details-holder form, .account-details-holder .account-details-recheck{
+    background-color:variables.$listLighterColor;
+    color:black;
+
+@include mixins.mQ-phones(360px){
+    padding:10px;
+    border-radius:30px;
+
+    div{
+        font-size:0.8em;
+        padding:10px;
+        width:75vw;
+
+        input{
+            font-size:0.75em;
+        }
+        label{
+            color:variables.$mainDarkerColor;
+        }
+    }
+}
+
+@include mixins.mQ-other(361px,480px){
+        padding:10px;
+        border-radius:30px;
+
+        div{
+            font-size:0.8em;
+            padding:10px;
+            width:75vw;
+
+            input{
+                font-size:0.75em;
+            }
+            label{
+                color:variables.$mainDarkerColor;
+            }
+        }
+}
+
+@include mixins.mQ-other(768px,1149px){
+    margin-left:30px;
+    margin-top:10px;
+    padding:10px;
+    border-radius:30px;
+
+    div{
+        font-size:0.8em;
+        padding:10px;
+        width:350px;
+
+        input{
+            font-size:0.8em;
+        }
+        }
+}
+
+@include mixins.mQ-other(1150px, 1699px){
+        margin-left:30px;
+        margin-top:50px;
+        padding:10px;
+        border-radius:30px;
+
+        div{
+            font-size:0.8em;
+            padding:10px;
+            width:350px;
+
+            input{
+                font-size:0.8em;
+            }
+            }
+    }
+@include mixins.mQ-other(1699px,2299px){
+        padding:20px;
+        border-radius:30px;
+
+        div{
+            padding:20px;
+            width:500px;
+            }
+    }
+
+@include mixins.mQ-largerDesktops(2299px){
+        padding:20px;
+        margin-top:50px;
+        border-radius:30px;
+
+        div{
+            padding:20px;
+            width:500px;
+            }
+}
+}
+
+.account-details-changed{
+    background-color: variables.$yellowColor;
+}
+
+.account-details-buttons{
+    button{  
+        &:nth-child(1){
+            background-color:variables.$lightGreen;
+            color:black;
+
+            &:hover{
+                background-color: variables.$greenColor;
+            }
+        }
+
+        &:nth-child(2){
+            background-color:variables.$whiteColor;
+            color:black;
+
+            &:hover{
+                background-color:variables.$greyColor;
+            }
+        }
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    @include mixins.mQ-phones(360px){
+        margin-top:30px;
+
+        button{
+            padding:5px;
+            border-radius: 3px;
+        }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        margin-top:30px;
+
+        button{
+            padding:5px;
+            border-radius: 3px;
+        }
+    }
+
+    @include mixins.mQ-other(768px,1149px){
+        height:45px;
+
+        button{
+            font-size:11px;
+            margin-top:20px;
+            padding:5px;
+            border-radius: 20px;
+        }
+    }
+    
+    @include mixins.mQ-other(1150px, 1699px){
+        height:60px;
+
+        button{
+            font-size:14px;
+            margin-top:20px;
+            padding:5px;
+            border-radius: 20px;
+        }
+    }
+
+    @include mixins.mQ-largerDesktops(1700px){
+        button{
+            font-size:1em;
+            margin-top:20px;
+            padding:10px;
+            border-radius: 30px;
+        }
+    }
+}
+
+.account-details-modal{
+    width:600px;
+    padding:60px 40px;
+    background-color: variables.$mainDarkerColor;
+    border-radius:5px;
+    border:2px solid variables.$whiteColor;
+
+    p, label{
+        color:variables.$whiteColor;
+    }
+
+    button{
+        padding:10px 20px;
+        border-radius: 10px;
+    }
+
+    @include mixins.mQ-phones(360px){
+        width:100vw;
+        padding:5px;
+
+        p{
+            width:80%;
+            text-align: center;
+        }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        width:100vw;
+        padding:5px;
+
+        p{
+            width:80%;
+            text-align: center;
+        }
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        width:1000px;
+    }
+}
+
+.account_modal{
+    padding:30px 60px;
+    border-radius: 10px;
+    background-color: variables.$mainDarkerColor;
+    color:variables.$mainLighterColor;
+
+    button{
+        margin-top: 20px;
+        padding: 10px 15px;
+        border-radius: 18px;
+        color:variables.$mainDarkerColor;
+        cursor: pointer;
+    }
+
+    @include mixins.mQ-phones(360px){
+        margin-top:10px;
+        font-size:0.85em;
+        padding: 4px 7px;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        margin-top:10px;
+        font-size:0.85em;
+        padding: 4px 7px;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        margin-top:0px;
+        font-size:1.25em;
+    }
+
+    @include mixins.mQ-other(1150px, 1698px){ 
+        font-size:1.3em;
+    }
+
+    @include mixins.mQ-other(1699px,2299px){
+        font-size:1.4em;
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        font-size:1.3em;
+    }
+}
+
+/***** PROFILE ******/
+.profile-container{
+    width:100%;
+    
+    @include mixins.mQ-other(481px, 768px){
+        flex-direction: column;
+        align-items: center !important;
+    }
+    
+    @include mixins.mQ-other(769px,1149px){
+        margin:30px;
+        justify-content: space-around;
+    }
+    
+    @include mixins.mQ-other(1150px, 1699px){
+        margin-top:50px;
+    }
+    
+    @include mixins.mQ-largerDesktops(1700px){
+        justify-content: space-around;
+        margin-top:100px;
+        background-color: variables.$backgroundColor;
+    }
+    
+}
+    
+.profile-left{
+        align-items: flex-start;
+        background-color: variables.$mainDarkerColor;
+        color:variables.$mainLighterColor;
+        border:2px solid black;
+        border-radius: 12px;
+    
+        ul{
+            width:100%;
+            list-style-type: none;
+    
+            li{
+                border:1px solid black; 
+                
+                &:first-child{
+                    border-top-left-radius: 12px;
+                    border-top-right-radius: 12px;
+                }
+    
+                &:last-child{
+                    border-bottom-left-radius: 12px;
+                    border-bottom-right-radius: 12px;
+                }
+    
+                &:hover{
+                    cursor:pointer;
+                     background-color:variables.$hoverLighterColor;
+                     color:variables.$whiteColor;
+                }
+    
+            }
+        }
+    
+        @include mixins.mQ-phones(360px){
+            height: 200px;
+            width:100vw;
+            justify-content: center;
+            align-items: center;
+            margin-top:20px;
+
+            ul{
+                width:70vw;
+                font-size:0.8em;
+                text-align: center;
+            }
+
+            li{
+                background-color: variables.$listLighterColor;
+                color:variables.$mainDarkerColor;
+                padding:5px;
+                margin:5px;
+                border:2px solid black;
+                
+                &:first-child{
+                    border-top : 1px solid black;
+                }
+    
+                &:last-child{
+                    border-bottom : 1px solid black;
+                }
+            }
+        }
+    
+        @include mixins.mQ-other(361px,480px){
+            height: 200px;
+            width:100vw;
+            justify-content: center;
+            align-items: center;
+            margin-top:20px;
+
+            ul{
+                width:50vw;
+                font-size:0.8em;
+                text-align: center;
+            }
+
+            li{
+                background-color: variables.$listLighterColor;
+                color:variables.$mainDarkerColor;
+                padding:5px;
+                margin:5px;
+                border:2px solid black;
+                
+                &:first-child{
+                    border-top : 1px solid black;
+                }
+    
+                &:last-child{
+                    border-bottom : 1px solid black;
+                }
+            }
+    
+        }
+    
+        @include mixins.mQ-other(481px, 768px){
+            width:300px;
+            text-align: center;
+            margin-top:20px;
+            margin-bottom: 50px;
+            ul li{
+                font-size:0.6em;
+                padding:12px;
+                border:1px solid black;
+            }
+        }
+    
+        @include mixins.mQ-other(769px,1149px){
+            width:150px;
+    
+            ul li{
+                font-size:0.6em;
+                padding:12px;
+                border:1px solid black;
+            }
+        }
+    
+        @include mixins.mQ-other(1150px, 1699px){
+            ul li{
+                font-size:12px;
+                padding:15px;
+                border:1px solid black;
+            }
+        }
+    
+        @include mixins.mQ-largerDesktops(1700px){
+            max-width: 25vw;
+
+            ul li{
+                font-size:1em;
+                padding:25px;
+                width:300px;
+            }
+        }
+}
+    
+.profile-right{
+        flex-wrap: wrap;
+        align-items: baseline;
+        background-color: variables.$mainDarkerColor;
+        color:variables.$mainLighterColor;
+        padding:30px;
+        min-height: 40vh;
+        min-width:60vw;
+    
+        @include mixins.mQ-phones(360px){
+            margin-top:50px;
+            margin-bottom:20px;
+            padding-top:20px;
+            width:100vw;
+            min-height:50vh;
+            padding:10px;
+        }
+    
+        @include mixins.mQ-other(361px,480px){
+            margin-top:50px;
+            margin-bottom:20px;
+            padding-top:20px;
+            width:100vw;
+            min-height:50vh;
+            padding:10px;
+        }
+    
+        @include mixins.mQ-other(481px, 768px){
+            width:100vw;
+            margin-bottom:20px;
+        }
+    
+        @include mixins.mQ-other(769px,1149px){
+            width:70%;
+            border-radius:10px;
+            margin-bottom:30px;
+            padding:20px;
+        }
+    
+        @include mixins.mQ-other(1150px, 1699px){
+            width:70%;
+            border-radius:10px;
+            margin-bottom:30px;
+        }
+      
+        @include mixins.mQ-other(1699px,2299px){
+            max-width:60vw;
+            min-height:500px;
+            border-radius:10px;
+            margin-bottom:50px;
+        }
+    
+        @include mixins.mQ-largerDesktops(2299px){
+            width:1500px;
+            min-height: 800px;
+            border-radius:10px;
+            margin-bottom:50px;
+        }
+}
+    
+.empty-profile-div{
+        width:500px;
+        min-height: 40vh;
+    
+        @include mixins.mQ-phones(360px){
+            font-size:0.8em;
+        }
+    
+        @include mixins.mQ-other(361px,480px){
+            font-size:0.8em;
+        }
+    
+        @include mixins.mQ-other(1150px, 1699px){
+            font-size:0.9em;
+        }
+    
+        @include mixins.mQ-largerDesktops(2299px){
+            font-size:1.6em;
+        }
+}
+
+/***** PURCHASES ******/
+
+.purchase-table{
+    width:100%;
+
+    @include mixins.mQ-phones(360px){
+        width:100vw;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        width:100vw;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        font-size:0.8em;
+    }
+}
+
+.purchase-header{
+    background-color:black;
+
+    div{
+        display:flex;
+        align-items:center;
+        color:variables.$whiteColor;
+    
+        @include mixins.mQ-phones(360px){
+            width:100px;
+            font-size:0.7em;
+        }
+    
+        @include mixins.mQ-other(361px,480px){
+            width:100px;
+            font-size:0.7em;
+        }
+    
+        @include mixins.mQ-other(481px, 768px){
+            font-size:0.8em;
+            width:140px;
+            height:30px;
+        }
+    
+        @include mixins.mQ-other(769px,1149px){
+            width:170px;
+            height: 50px;
+        }
+    
+        @include mixins.mQ-other(1150px, 1699px){
+            width:170px;
+            height: 50px;
+        }   
+    
+        @include mixins.mQ-other(1699px,2299px){
+            width:170px;
+        }
+    
+        @include mixins.mQ-largerDesktops(2299px){
+            width:250px;
+        }
+    }
+}
+
+.purchase-item{
+    position: relative;
+    border-bottom:1px solid black;
+    font-size: 0.8em;
+
+    &:nth-child(even){
+        background-color:variables.$listLighterColor;
+        color:black;
+    }
+
+    &:nth-child(odd){
+        background-color:variables.$listDarkerColor;
+        color:black;
+    }
+
+    @include mixins.mQ-phones(360px){
+        justify-content: space-evenly;
+
+        div{
+            font-size:0.8em;
+            width:50px;
+        }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        justify-content: space-evenly;
+
+        div{
+            font-size:0.8em;
+            width:50px;
+        }
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        div{
+            width: 140px;
+        }
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        padding: 3px;
+
+        div{
+            width:160px;
+            height:40px;
+        }
+    }
+    
+    @include mixins.mQ-other(1150px, 1699px){
+        padding: 3px;
+
+        div{
+            width:160px;
+            height:40px;
+        }
+    }
+        
+    @include mixins.mQ-other(1699px,2299px){
+        padding: 5px;
+
+        div{
+            width:160px;
+        }
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        padding:5px;
+
+        div{
+            width:250px;
+        }
+    }
+}
+
+.purchase-name{
+    text-align: center;
+
+    @include mixins.mQ-phones(360px){
+        font-size:0.6em !important;
+        margin-right:22px;
+    }
+    
+    @include mixins.mQ-other(361px,480px){
+        font-size:0.6em !important;
+        margin-right:22px;
+    }
+    
+    @include mixins.mQ-other(481px, 768px){
+        margin-left:30px;
+        font-size: 0.8em;
+        margin-right:40px;
+    }
+    
+    @include mixins.mQ-other(769px,1149px){
+        margin-left:30px;
+        margin-right:60px;
+    }
+    
+    @include mixins.mQ-other(1150px, 1699px){
+        margin-left:30px;
+        margin-right:60px;
+    }
+    
+    @include mixins.mQ-largerDesktops(1700px){
+        margin-right:80px;
+    }
+}
+    
+.purchase-brand{
+    margin-right:25px;
+
+    @include mixins.mQ-phones(360px){
+        font-size:0.8em;
+    }
+    
+    @include mixins.mQ-other(361px,480px){
+        font-size:0.8em;
+    }
+}
+
+.purchase-image{
+    margin-left:4px;
+
+    @include mixins.mQ-phones(360px){
+        width:45px !important;
+
+        img, .table-empty{
+            width:35px;
+            height:35px;
+        }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        width:45px !important;
+
+        img, .table-empty{
+            width:35px;
+            height:35px;
+        }
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        width:50px !important;
+
+        img, .table-empty{
+            width:40px;
+            height:40px;
+        }
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        width:80px !important;
+
+        img, .table-empty{
+            width:40px;
+            height:40px;
+        }
+    }
+
+    @include mixins.mQ-other(1150px, 1699px){
+        width:80px !important;
+
+        img, .table-empty{
+            width:40px;
+            height:40px;
+        }
+    }
+
+    @include mixins.mQ-other(1699px,2299px){
+        width:100px !important;
+
+        img, .table-empty{
+            width:70px;
+            height:70px;
+        }
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        width:180px !important;
+
+        img, .table-empty{
+            width:80px;
+            height:80px;
+        }
+    }
+}
+
+.purchase-amount{
+    position:absolute;
+    left:60px;
+    top:25px;
+
+    @include mixins.mQ-phones(360px){
+        left:55px;
+        top:25px;
+        font-size: 0.6em !important;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        left:55px;
+        top:25px;
+        font-size: 0.6em !important;
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        font-size:0.7em;
+        left:50px;
+        top:30px;
+    }
+}
+
+.delete-purchase{
+    position: absolute;
+    padding:4px;
+    font-size: 20px;
+    right:-145px;
+    top:-10px;
+
+    @include mixins.mQ-phones(360px){
+        right:0px;
+        top:-5px;
+        text-align: right;
+    }
+    
+    @include mixins.mQ-other(361px,480px){
+        right:0px;
+        top:-5px;
+        text-align: right;
+    }
+    
+    @include mixins.mQ-other(481px, 768px){
+        font-size:0.9em;
+        right:-125px;
+        top:0px;
+    }
+    
+    @include mixins.mQ-other(769px,1149px){
+        font-size:1em;
+        top:-5px;
+    }
+    
+    @include mixins.mQ-largerDesktops(2299px){
+        right:-200px;
+        top:0px;
+    }
+
+    &:hover{
+        color:variables.$redWarningColor;
+        cursor: pointer;
+    }
+}
+
+/***** SUGGESTIONS *****/
+.suggestions-container{
+    min-height: 40vh;
+    width:100%;
+}
+
+/**** FAVOURITE ***/
+.favourites-container{
+    width:100%;
+    min-height: 40vh;
+}

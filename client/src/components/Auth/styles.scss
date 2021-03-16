@@ -1,0 +1,292 @@
+@use '../../assets/Sass/mixins.scss';
+@use '../../assets/Sass/variables.scss';
+
+.auth-form-container{
+    position: relative;
+    width:100vw;
+    min-height:100vh;
+    overflow-x: hidden;
+
+    @include mixins.mQ-phones(360px){
+        max-width: 100vw;
+    }
+    
+    @include mixins.mQ-other(361px, 480px){
+        max-width: 100vw;
+    }
+}
+
+.auth-form-holder{
+    border: 2px solid variables.$mainDarkerColor;
+    border-radius:20px;
+    padding: 20px 0px;
+    background-color:variables.$mainDarkerColor;
+    color:variables.$mainLighterColor;
+    margin-top:20px;
+    margin-bottom:20px;
+    overflow-x: hidden;
+    width:100vw;
+
+    form label{
+        color:variables.$mainLighterColor;
+    }
+
+    @include mixins.mQ-phones(360px){
+        width:100vw;
+        border-radius: 1px;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        width:100vw;
+        border-radius: 1px;
+        padding:40px 0px;
+        font-size:1.3em;
+    }
+
+    @include mixins.mQ-other(481px,768px){
+        width:80vw;
+        padding:40px 20px;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        width:50vw;
+        padding:40px 20px;
+        font-size:0.8em;
+    }
+
+     @include mixins.mQ-other(1150px, 1699px){
+         width:40vw;
+         padding:40px 20px;
+    }
+
+    @include mixins.mQ-other(1700px,2298px){
+        width:40vw;
+        padding:50px 20px;
+        font-size:1.25em;
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        width:35vw;
+        padding:50px 20px;
+        font-size:1.5em;
+    }
+}
+
+.auth-form-line{
+    margin:10px;
+
+    label{
+        font-size:1em;
+    }
+
+    input[type=text], input[type=email], input[type=password]{
+        font-size:0.8em;
+        padding:10px;
+
+        &:focus{
+            border:1px solid variables.$yellowColor;
+        }
+    }
+
+    input[type=checkbox]{
+        margin-top:10px;
+        height:15px;
+        width:15px;
+        padding:10px;
+    }
+
+    @include mixins.mQ-phones(360px){
+        width:100vw;
+        flex-direction: column-reverse;
+
+        label{
+            display:none;
+        }
+
+        #newsletter-label{
+            display:inline;
+            margin-top:10px;
+        }
+
+        input[type=text], input[type=email], input[type=password]{
+            font-size:16px;
+            width:80vw;
+        }
+
+        input[type=checkbox]{
+            margin-top:10px;
+            height:16px;
+            width:16px;
+            padding:10px;
+        }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        width:100vw;
+        flex-direction: column-reverse;
+
+        label{
+            display:none;
+        }
+
+        #newsletter-label{
+            display:block;
+        }
+
+        input[type=text], input[type=email], input[type=password]{
+            font-size:16px;
+            width:70vw;
+        }
+
+        input[type=checkbox]{
+            margin-top:10px;
+            height:12px;
+            width:12px;
+            padding:10px;
+        }
+    }
+
+    @include mixins.mQ-other(481px,768px){
+        width:65vw;
+
+        input[type=text], input[type=email], input[type=password]{
+            width:60%;
+        }
+
+        ::placeholder{
+           margin-left:10px;
+        }
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        width:40vw;
+
+        input[type=text], input[type=email], input[type=password]{
+            width:65%;
+        }
+        ::placeholder{
+           margin-left:10px;
+        }
+    }
+
+    @include mixins.mQ-other(1150px, 1699px){
+        width:30vw;
+
+        input[type=text], input[type=email], input[type=password]{
+            width:60%;
+        }
+
+        ::placeholder{
+            margin-left:10px;
+        }
+    }
+
+    @include mixins.mQ-other(1700px, 2299px){
+        width:30vw;
+
+        input[type=text], input[type=email], input[type=password]{
+            width:60%;
+        }
+        ::placeholder{
+           margin-left:10px;
+        }
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        width:30vw;
+
+        input[type=text], input[type=email], input[type=password]{
+            width:60%;
+        }
+        ::placeholder{
+            margin-left:10px;
+        }
+    }
+}
+
+.auth-message{
+    max-width: 100%;
+    margin-top:30px;
+    margin-bottom:30px;
+    text-align: center;
+    text-decoration: none;
+    font-size:1em;
+    text-shadow: 1px 1px 1px black;
+
+    @include mixins.mQ-phones(360px){
+        font-size:0.8em;
+        margin-top:10px;
+        margin-bottom: 10px;
+        max-width: 100vw;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        font-size:0.8em;
+        margin-top:10px;
+        margin-bottom: 10px;
+        max-width: 100vw;
+    }
+}
+
+.auth-error{
+    color:variables.$redWarningColor;
+}
+
+.auth-success{
+    color:variables.$greenColor;
+}
+
+.log-out-title{
+    padding:50px;
+    background-color: variables.$mainDarkerColor;
+    border-radius: 8px;
+    color:variables.$whiteColor;
+
+    @include mixins.mQ-phones(360px){
+        font-size:0.7em;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        font-size:0.7em;
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        font-size:0.8em;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        font-size:0.8em;
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        font-size:1.5em;
+    }
+}
+
+#redirect-to-sign-up{
+    position: absolute;
+    bottom:-55px;
+    right:-30px;
+    font-size:0.7em;
+
+    a{
+        color:variables.$whiteColor;
+        font-weight: normal;
+    }
+
+    &:hover{
+        a{
+            text-decoration: underline;
+        }
+    }
+
+    @include mixins.mQ-phones(360px){
+        right:0px;
+        font-size:0.5em;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        right:0px;
+        font-size:0.5em;
+    }
+}

@@ -1,0 +1,507 @@
+@use '../../../assets/Sass/mixins.scss';
+@use '../../../assets/Sass/variables.scss';
+
+.payment-container{
+    margin-top:100px;
+    width:100vw;
+    min-height:100vh;
+
+    @include mixins.mQ-phones(360px){
+        flex-direction: column;
+        align-items: center;
+        margin-top:10px;
+
+        .payment-left{
+            align-items: center;
+            order:1;
+        }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        flex-direction: column;
+        align-items: center;
+        margin-top:10px;
+
+        .payment-left{
+            align-items: center;
+            order:1;
+        }
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        margin-top:30px;
+        flex-direction: column;
+        align-items: center;
+
+        .payment-left{
+            order:1;
+        }
+    }
+}
+
+.payments-holder{
+    margin-top:20px;
+
+    .payment-line:last-child{
+        border-top:1px solid white;
+    }
+}
+
+.payment-line{
+    width:600px;
+    height:80px;
+    padding:15px;
+    color:variables.$whiteColor;
+    background-color: #281D02;
+    border-bottom:1px solid white;
+    margin-bottom:5px;
+    margin-top:5px;
+
+    div:last-child{
+        border-top:1px solid white;
+    }
+
+    #credit-card-image{
+        height:70px
+    }
+
+    #paypal-image{
+        height:30px;
+    }
+
+    input{
+        margin-right:5px;
+    }
+
+    @include mixins.mQ-phones(360px){
+        width:95vw;
+        font-size:0.8em;
+
+        #credit-card-image{
+            height:50px;
+        }
+
+        #paypal-image{
+            height:20px;
+        }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        width:95vw;
+        font-size:0.8em;
+
+        #credit-card-image{
+            height:50px;
+        }
+
+        #paypal-image{
+            height:20px;
+        }
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        font-size:1.3em;
+    }
+}
+
+.payment-expiry-line{
+    margin-top:20px;
+
+    div:not(:first-child){
+        margin-left:30px;
+    }
+
+    div:first-child{
+        margin-left:8px;
+    }
+
+    label{
+        margin-bottom:10px;
+
+        &:last-child{
+            font-size:0.8em;
+        }
+    }
+
+    input{
+        width:75px;
+        padding:2px;
+        text-align: center;
+    }
+}
+
+.payment-address-line{
+    margin-top:20px;
+
+    div:not(:first-child){
+        margin-left:30px;
+    }
+
+    div:first-child{
+        margin-left:8px;
+    }
+
+    label{
+        margin-bottom:10px;
+
+        &:last-child{
+            font-size:0.8em;
+        }
+    }
+
+    input{
+        width:125px;
+        padding:2px;
+    }
+
+    @include mixins.mQ-phones(360px){
+        input{
+            width:80px;
+        }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        input{
+            width:80px;
+        }
+    }
+}
+
+.payment-order-holder{
+    margin-top:50px;
+    color: variables.$whiteColor;
+    background-color:#171717;
+    width:400px;
+    padding:10px;
+    border:5px solid black;
+    
+    #payment-order-title{
+        margin-bottom:20px;
+        text-transform: uppercase;
+        text-align: center;
+        font-size:1.6em;
+    }
+
+    p{
+        color:variables.$whiteColor;
+        text-align:center;
+        font-size:1.3em;
+        text-transform: uppercase;
+    }
+
+    .payment-total{
+        color: #E8B64A;
+    }
+
+    @include mixins.mQ-phones(360px){
+        width:95vw;
+        padding:7px;
+        margin-top:20px;
+
+        p{
+            font-size:0.8em;
+        }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        width:95vw;
+        padding:7px;
+        margin-top:20px;
+
+        p{
+            font-size:0.8em;
+        }
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        margin-top:20px;
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        font-size:1.2em;
+        width:500px;
+
+        p{
+            font-size:1.5em;
+        }
+    }
+}
+
+.payment-cart-item{
+    border-bottom:1px solid grey;
+    padding:5px;
+    font-size:0.7em;
+
+    div span{
+        position: relative;
+        top:0px;
+        font-size:1em;
+        margin-left:20px;
+        font-weight: 400;
+        color:variables.$whiteColor;
+        font-style: italic;
+    }
+
+    @include mixins.mQ-phones(360px){
+        div{
+            font-size:0.8em;
+        }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        div{
+            font-size:0.8em;
+        }
+    }
+}
+
+#payment-secure-title{
+    font-size:1.5em;
+    width:250px;
+    margin-bottom:20px;
+
+    @include mixins.mQ-phones(360px){
+        font-size:1.2em;
+        margin-top:20px;
+        width:200px;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        font-size:1.2em;
+        margin-top:20px;
+        width:200px;
+    }
+}
+
+.payment-disclaimer{
+    @include mixins.mQ-phones(360px){
+        font-size:0.8em;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        font-size:0.8em;
+    }
+}
+
+.payment-checkout-button{
+    button {
+        font-size:1.3em;
+        border-radius:6px;
+        margin-top:30px;
+        margin-bottom:30px;
+        padding: 5px 10px;
+        font-weight: 600;
+        background-color:#E8B64A;
+
+        &:hover{
+            cursor: pointer;
+            transform: scale(1.1);
+            border:1px solid black;
+            padding:4px;
+        }
+    }
+}
+
+.payment-error{
+    margin-top:30px;
+    margin-bottom:10px;
+    color:variables.$redWarningColor;
+}
+
+.payment-success-container{
+    background-color: variables.$whiteColor;
+    width:500px;
+    height:300px;
+    border:2px solid black;
+
+    div div:first-child{
+        color:variables.$greenColor;
+
+        svg{
+            font-size:2em;
+        }
+    }
+
+    div{
+        margin:10px;
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        font-size:1.7em;
+        width:1000px;
+        height:600px;
+    }
+}
+
+.payment-complete-title{
+    font-size:3em;
+}
+
+.payment-visible{
+    animation-name: purchaseOptionsVisible !important;
+    animation-duration: 0.7s  !important;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards  !important;
+}
+
+.payment-not-visible{
+    animation-name: purchaseOptionsHidden  !important;;
+    animation-duration: 0.3s  !important;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards  !important;
+}
+
+#credit-card-container{
+    width:600px;
+    background-color: #281D02;
+    color:variables.$whiteColor;
+    margin-right:3px;
+
+    form{
+        padding:10px;
+    }
+
+    @include mixins.mQ-phones(360px){
+        width:95vw;
+        font-size:0.7em;
+
+        form input{
+            font-size:0.75em;
+        }
+    }
+    
+    @include mixins.mQ-other(361px,480px){
+        width:95vw;
+        font-size:0.7em;
+
+        form input{
+            font-size:0.75em;
+        }
+    }
+    
+    @include mixins.mQ-largerDesktops(2299px){
+       font-size:1.2em;
+
+       form input{
+           font-size:0.8em;
+       }
+    }
+}
+
+.credit-card-line{
+    padding:7px;
+    margin-top:10px;
+
+    label{
+        margin-bottom:10px;
+    }
+
+    input{
+        padding:3px 10px;
+        width:300px;
+    }
+}
+
+.credit-card-dummy{
+    position: relative;
+    top:200px;
+    width:400px;
+    background-color: variables.$mainDarkerColor;
+    color:variables.$mainLighterColor;
+    padding:30px;
+    border-radius: 10px;
+
+    span{
+        margin-left:10px;
+    }
+
+    @include mixins.mQ-phones(360px){
+        top:0px;
+        margin-top:20px;
+        font-size:0.55em;
+        padding:8px;
+        width:90vw;
+        margin-bottom:10px;
+    }
+    
+    @include mixins.mQ-other(361px,480px){
+        top:0px;
+        margin-top:20px;
+        font-size:0.55em;
+        padding:8px;
+        width:90vw;
+        margin-bottom:10px;
+    }
+    
+    @include mixins.mQ-other(481px, 768px){
+        top:0px;
+        left:150px;
+        margin-top:30px;
+        margin-bottom: 30px;
+        font-size:0.7em;
+        padding:10px;
+    }
+    
+    @include mixins.mQ-largerDesktops(2299px){
+        width:500px;
+        font-size:1.35em;
+    }
+}
+
+#paypal-container{
+    background-color: #281D02;
+    width:600px;
+    padding:20px;
+    font-size:0.8em;
+    color:variables.$whiteColor;
+    border-radius: 5px;
+    border-top:1px solid white;
+    overflow: hidden !important;
+
+    @include mixins.mQ-phones(360px){
+        width:95vw;
+        margin-bottom:20px;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        width:95vw;
+        margin-bottom:20px;
+    }
+}
+
+.paypal-disclaimer{
+    font-weight: 100;
+    margin-bottom:50px;
+
+    @include mixins.mQ-phones(360px){
+        font-size: 0.8em;
+        margin-bottom: 20px;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        font-size: 0.8em;
+        margin-bottom: 20px;
+    }
+}
+
+.paypal-container-class{
+    width:350px;
+    margin-top:30px;
+
+    @include mixins.mQ-phones(360px){
+        width:150px;
+        margin-top:15px;
+    }
+    
+    @include mixins.mQ-other(361px,480px){
+        width:150px;
+        margin-top:15px;
+    }
+}
+
+.paypal-bold{
+    margin-left:5px;
+    margin-right:5px;
+    font-weight: 500;
+    text-decoration: underline;
+}

@@ -1,0 +1,1 @@
+export const currentUrl = "https://spaha-shop.herokuapp.com";

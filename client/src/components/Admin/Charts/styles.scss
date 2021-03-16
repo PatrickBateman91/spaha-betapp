@@ -1,0 +1,280 @@
+@use '../../../assets//Sass/mixins.scss';
+@use '../../../assets//Sass/variables.scss';
+
+#charts-holder{
+    display: flex;
+    position: relative;
+    width:100%;
+    justify-content: space-between;
+    margin:20px;
+    flex-wrap: wrap;
+
+    @include mixins.mQ-phones(360px){
+        width:100vw;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        width: 100vw;
+        margin:5px;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        justify-content: center;
+        margin:5px;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        justify-content: center;
+        margin:10px;
+    }
+}
+
+#other-charts-holder{
+    display: flex;
+    position: relative;
+    width:100%;
+    flex-direction: column;
+    align-items: space-between;
+    margin:20px;
+    flex-wrap: wrap;
+
+    @include mixins.mQ-phones(360px){
+        margin:0px;
+        overflow-x: hidden;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        margin:0px;
+        overflow-x: hidden;
+    }
+}
+
+.linear-chart-tip{
+    background-color: variables.$backgroundColor;
+    padding:5px 10px;
+
+    @include mixins.mQ-phones(360px){
+        font-size:0.8em;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        font-size:0.8em;
+    }
+}
+
+.single-pie-chart{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    min-width: 40%;
+
+    @include mixins.mQ-other(769px,1149px){
+        min-width:50%
+    }
+}
+
+.other-pie-chart{
+    display:flex;
+    min-width: 50%;
+    flex-direction: column-reverse;
+    margin-right:30vw;
+}
+
+.single-pie-title{
+    position: relative;
+    text-align: center;
+    background-color: variables.$backgroundColor;
+    color: black;
+    margin-bottom:10px;
+    width:20vw;
+
+    @include mixins.mQ-phones(360px){
+        width:70vw;
+        border:1px solid variables.$mainDarkerColor;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        width:50vw;
+        border:1px solid variables.$mainDarkerColor;
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        width:35vw;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        width:25vw;
+    }
+
+    @include mixins.mQ-other(1700px, 2299px){
+        margin-bottom: 40px;
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        margin-bottom:50px;
+    }
+}
+
+.other-pie-title{
+    position: relative;
+    text-align: center;
+    background-color: variables.$backgroundColor;
+    color: black;
+    margin-bottom:10px;
+
+    @include mixins.mQ-phones(360px){
+        margin-bottom:10px;
+        border: 1px solid variables.$mainDarkerColor;
+        width:100vw;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        margin-bottom:10px;
+        border: 1px solid variables.$mainDarkerColor;
+        width:80vw;
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        margin:0px;
+        border: 1px solid variables.$mainDarkerColor;
+    }
+    
+    @include mixins.mQ-other(769px,1149px){
+        margin:0px;
+        border: 1px solid variables.$mainDarkerColor;
+    }
+}
+
+#chart-one,#chart-two{
+    display:flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-top:50px;
+    margin-bottom: 100px;
+    min-width: 40%;
+
+    @include mixins.mQ-phones(360px){
+        margin-top:0px;
+        margin-bottom: 0px;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        margin-top:0px;
+        margin-bottom: 0px;
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        margin-top:10px;
+        margin-bottom: 10px;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        margin-top:10px;
+        margin-bottom: 20px;
+    }
+}
+
+.stats-select-container{
+    display:flex;
+    flex-wrap:wrap;
+    position: relative;
+    margin-bottom:10px;
+
+    @include mixins.mQ-phones(360px){
+        margin-bottom:5px;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        margin-bottom:5px;
+    }
+}
+
+.stats-select-item{
+    background-color: variables.$whiteColor;
+    color:black;
+    border:3px solid black;
+    padding:4px 8px;
+    margin:3px;
+
+    &:hover{
+        cursor: pointer;
+    }
+
+    @include mixins.mQ-phones(360px){
+        font-size:0.7em;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        font-size:0.7em;
+    }
+}
+
+.brand-stat-item{
+    background-color: variables.$whiteColor;
+    color:black;
+    border:1px solid black;
+    border-radius:10px;
+    padding:3px;
+    margin:2px;
+    font-size:0.7em;
+
+    &:hover{
+        cursor: pointer;
+    } 
+}
+
+.gender-stat-item{
+    background-color: variables.$whiteColor;
+    color:black;
+    border:3px solid black;
+    padding:1px 5px;
+    margin:3px;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.selected-stat-item{
+    background-color: variables.$washedBlack;
+    color:variables.$whiteColor;
+    border:2px solid white;
+}
+
+#brand-month-chart-container{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top:30px;
+    width:100%;
+
+    .other-pie-chart svg g .legendCells{
+        font-size:0.75em;
+    }
+
+    @include mixins.mQ-phones(360px){
+        justify-content: center;
+
+        .single-pie-chart{
+            font-size:0.9em;
+        }
+
+        .single-pie-title{
+            width:80vw;;
+        }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        justify-content: center;
+
+        .single-pie-title{
+            width:60vw;
+        }
+    }
+}

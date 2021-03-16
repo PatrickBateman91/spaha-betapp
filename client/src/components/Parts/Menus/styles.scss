@@ -1,0 +1,373 @@
+@use '../../../assets/Sass/mixins.scss';
+@use '../../../assets/Sass/variables.scss';
+
+/***** FILTER MENI *****/
+.fixed-container{
+    width: 12%;
+    margin-bottom:50px;
+    margin-right: 20px;
+
+    @include mixins.mQ-other(481px, 768px){
+        font-size:1.4em;
+        width:25%;
+        margin-top:40px;
+        margin-right:5px;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        width: 15%;
+        margin-top:40px;
+    }
+
+    @include mixins.mQ-other(1150px, 1699px){
+        margin-top:50px;
+        margin-right:10px;
+        width:13%;
+    }
+
+    @include mixins.mQ-other(1700px, 2299px){
+        margin-top:70px;
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        margin-top:85px;
+    }
+}
+
+#filter-menu-container{
+    background-color: variables.$mainDarkerColor;
+    color:variables.$whiteColor;
+    border:1px solid variables.$whiteColor;
+
+    section{
+        width:80%;
+    }
+
+    @include mixins.mQ-phones(360px){
+        font-size:0.7em;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+      font-size:0.7em;
+    }
+    
+    @include mixins.mQ-other(481px,768px){
+        padding:5px;
+        margin-left:5px;
+        font-size:0.5em;
+        justify-content: center; 
+
+        section{
+            width: 100%;
+        } 
+    }
+    
+    @include mixins.mQ-other(769px,1149px){
+        padding:10px;
+        margin-left:10px;
+        font-size:0.65em;
+        justify-content: center; 
+
+        section{
+            width: 95%;
+        }
+    }
+
+    @include mixins.mQ-other(1150px, 1699px){
+        padding:10px;
+        margin-left:10px;
+        font-size:0.7em;
+        justify-content: center;
+    }
+
+    @include mixins.mQ-other(1700px, 2299px){
+        padding:10px;
+        margin-left:10px;
+        font-size:0.8em;
+        justify-content: center;
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        padding:10px;
+        margin-left:20px;
+        font-size:1em;
+        justify-content: center;
+    }
+}
+
+.sizes-menu-section{
+    width:70%;
+
+    @include mixins.mQ-other(768px,1149px){
+        justify-content: flex-start !important;
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        width:95%;
+    }
+
+    p{
+        width:100%;
+    }
+}
+
+.filter-menu-section{
+    @include mixins.mQ-other(768px,1149px){
+        &:last-child{
+            p{
+                width: 100%;
+                font-size:0.9em;
+           }
+        }
+    }
+
+    @include mixins.mQ-other(1150px, 1699px){
+        p{
+            width: 100%;
+            font-size:0.8em;
+        }
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        &:last-child{
+            .filter_box{
+                justify-content: space-evenly;
+            }
+
+            p{
+                font-size: 1em;
+                width:100%;
+            }
+        }
+    }
+}
+
+.filter-menu-box{
+    width:95%;
+    margin-left:6px;
+
+    @include mixins.mQ-other(1150px, 1699px){
+        font-size:0.75em;
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        width:95%;
+    }
+}
+
+.sizes-menu-box{
+    align-items:center;
+
+    .filter-input{
+        margin-top:4px;
+        margin-left:10px;
+    }
+    
+    @include mixins.mQ-phones(360px){
+        div{
+            width:5vw;
+        }
+    }
+
+    @include mixins.mQ-other(361px, 480px){
+        div{
+            width:5vw;
+        }
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        margin:2px;
+        width:40px;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        margin:3px;
+        width:50px;
+    }
+
+    @include mixins.mQ-other(1150px, 1699px){
+            font-size:0.8em;
+            @include mixins.grid(2, 1%);
+    }
+
+    @include mixins.mQ-largerDesktops(1700px){
+        @include mixins.grid(2, 2%);
+    }
+}
+
+.filter-menu-section p, .sizes-menu-section p{
+    text-decoration: underline;
+    color:variables.$mainLighterColor;
+    letter-spacing: 1.5px;
+}
+
+/***** SECONDARY SORT *****/
+#items-to-show{
+    position:absolute;
+    z-index:20;
+    background-color: variables.$mainDarkerColor;
+    color:variables.$mainLighterColor;
+    width: 100%;
+
+    div{
+        border-top:1px solid black;
+        border-bottom: 1px solid black;
+
+        &:last-child{
+            border-bottom: 3px solid black;
+        }
+
+        p{
+            padding:0px 7px;
+            text-align: center;
+        }
+
+        &:hover{
+            background-color: variables.$hoverLighterColor;
+        }
+    }
+
+    @include mixins.mQ-phones(360px){
+        font-size:0.7em; 
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        font-size:0.7em; 
+    }
+    
+    @include mixins.mQ-other(480px,768px){
+        font-size:0.7em;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        font-size:0.8em;
+
+        div {
+            height:45px;
+        }
+    }
+
+    @include mixins.mQ-other(1150px, 1699px){
+            font-size:0.7em;
+
+            div{
+                height:35px;
+            }
+    }
+}
+
+.secondary-sort-container{
+    position: relative;
+    cursor: pointer;
+    width:auto;
+    z-index:20;
+    align-self: flex-end;
+    margin-right:50px;
+    margin-bottom:20px;
+    margin-top:20px;
+
+    @include mixins.mQ-phones(360px){
+        margin-top:10px;
+        margin-bottom: 10px;
+        margin-right:20px;
+        font-size:0.8em;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        margin-top:10px;
+        margin-bottom: 10px;
+        margin-right:20px;
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        margin-right:20px;
+        margin-top:10px;
+        margin-bottom: 10px;
+    }
+}
+
+.secondary-sort-title{
+    position: relative;
+    background-color:variables.$mainDarkerColor;
+    color:variables.$mainLighterColor;
+
+    @include mixins.mQ-phones(360px){
+        min-width:100px;
+        max-width: 70vw; 
+        padding:7px 10px;
+        font-size:1em;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        min-width:100px;
+        max-width: 70vw;
+        padding:10px 15px;
+        font-size:1em;
+    }
+
+    @include mixins.mQ-other(480px,768px){
+        width:130px;
+        padding:5px;
+        font-size:0.7em;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        width:150px;
+        padding:7px;
+        font-size:0.7em;
+    }
+
+    @include mixins.mQ-other(1150px, 1699px){
+        width:140px;
+        padding:8px;
+        font-size:0.7em;
+    }
+
+    @include mixins.mQ-largerDesktops(1700px){
+        width:190px;
+        padding:10px;
+    }
+}
+
+/***** MOBILE *****/
+#mobile-filter-container{
+    display:flex;
+    flex-direction: column;
+    font-size:0.8em;
+    padding:20px;
+    left:0;
+    z-index:20;
+    border-radius:10px;
+    background-color: #000;
+
+    label{
+        color: variables.$whiteColor;
+    }
+
+    .sizes_section .sizes-box{
+        width:40px;
+    }
+
+    @include mixins.mQ-phones(360px){
+        padding:5px;
+    }
+}
+
+.mobile-open{
+    position:absolute;
+    top:50px;
+    left:0;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width:50vw;
+    border-radius: 5px;
+    
+    @include mixins.mQ-phones(360px){
+        font-size:0.6em;
+    }
+}
+
+.mobile-closed{
+    display:none;
+}

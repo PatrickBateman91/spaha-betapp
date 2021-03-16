@@ -1,0 +1,50 @@
+
+.fx-basic{
+    display:flex;
+}
+
+.fx-column{
+    display:flex;
+    flex-direction: column;
+}
+
+.fx-center-all{
+    justify-content: center;
+    align-items: center;
+}
+
+.fx-align-center{
+    align-items: center;
+}
+
+.fx-align-around{
+    align-items: space-around;
+}
+
+.fx-align-start{
+    align-items: flex-start;
+}
+
+.fx-justify-start{
+    justify-content: flex-start;
+}
+
+.fx-justify-center{
+    justify-content: center;
+}
+
+.fx-justify-between{
+    justify-content: space-between;
+}
+
+.fx-justify-around{
+    justify-content: space-around;
+}
+
+.fx-justify-end{
+    justify-content: flex-end;
+}
+
+.fx-wrap{
+    flex-wrap: wrap;
+}

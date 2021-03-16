@@ -1,0 +1,90 @@
+@use '../../../../assets/Sass/mixins.scss';
+@use '../../../../assets/Sass/variables.scss';
+
+.browse-all-container{
+    @include mixins.homeSectionMargin;
+    position: relative;
+    border:1px solid black;
+    height:400px;
+
+    img{
+        position: absolute;
+        top:50px;
+        right:-100px;
+        width:500px;
+        transform: rotate(45deg);
+    }
+
+    @include mixins.mQ-phones(480px){
+        height: 200px;
+
+        img{
+            transform: rotate(-45deg);
+            width: 150px;
+            top:70%;
+            right:-50px;
+        }
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        height:200px;
+
+        img{
+            width:200px;
+            top:0px;
+            right:-50px;
+        }
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        height:250px;
+
+        img{
+            width: 200px;
+            top:25px;
+            right:-50px;
+        }
+    }
+
+    @include mixins.mQ-other(1150px,1699px){
+        height:300px;
+        
+        img{
+            width: 250px;
+            top:25px;
+            right:-50px;
+        }
+    }
+}
+
+.browse-all-title{
+    font-size:3em;
+    font-weight: 500;
+    letter-spacing: 3px;
+    margin-bottom: 50px;
+
+    @include mixins.mQ-phones(480px){
+        font-size:1.5em;
+        text-align: center;
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        font-size:1.5em;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        font-size:1.8em;
+    }
+
+    @include mixins.mQ-other(1150px,1699px){
+        font-size:2em;
+    }
+}
+
+.browse-all-link{
+    @include mixins.homeLink;
+
+    @include mixins.mQ-phones(480px){
+        font-size:1.2em;
+    }
+}

@@ -1,0 +1,155 @@
+@use '../../../../assets/Sass/mixins.scss';
+@use '../../../../assets/Sass/variables.scss';
+
+.categories-container{
+    @include mixins.homeSectionMargin;
+
+    .categories-body{
+        a{
+            color:variables.$washedBlack;
+            text-decoration: none;
+        }
+
+        .show-more-container{
+            position: relative;
+            height:300px;
+            width: 202px;
+            border:1px solid black;
+            background-color: rgba(0,0,0,0.8);
+            color:variables.$whiteColor;
+
+            .show-more-image-container{
+                position: absolute;
+                top:0;
+                left:0;
+                width:100%;
+                height:100%;
+
+                img{
+                    width:100%;
+                    margin:10px 0px;
+                    opacity: 0.2;
+                }
+            }
+
+            span{
+                z-index: 4;
+
+                &:first-of-type{
+                    text-transform: uppercase;
+                    letter-spacing: 3px;
+                    text-align: center;
+                    margin-top:25%;
+                    font-size:2em;
+                }
+
+                &:last-of-type{
+                    font-size:10em;
+                    font-weight: 200;
+                }
+            }
+
+            &:hover{
+                cursor: pointer;
+                background-color: #000;
+                transition: transform 0.3s ease-in;
+                transform: scale(1.1);
+
+                .show-more-image-container{
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    .categories-title{
+        @include mixins.homeTitle;
+        text-align: left;
+        font-weight: 500;
+    }
+
+    @include mixins.mQ-phones(480px){
+        .categories-body{
+            a{
+                display:flex;
+                align-items: flex-start;
+
+                &:last-of-type{
+                    position: relative;
+                    bottom:15%;
+                    align-self: center;
+                }
+            }
+
+            .show-more-container{
+                width: 20vw;
+                height: 100px;
+                align-items: center;
+
+                .show-more-image-container{
+                    img{
+                        display:none;
+                    }
+                }
+
+                span{
+                    &:first-of-type{
+                        margin-top:25%;
+                        font-size:1em;
+                    }
+    
+                    &:last-of-type{
+                        font-size:3em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.home-item-container{
+    width: 202px;
+
+    .home-item-image-container{
+        height:300px;
+        width: 202px;
+        border:1px solid black;
+        -webkit-box-shadow: 2px 0px 3px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px 0px 3px 0px rgba(0,0,0,0.75);
+        box-shadow: 2px 0px 3px 0px rgba(0,0,0,0.75);
+
+        img{
+            max-width: 198px;
+        }
+    }
+
+    .home-item-body{
+        margin-top:4px;
+        span{
+            letter-spacing: 1.5px;
+            font-size:0.8em;
+
+            &:first-of-type{
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    &:hover{
+        transition: transform 0.3s ease-in;
+        transform: scale(1.1);
+    }
+
+    @include mixins.mQ-phones(480px){
+        width: 35vw;
+
+        .home-item-image-container{
+            width: 35vw;
+            height: 250px;
+
+            img{
+                max-width: 34vw;
+            }
+        }
+    }
+}

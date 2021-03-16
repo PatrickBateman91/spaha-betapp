@@ -1,0 +1,52 @@
+@use '../../../assets/Sass/mixins.scss';
+@use '../../../assets/Sass/variables.scss';
+
+.admin-newsletter-container{
+    width:100%;
+
+    button{
+        color: variables.$mainDarkerColor;
+        font-size:0.9em;
+        padding:5px;
+        border-radius: 10px;
+        width:150px;
+        margin: 0 auto;
+
+        &:hover{
+            transform:scale(1.05);
+            outline:1px solid variables.$mainDarkerColor;
+        }
+    }
+
+    @include mixins.mQ-phones(360px){
+        font-size:0.8em;
+        width:90vw;
+
+        input, textarea{
+            width:80vw;
+            font-size: 0.8em;
+        }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        font-size:0.8em;
+
+        input{
+            font-size: 0.8em;
+        }
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        font-size:0.8em;
+
+        input{
+            font-size:0.8em;
+        }
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        button{
+            font-size:1.5em;
+        }
+    }
+}

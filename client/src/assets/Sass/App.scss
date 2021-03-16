@@ -1,0 +1,168 @@
+@use './mixins.scss';
+@use './variables.scss';
+@use './flexbox.scss';
+@use './keyframes.scss';
+
+/***** GENERALNE STVARI *****/
+
+*{
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+* a{
+    text-decoration: none;
+}
+
+* ul, input { 
+    padding:0; 
+    margin:0; 
+} 
+
+* button{
+    border:none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    overflow-x: hidden;
+    background-color: variables.$backgroundColor;
+    margin: 0px !important;
+}
+
+.fieldset{
+    border-style:none;
+}
+
+.main-container{
+    background-color: variables.$backgroundColor;
+    width:100vw;
+    min-height: 100vh;
+}
+
+.general-form-title{
+        font-size: 1.2em;
+        font-weight: bold;
+        text-align: center;
+
+        @include mixins.mQ-phones(360px){
+            max-width: 100vw;
+            font-size:0.85em
+        }
+
+        @include mixins.mQ-other(361px,480px){
+            max-width: 100vw;
+            font-size:0.85em;
+        }
+}
+
+.general-form-button{
+    margin-top: 20px;
+    padding: 10px 15px;
+    border-radius: 18px;
+    z-index:10;
+    color:variables.$mainDarkerColor;
+    background-color: variables.$whiteColor;
+
+    @include mixins.mQ-phones(360px){
+        margin-top:10px;
+        font-size:1em;
+        padding: 10px 20px;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        margin-top:10px;
+        font-size:1em;
+        padding: 10px 20px;
+    }
+
+    @include mixins.mQ-other(481px,768px){
+        font-size:1.25em;
+        padding: 15px 30px;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        margin-top:0px;
+        font-size:1.25em;
+    }
+
+    @include mixins.mQ-other(1150px, 1698px){ 
+        font-size:1.3em;
+    }
+
+    @include mixins.mQ-other(1699px,2299px){
+        font-size:1.4em;
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        font-size:1.3em;
+    }
+}
+
+.green{
+    color:#317D1A;
+    font-weight:bolder;
+}
+
+.yellow{
+    color: yellow;
+    font-weight: bolder;
+}
+
+.red{
+    color: red;
+    font-weight: bolder;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.heavy-bold{
+    font-weight: 1000;
+}
+
+.normal{
+    font-weight: normal;
+    color:variables.$washedBlack;
+}
+
+.width-max{
+    width:100%;
+}
+
+.inline{
+    display: inline-block;
+}
+
+.relative{
+    position: relative;
+}
+
+.display-none{
+    display:none;
+}
+
+.spinner-container{
+    width: 100vw;
+    height: 50vw;
+}
+
+.visibility-none{
+    visibility: hidden;
+}
+
+@include mixins.mQ-phones(481px){
+    input[type=text]
+    input[type=number],
+    textarea {
+      font-size: 16px !important;
+    }
+}

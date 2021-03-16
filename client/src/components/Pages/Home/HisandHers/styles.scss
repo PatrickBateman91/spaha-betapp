@@ -1,0 +1,110 @@
+@use '../../../../assets/Sass/mixins.scss';
+@use '../../../../assets/Sass/variables.scss';
+
+.his-and-hers-container{
+    @include mixins.mQ-phones(480px){
+        flex-direction: column;
+    }
+}
+
+.hers-container{
+    width: 45%;
+    height:300px;
+    background-color: #E5BBBB;
+    @include mixins.homeSectionMargin;
+
+    .hers-link{
+        position: relative;
+        @include mixins.homeLink;
+        top:30%;
+        left:30%;
+        z-index: 2;
+    }
+
+    .hers-image-container{
+        img{
+            max-height: 258px;
+        }
+    }
+
+    @include mixins.mQ-phones(480px){
+        width: 100%;
+
+        .hers-link{
+            left:20%;
+            font-size: 1.3em;
+        }
+
+        .hers-image-container{
+            img{
+                max-height: 220px;
+            }
+        }
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        width: 50%;
+
+        .hers-link{
+            left:25%;
+        }
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        width:49%;
+    }
+}
+
+.his-container{
+    position: relative;
+    width: 45%;
+    height:300px;
+    background-color: #BBE5E3;
+    @include mixins.homeSectionMargin;
+
+    .his-link{
+        position: relative;
+        @include mixins.homeLink;
+        z-index: 2;
+        top:30%;
+        right:30%;
+    }
+
+    .his-image-container{
+        position: relative;
+        right:0px;
+
+        img{
+            max-height:238px;
+        }
+    }
+
+    @include mixins.mQ-phones(480px){
+        width: 100%;
+
+        .his-link{
+            top:20%;
+            right: 20%;
+            font-size: 1.3em;
+        }
+
+        .his-image-container{
+            img{
+                max-height: 200px;
+            }
+        }
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        width: 50%;
+
+        .his-link{
+            right:25%;
+        }
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        width:49%;
+    }
+}
+

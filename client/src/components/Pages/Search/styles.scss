@@ -1,0 +1,33 @@
+@use '../../../assets/Sass/mixins.scss';
+@use '../../../assets/Sass/variables.scss';
+
+#search-holder{
+    border:2px dotted black;
+    background-color: variables.$mainDarkerColor;
+    width:100vw; 
+    margin:10px 20px 10px 10px;
+    min-height: 80vh;
+
+    .auth-message{
+        margin-top:35vh;
+    }
+
+    @include mixins.mQ-phones(360px){
+        margin:1px 2px 1px 2px;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        margin:1px 2px 1px 2px;
+    }
+
+    @include mixins.mQ-other(481px,768px){
+        margin: 10px 0px;
+    }
+}
+
+.warning-search{
+    padding:50px;
+    margin:50px;
+    color:variables.$redWarningColor;
+    font-size:1.3em;
+}

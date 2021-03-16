@@ -1,0 +1,240 @@
+@use '../../../../assets/Sass/mixins.scss';
+@use '../../../../assets/Sass/variables.scss';
+
+.newsletter-container{
+    @include mixins.homeSectionMargin;
+
+    @include mixins.mQ-phones(480px){
+        flex-direction: column;
+    }
+}
+
+.newsletter-right-container{
+    width:50%;
+    background-color: #F5F5F5;
+    height: 100%;
+    img{
+        width:100%;
+        height: 100%;
+    }
+
+    @include mixins.mQ-phones(480px){
+        width: 100%;
+
+        img{
+            width: 100%;
+        }
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        width: 40%;
+        img{
+            object-fit: cover;
+        }
+    }
+}
+
+.newsletter-middle-container{
+    position: relative;
+
+    img{
+        position: absolute;
+        width:200px;
+        transform: rotate(-25deg);
+    }
+
+    #discount-card-1{
+        margin:0 auto;
+    }
+
+    #discount-card-2{
+        top:-50px;
+        left:-30px;
+    }
+
+    @include mixins.mQ-phones(480px){
+        img{
+            width: 100px;
+        }
+
+        #discount-card-2{
+            top:-20px;
+        }
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        img{
+            width: 120px;
+        }
+
+        #discount-card-2{
+            top:-30px;
+            left:-30px;
+        }
+    }
+
+    @include mixins.mQ-other(769px, 1149px){
+        img{
+            width: 120px;
+        }
+
+        #discount-card-2{
+            top:-30px;
+            left:-30px;
+        }
+    }
+}
+
+.newsletter-left-container{
+    width: 50%;
+    height:100%;
+    background-color: #A5B3C0;
+
+    .newsletter-text-container{
+        width:80%;
+        text-align: center;
+
+        .newsletter-title{
+            font-weight: 500;
+            font-size:2.2em;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        .newsletter-info{
+            width: 70%;
+            margin-bottom: 20px;
+        }
+    }
+
+    .newsletter-failure{
+        color:variables.$redWarningColor
+    }
+    
+    .newsletter-success{
+        color:variables.$greenColor;
+    }
+
+    form{
+        width:80%;
+        
+        input{
+            width: 65%;
+            padding:10px;
+            font-size: 16px;
+        }
+
+        button{
+            width:30%;
+            padding:10px 20px;
+            background-color: transparent;
+            border:2px solid black;
+
+            &:hover{
+                cursor: pointer;
+                background-color: variables.$washedBlack;
+                color:variables.$whiteColor;
+            }
+        }
+    }
+
+    @include mixins.mQ-phones(380px){
+        form{
+            flex-direction: column;
+
+            input{
+                padding:5px;
+                width: 100% !important;
+            }
+
+            button{
+                margin-top:20px;
+                width: 100%;
+            }
+        }
+    }
+
+    @include mixins.mQ-phones(480px){
+        width: 100%;
+        padding-bottom: 20px;
+
+        .newsletter-text-container{
+            width:90%;
+    
+            .newsletter-title{
+                font-size:2em;
+                margin-top: 30px;
+            }
+    
+            .newsletter-info{
+                width: 80%;
+            }
+        }
+
+        form{
+            width: 90%;
+            margin-bottom: 30px;
+
+            input{
+                padding:5px;
+            }
+        }
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        width: 60%;
+        
+        .newsletter-text-container{
+            width:90%;
+    
+            .newsletter-title{
+                font-size:2em;
+                margin-top: 30px;
+            }
+    
+            .newsletter-info{
+                width: 80%;
+            }
+        }
+
+        form{
+            width: 90%;
+            margin-bottom: 30px;
+
+            input{
+                padding:5px;
+            }
+        }
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        .newsletter-text-container{
+            width:90%;
+    
+            .newsletter-title{
+                font-weight: 500;
+                font-size:2em;
+                margin-top: 30px;
+            }
+    
+            .newsletter-info{
+                width: 80%;
+            }
+        }
+
+        form{
+            width: 90%;
+            margin-bottom: 30px;
+
+            input{
+                padding:5px;
+            }
+        }
+    }
+
+    @include mixins.mQ-largerDesktops(1150px){
+        form{
+            margin-bottom: 20px;
+        }
+    }
+}

@@ -1,0 +1,93 @@
+@use '../../../../assets/Sass/mixins.scss';
+@use '../../../../assets/Sass/variables.scss';
+
+.kids-shoes-home-container{
+    object-fit: contain;
+    height:300px;
+    @include mixins.homeSectionMargin;
+    z-index:2;
+
+    @include mixins.mQ-phones(480px){
+        flex-direction: column;
+        height: auto;
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        height: 250px;
+    }
+}
+
+.kids-shoes-home-image-container{
+    width:30%;
+
+    img{
+        max-height: 298px;
+    }
+
+    @include mixins.mQ-phones(480px){
+        width: 100%;
+
+        img{
+            width: 95vw;
+            object-fit: cover;
+            max-height: 210px;
+        }
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        width: 50%;
+
+        img{
+            max-height: 250px;
+        }
+    }
+}
+
+.kids-shoes-home-text-container{
+    background-color: #815957;
+    width: 67%;
+
+    @include mixins.mQ-phones(480px){
+        width: 100%;
+        margin-top: 0px;
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        width:50%;
+        justify-content: space-around
+    }
+}
+
+.kids-shoes-home-text{
+    @include mixins.homeTitle;
+    color:variables.$whiteColor;
+    text-align: right;
+
+    @include mixins.mQ-phones(480px){
+        text-align: center;
+        font-size: 1.5em;
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        text-align: center
+    }
+}
+
+.kids-shoes-home-link{
+    @include mixins.homeLink;
+
+    a{
+        color:variables.$whiteColor;
+
+        &:hover{
+            color: variables.$washedBlack;
+            background-color:white;
+        }
+    }
+
+    @include mixins.mQ-phones(480px){
+        font-size:1.3em;
+        margin-bottom: 30px;
+    }
+}
+

@@ -1,0 +1,10 @@
+@use '../../../assets/Sass/mixins.scss';
+@use '../../../assets/Sass/variables.scss';
+
+.home-container{
+    width:100%;
+}
+
+.home-holder{
+    @include mixins.homeHolder;
+}

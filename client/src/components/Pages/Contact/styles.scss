@@ -1,0 +1,77 @@
+@use '../../../assets/Sass/mixins.scss';
+@use '../../../assets/Sass/variables.scss';
+
+#contact-container{
+    display:flex;
+    justify-content: center;
+    width:100vw;
+
+    @include mixins.mQ-phones(360px){
+        width:10vw;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        width:100vw;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        font-size:0.64em;
+    }
+}
+
+#contact-form{
+    display:flex;
+    position: relative;
+    padding:50px;
+    justify-content: space-around;
+    height:650px;
+    overflow:auto;
+
+    button{
+        color: variables.$mainDarkerColor;
+        font-size:0.9em;
+        padding:5px;
+        border-radius: 10px;
+        width:150px;
+        margin: 0 auto;
+
+        &:hover{
+            transform:scale(1.05);
+            outline:1px solid variables.$mainDarkerColor;
+        }
+    }
+
+    input{
+        padding:5px;
+    }
+    
+    @include mixins.mQ-phones(360px){
+        padding:20px 10px;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        padding:20px 10px;
+    }
+}
+
+#contact-response-email{
+    display:flex;
+
+    input{
+        margin-left:20px;
+        flex-grow: 2;
+    }
+
+    @include mixins.mQ-phones(360px){
+        font-size:0.8em;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        font-size:0.8em;
+    }
+}
+
+#contact-success{
+    margin-top:50px;
+    font-size:20px;
+}

@@ -1,0 +1,143 @@
+@use './variables.scss';
+
+@mixin grid($cols, $mgn){
+    margin-right:$mgn;
+    margin-bottom:$mgn;
+    width:((100% - (($cols - 1) * $mgn)) / $cols);
+    &:nth-child(#{$cols}n){
+        margin-right:0;
+    }
+}
+
+@mixin mQ-phones($arg){
+        @media screen and (max-width: $arg){
+            @content;
+        }
+}
+
+@mixin mQ-phones-landscape($arg){
+    @media screen and (max-width: $arg) and (orientation: landscape){
+        @content;
+    }
+}
+
+@mixin mQ-other($min, $max){
+        @media screen and (min-width:$min) and (max-width:$max){
+            @content;
+    }
+}
+
+@mixin mQ-largerDesktops($min){
+    @media screen and (min-width:$min){
+        @content;
+}
+}
+
+@mixin homeHolder(){
+    width:80%;
+
+    @include mQ-phones(480px){
+        width:95%;
+    }
+
+    @include mQ-other(481px,768px){
+        width:95%;
+    }
+
+    @include mQ-other(769px,1149px){
+        width:95%;
+    }
+
+    @include mQ-other(1150px, 1699px){
+        width:90%;
+    }
+}
+
+@mixin homeSectionMargin(){
+    margin-top:50px;
+    margin-bottom:50px;
+
+    @include mQ-phones(480px){
+        margin-top:20px;
+        margin-bottom: 20px;
+    }
+
+    @include mQ-other(481px,768px){
+        margin-top:25px;
+        margin-bottom: 25px;
+    }
+
+    @include mQ-other(769px,1149px){
+        margin-top:30px;
+        margin-bottom: 30px;
+    }
+
+    @include mQ-other(1150px, 1699px){
+        margin-top:35px;
+        margin-bottom: 35px;
+    }
+
+    @include mQ-other(1700px, 2298px){
+        margin-top:40px;
+        margin-bottom:40px
+    }
+}
+
+@mixin homeTitle(){
+    font-size:45px;
+    font-weight: bold;
+    margin-top:50px;
+    margin-bottom:50px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+
+    @include mQ-phones(480px){
+        margin-top:20px;
+        margin-bottom: 20px;
+        font-size:25px;
+    }
+
+    @include mQ-other(481px, 768px){
+        font-size:20px;
+        margin-top:20px;
+        margin-bottom:20px;
+    }
+
+    @include mQ-other(769px,1149px){
+        font-size:20px;
+    }
+
+    @include mQ-other(1150px,1699px){
+        font-size:30px;
+    }
+}
+
+@mixin homeLink(){
+    font-size:30px;
+    font-weight: 500;
+
+    a{
+        color: variables.$washedBlack;
+        padding:10px 20px;
+        border:2px solid black;
+        text-decoration: none;
+
+        &:hover{
+            background-color: variables.$washedBlack;
+            color: variables.$whiteColor; 
+        }
+    }
+
+    @include mQ-other(481px, 768px){
+        font-size: 20px;
+    }
+
+    @include mQ-other(769px,1149px){
+        font-size: 20px;
+    }
+
+    @include mQ-other(1150px,1699px){
+        font-size:25px;
+    }
+}

@@ -1,0 +1,18 @@
+@use '../../../assets/Sass/mixins.scss';
+@use '../../../assets/Sass/variables.scss';
+
+.container404{
+    width:100vw;
+    height:100vh;
+
+    span{
+        &:first-child{
+            font-size:10em;
+            color:variables.$redWarningColor
+        }
+
+        &:nth-child(2){
+            font-size:2em;
+        }
+    }
+}

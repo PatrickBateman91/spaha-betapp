@@ -1,0 +1,398 @@
+@use '../../../assets/Sass/mixins.scss';
+@use '../../../assets/Sass/variables.scss';
+
+.contact-list{
+    height:50px;
+    font-weight: normal;
+    width:100%;
+
+    .contact-subject{
+        width:15%;
+        margin-left:20px;
+    }
+
+    .contact-email{
+        width:35%;
+    }
+
+    .contact-text{
+        width:43%;
+    }
+
+    .contact-status{
+        font-size:0.8em;
+        width:12%;
+        text-align:center;
+        margin-right:15px;
+        font-style: italic;
+        border-radius:15px;
+
+        .red{
+            font-size:0.6em;
+        }
+    }
+
+    @include mixins.mQ-phones(360px){
+        width:95vw;
+        height:40px;
+
+        div{
+            &:nth-child(1){
+                font-size:0.65em;
+                margin-left:10px;
+            }
+
+            &:nth-child(2){
+                font-size:0.65em;
+            }
+
+            &:nth-child(3){
+                font-size:0.8em;
+            }
+
+            &:nth-child(4){
+                font-size:0.7em;
+                margin-right:4px;
+                border-radius:15px;
+
+                .red{
+                    font-size:0.6em;
+                }
+            }
+         }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        width:95vw;
+        height:40px;
+
+        div{
+            &:nth-child(1){
+                font-size:0.65em;
+                margin-left:10px;
+            }
+
+            &:nth-child(2){
+                font-size:0.65em;
+            }
+
+            &:nth-child(3){
+                font-size:0.8em;
+            }
+
+            &:nth-child(4){
+                font-size:0.7em;
+                margin-right:4px;
+                border-radius:15px;
+
+                .red{
+                    font-size:0.6em;
+                }
+            }
+         }
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        height: 40px;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        height: 40px;
+    }
+}
+
+.contact-item{
+ 
+    .contact-subject{
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    
+    &:nth-child(even){
+        background-color:variables.$listDarkerColor;
+        color:black;
+    }
+
+    &:nth-child(odd){
+        background-color:variables.$listLighterColor;
+        color:black;
+    }
+
+    &:nth-child(odd) div:first-child:hover{
+        color:grey;
+    }
+
+    &:nth-child(even) div:first-child:hover{
+        color:variables.$listLighterColor;
+    }
+
+    @include mixins.mQ-phones(360px){
+        font-size:0.65em;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        font-size:0.65em;
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        font-size:0.7em;
+    }
+}
+
+#contact-header{
+    background-color: black;
+    font-size:1.4em;
+
+    div{
+        &:last-child{
+            text-align:right;
+            margin-right:15px;
+            color:variables.$whiteColor;
+            font-style: normal;
+        }
+    }
+
+    @include mixins.mQ-phones(360px){
+        font-size:0.7em;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        font-size:0.7em;
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        font-size:1em;
+    }
+}
+
+#contact-answer-form{
+    div{
+        margin-bottom:20px;
+
+        button:first-child{
+            background-color: variables.$lightGreen;
+
+            &:hover{
+                background-color: variables.$greenColor;
+            }
+        }
+        button:last-child{
+            background-color: variables.$lightRed;
+
+            &:hover{
+                background-color: variables.$redWarningColor;
+            }
+        }
+
+    }
+
+    button{
+        color: variables.$mainDarkerColor;
+        font-size:0.9em;
+        padding:5px;
+        border-radius: 10px;
+        width:150px;
+        margin: 0 auto;
+        position: relative;
+        top:20px;
+
+        &:hover{
+            transform:scale(1.05);
+            outline: 1px solid variables.$mainDarkerColor;
+        }
+    }
+
+    textarea{
+        width:80%;
+        margin: 40px auto;
+        resize: none;
+    }
+
+    @include mixins.mQ-phones(360px){
+        textarea{
+            margin: 20px auto;
+        }
+ 
+        button{
+           width:100px;
+           font-size: 0.9em;
+        }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+       textarea{
+           margin: 20px auto;
+       }
+
+       button{
+          width:100px;
+          font-size: 0.9em;
+       }
+    }
+}
+
+.contact-answer-text{
+    position: relative;
+    display: inline-block;
+    border:2px solid black;
+    border-radius: 5px;
+    max-width:800px;
+    min-width:160px;
+    background-color: variables.$whiteColor;
+    color:black;
+    margin:10px;
+
+    .contact-date{
+        position: absolute;
+        left:-10px;
+        bottom:-20px;
+        font-size:0.7em;
+        text-align: right;
+        color:variables.$whiteColor !important;
+        text-shadow: 1px 1px 1px #000;
+        font-style: italic; 
+    }
+
+    @include mixins.mQ-phones(360px){
+        .contact-date{
+            bottom: -15px;
+        }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        .contact-date{
+            bottom: -15px;
+        }
+    }
+}
+
+.contact-answer-container{
+    width:100%;
+    min-height: 1020px;
+    overflow-Y: auto;
+
+    div{
+        padding:5px;
+
+        span{
+            color:black;
+            margin-left:20px;
+            margin-right: 20px;
+        }
+
+        &:nth-child(2){
+            margin-bottom: 50px;
+        }
+
+    }
+
+    &:first-child{
+        margin-top:30px;
+    }
+
+    @include mixins.mQ-phones(360px){
+        min-height:100vh;
+        font-size:0.6em;
+
+        &:first-child{
+            margin-top:0px;
+        }
+
+        div:nth-child(2){
+           margin-bottom: 0px;; 
+        }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        min-height:100vh;
+        font-size:0.6em;
+
+        &:first-child{
+            margin-top:0px;
+        }
+
+        div:nth-child(2){
+           margin-bottom: 0px;; 
+        }
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        min-height: 350px;
+        font-size:0.7em;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        min-height:500px;
+        font-size:0.7em;
+    }
+}
+
+.user-answer-container{
+    position: relative;
+    align-items: flex-start;
+}
+
+.show-admin-answer{
+    margin:10px;
+    background-color: variables.$greenColor;
+    border-radius: 5px;
+    border:2px solid black;
+    max-width:800px;
+    color: black;
+    text-align: right;
+
+    .contact-date{
+        position: absolute;
+        right:-10px;
+        bottom:-7px;
+        font-size:0.7em;
+        text-align: right;
+        color:variables.$whiteColor !important;
+        text-shadow: 1px 1px 1px #000;
+        font-style: italic;
+    }
+
+    span{
+        font-size:0.7em;
+    }
+
+    @include mixins.mQ-phones(360px){
+        .contact-date{
+            bottom:0px;
+        }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        .contact-date{
+            bottom:0px;
+        }
+    }
+}
+
+.admin-answer-container{
+    position: relative;
+    align-items: flex-end;
+
+    div span{
+        position: absolute;
+        bottom:-5px;
+    }
+}
+
+.guest-message-info{
+    div{
+        width:500px;
+        padding:15px;
+        border-radius: 7px;
+        background-color: variables.$greyColor;
+        margin-bottom:30px;
+    }
+
+    div span{
+        font-size:0.75em;
+    }
+    
+    svg{
+        color:#000;
+    }
+}

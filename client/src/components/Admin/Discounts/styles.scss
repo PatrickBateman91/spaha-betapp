@@ -1,0 +1,163 @@
+@use '../../../assets/Sass/mixins.scss';
+@use '../../../assets/Sass/variables.scss';
+
+.admin-discount-container{
+    margin-top:50px;
+    width:100%;
+
+    button{
+        color: variables.$mainDarkerColor;
+        font-size:0.9em;
+        padding:5px;
+        width:150px;
+        border-radius: 10px;
+        margin-top:30px;
+
+        &:hover{
+            transform: scale(1.05);
+            outline:1px solid variables.$mainDarkerColor;
+        }
+    }
+
+    @include mixins.mQ-phones(360px){
+        margin-top:10px;
+        font-size:0.5em;
+    
+        button{
+            margin-top:10px;
+            margin-bottom:10px;
+        }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        margin-top:10px;
+        font-size:0.5em;
+
+        button{
+            margin-top:10px;
+            margin-bottom:10px;
+        }
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        font-size:0.7em;
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        font-size:0.6em;
+    }
+
+    @include mixins.mQ-other(1150px, 1699px){
+        font-size:0.8em;
+    }
+
+    @include mixins.mQ-largerDesktops(2299px){
+        font-size:1.2em;
+        margin-top:50px;
+
+        input{
+            font-size:1em;
+        }
+
+        button{
+            font-size:1.4em;
+            width:200px;
+        }
+    }
+}
+
+.admin-discount-change-button{
+    width:150px;
+}
+
+.admin-discount-fields-container{
+    width:350px;
+    padding:10px;
+    border-bottom: 2px solid black;
+
+    label{
+        width:150px;
+        font-size: 1.2em;
+    }
+
+    input{
+        &:first-child{
+            padding:5px;
+            width:150px;
+            max-width:120px;
+        }
+
+        &:nth-child(2){
+            padding:5px;
+            width:60px;
+        }
+    }
+
+    #delete-discount{
+        &:hover{
+            color: variables.$redWarningColor;
+            cursor: pointer;
+        }
+    }
+
+    @include mixins.mQ-phones(360px){
+        input{
+            font-size:1.3em;
+            text-align: center;
+        }
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        input{
+            font-size:1.3em;
+            text-align: center;
+        }
+    }
+}
+
+.admin-discount-edit{
+    transform:scale(0.85);
+
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.25);   
+    }
+}
+
+#admin-discount-title{
+    width:100%;
+    margin-left:50px;
+    font-size: 1.5em;
+    text-decoration: underline;
+    margin-bottom:20px;
+}
+
+#admin-add-discount-title{
+    text-decoration: underline;
+    font-size: 1.3em;
+    margin-top:50px;
+    margin-bottom:30px;
+
+    @include mixins.mQ-phones(360px){
+        margin-top:10px;
+        margin-bottom:10px;
+    }
+
+    @include mixins.mQ-other(361px,480px){
+        margin-top:10px;
+        margin-bottom:10px;
+    }
+}
+
+#admin-discount-label-input-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height:130px;
+    
+    input{
+        &:last-child{
+            width:50px;
+        }
+    }
+}

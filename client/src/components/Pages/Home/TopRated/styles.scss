@@ -1,0 +1,64 @@
+@use '../../../../assets/Sass/mixins.scss';
+@use '../../../../assets/Sass/variables.scss';
+
+.top-rated-container{
+    width:100%;
+    @include mixins.homeSectionMargin;
+    background-color: #B89696;
+    border:1px solid black;
+    padding:0px;
+
+    @include mixins.mQ-phones(480px){
+        flex-direction: column;
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        height:250px; 
+    }
+}
+
+.top-rated-image-container{
+    object-fit: contain;
+
+    @include mixins.mQ-phones(480px){
+        width:100%;
+        border-bottom: 1px solid black;
+        background-color: #B8A096;
+
+        img{
+            height: 200px;
+        }
+    }
+
+    @include mixins.mQ-other(481px, 768px){
+        img{
+            position: relative;
+            left:-50px;
+            height:250px;
+        }
+    }
+}
+
+.top-rated-text{
+    @include mixins.homeTitle;
+    margin-right:20px;
+    text-align: left;
+
+    span{
+        margin-top:10px;
+        margin-bottom: 10px;
+    }
+
+    @include mixins.mQ-phones(480px){
+        margin-left: 10px;
+    }
+}
+
+.top-rated-link{
+    @include mixins.homeLink;
+
+    @include mixins.mQ-phones(480px){
+        font-size: 1.3em;
+        margin-bottom: 30px;
+    }
+}

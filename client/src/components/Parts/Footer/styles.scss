@@ -1,0 +1,26 @@
+@use '../../../assets/Sass/mixins.scss';
+@use '../../../assets/Sass/variables.scss';
+
+#footer{
+    position: relative;
+    bottom:0px;
+    height:40px;
+    background: variables.$washedBlack;
+    text-shadow:1px 1px 1px #000;
+    color:variables.$whiteColor;
+
+    @include mixins.mQ-phones(360px){
+        font-size:0.7em;
+        height:25px;  
+    }
+
+    @include mixins.mQ-other(361px,480px){
+      font-size:0.7em;
+      height:25px;  
+    }
+
+    @include mixins.mQ-other(769px,1149px){
+        font-size:0.8em;
+        height:30px;
+    }
+}
