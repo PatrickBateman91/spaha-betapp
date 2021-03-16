@@ -27,10 +27,11 @@ const upload = multer({
         next(err);
     },
     fileFilter: (req, file, cb) => {
-
         if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
             cb(null, true);
-        } else {
+        } 
+        
+        else {
             cb(null, false);
             return cb(new Error('Only .png, .jpg and .jpeg image formats are allowed!'))
         }
@@ -38,13 +39,14 @@ const upload = multer({
     limits: { fileSize: maxSize }
 });
 
-
 adminRouter.post('/admin-dashboard', adminCheck, upload.single('file'), async (req, res) => {
     if (req.headers.type === "image-upload") {
         res.send({
             path: req.file.path
         });
-    } else if (req.headers.type === "add-new-item") {
+    } 
+    
+    else if (req.headers.type === "add-new-item") {
         if (!req.body.item.discount) {
             req.body.item.discountType = "no";
         }
@@ -76,7 +78,9 @@ adminRouter.post('/admin-dashboard', adminCheck, upload.single('file'), async (r
         }).catch(err => {
             res.status(500).send("Could not get admin data!")
         })
-    } else if (req.headers.type === "edit item") {
+    } 
+    
+    else if (req.headers.type === "edit item") {
         const id = new ObjectID(req.body.item._id)
         const itemPromise = Item.findById(id)
         itemPromise.then(async itemResponse => {
@@ -154,7 +158,9 @@ adminRouter.post('/admin-dashboard', adminCheck, upload.single('file'), async (r
         })
 
 
-    } else if (req.headers.type === "remove-temp-files") {
+    } 
+    
+    else if (req.headers.type === "remove-temp-files") {
         fs.readdir('public/images/temp', (err, files) => {
             if (err) {
                 res.status(400).send("Could not find temp files!")
@@ -168,7 +174,9 @@ adminRouter.post('/admin-dashboard', adminCheck, upload.single('file'), async (r
                 }
             }
         })
-    } else if (req.headers.type === "mark as read") {
+    } 
+    
+    else if (req.headers.type === "mark as read") {
         const id = new ObjectID(req.body.message);
         const contactFormPromise = ContactForm.findById(id).populate("user", "email");
         contactFormPromise.then(async contactsResponse => {
@@ -178,7 +186,9 @@ adminRouter.post('/admin-dashboard', adminCheck, upload.single('file'), async (r
         }).catch(err => {
             res.status(400).send("Could not mark as read!")
         })
-    } else if (req.headers.type === "new admin response") {
+    } 
+    
+    else if (req.headers.type === "new admin response") {
         if (req.body.message.text !== "") {
             const id = new ObjectID(req.body.message._id);
             const contactFormPromise = ContactForm.findById(id).populate('user', "email");
@@ -243,7 +253,9 @@ adminRouter.post('/admin-dashboard', adminCheck, upload.single('file'), async (r
         } else {
             res.status(400).send("Message cannot be blank!")
         }
-    } else if (req.headers.type === "mark as resolved") {
+    } 
+    
+    else if (req.headers.type === "mark as resolved") {
         const id = new ObjectID(req.body.id);
         const contactFormPromise = ContactForm.findById(id).populate('user', "email");
         contactFormPromise.then(async contactResponse => {
@@ -253,7 +265,9 @@ adminRouter.post('/admin-dashboard', adminCheck, upload.single('file'), async (r
         }).catch(err => {
             res.status(400).send("Could not mark as resolved at the moment!")
         })
-    } else if (req.headers.type === "new discount") {
+    }
+    
+    else if (req.headers.type === "new discount") {
         const adminDataPromise = AdminData.find({});
         adminDataPromise.then(async dataResponse => {
             let duplicateTrigger = false;
@@ -272,7 +286,9 @@ adminRouter.post('/admin-dashboard', adminCheck, upload.single('file'), async (r
                 res.status(400).send(`There is already discount named ${req.body.discountObject.name}`)
             }
         })
-    } else if (req.headers.type === "delete discount") {
+    } 
+    
+    else if (req.headers.type === "delete discount") {
         const adminDataPromise = AdminData.find({});
         adminDataPromise.then(async dataResponse => {
             const newDiscounts = dataResponse[0].discounts.filter(discount => discount.name !== req.body.name);
@@ -283,7 +299,9 @@ adminRouter.post('/admin-dashboard', adminCheck, upload.single('file'), async (r
         }).catch(err => {
             res.status(400).send("Could not get admin data!")
         })
-    } else if (req.headers.type === "change discounts") {
+    } 
+    
+    else if (req.headers.type === "change discounts") {
         const adminDataPromise = AdminData.find({});
         adminDataPromise.then(async dataResponse => {
             let errorTrigger = false;
@@ -307,14 +325,18 @@ adminRouter.post('/admin-dashboard', adminCheck, upload.single('file'), async (r
         }).catch(err => {
             res.status(400).send(err)
         })
-    } else if (req.headers.type === "upload chart data") {
+    } 
+    
+    else if (req.headers.type === "upload chart data") {
         let adminData = AdminData.find({});
         adminData.then(async dataResponse => {
             dataResponse[0].stats = req.body.data;
             dataResponse[0].markModified('stats');
             await dataResponse[0].save();
         })
-    } else if(req.headers.type === "send newsletter"){
+    } 
+    
+    else if(req.headers.type === "send newsletter"){
         const adminDataPromise = AdminData.find({});
         adminDataPromise.then(adminResponse => {
             const transporter = nodemailer.createTransport({
@@ -360,7 +382,9 @@ adminRouter.get('/admin-dashboard', adminCheck, async (req, res) => {
         }).catch(err => {
             res.status(400).send("Could not get admin feedback data!")
         })
-    } else if (req.headers.type === "get admin data") {
+    }
+    
+    else if (req.headers.type === "get admin data") {
         const getAdminDataPromise = AdminData.find({});
         getAdminDataPromise.then(dataResponse => {
             res.send(dataResponse[0]);
@@ -368,7 +392,6 @@ adminRouter.get('/admin-dashboard', adminCheck, async (req, res) => {
             res.status(400).send(err);
         })
     }
-
 })
 
 

@@ -10,6 +10,7 @@ const AdminData = require('../models/AdminDataModel');
 const ContactForm = require('../models/ContactFormModel');
 const nodemailer = require('nodemailer');
 const blockAdmin = require('../middleware/blockAdmin');
+const helpers = require('../helperFunctions/helpers');
 
 //GET USER
 
@@ -20,15 +21,17 @@ userRouter.get('/', async (req, res) => {
     User.findOne({_id: decoded._id, 'tokens.token': token})
     .populate('contactForms').exec()
     .then(userResponse => {
-      const shopItems = Item.find();
+      const shopItems = Item.find().sort({_id:-1});
       shopItems.then(itemResponse => {
         const adminDataPromise = AdminData.find({});
         adminDataPromise.then(dataResponse => {
+          const popularItems = helpers.getPopularItems(dataResponse[0].stats[dataResponse[0].stats.length - 1].months);
           const discounts = dataResponse[0].discounts;
           const brands = dataResponse[0].brands;
       res.send({
         brands,
         discounts,
+        popularItems,
         user: userResponse,
         items: itemResponse
       })
@@ -39,27 +42,48 @@ userRouter.get('/', async (req, res) => {
       })
     })
 
-  } else{
-
-    const shopItems = Item.find({});
-    shopItems.then(itemsResponse => {
-    const adminDataPromise = AdminData.find({});
-    adminDataPromise.then(dataResponse => {
-      const discounts = dataResponse[0].discounts;
-      const brands = dataResponse[0].brands;
+  } 
+  
+  else{
+    const shopItems = Item.find().sort({_id:-1});
+    shopItems.then(itemResponse => {
+      const adminDataPromise = AdminData.find({});
+      adminDataPromise.then(dataResponse => {
+        const popularItems = helpers.getPopularItems(dataResponse[0].stats[dataResponse[0].stats.length - 1].months);
+        const discounts = dataResponse[0].discounts;
+        const brands = dataResponse[0].brands;
       res.send({
         brands,
         discounts,
+        popularItems,
         user: "guest",
-        items:itemsResponse
+        items: itemResponse
       })
     }) 
     })
   }
-
 })
 
-userRouter.post('/', auth, blockAdmin, async(req, res) => {
+userRouter.post('/', async (req, res) => {
+  if (req.headers.type === "add email to newsletter") {
+    const adminDataPromise = AdminData.find({});
+    adminDataPromise.then(async dataResponse => {
+      const adminData = dataResponse[0];
+      if (adminData.emails.indexOf(req.body.email) === -1) {
+        dataResponse[0].emails.push(req.body.email);
+        await dataResponse[0].save();
+        res.send('Email added to newsletter list!!')
+      } else {
+        res.status(400).send('This email is already subscribed to our newsletter!')
+      }
+    }).catch(err => {
+      console.log(err);
+      res.status(400).send("Could not access admin data!");
+    })
+  }
+})
+
+userRouter.post('/shop/:id', auth, blockAdmin, async(req, res) => {
   if(req.headers.type === "add item to cart"){
     let noPushTrigger = false;
     req.user.userCart.forEach(cart => {
@@ -159,21 +183,6 @@ userRouter.post('/', auth, blockAdmin, async(req, res) => {
       }
     }).catch(err => {
       res.status(400).send("Item to rate could not be found!")
-    })
-  } else if(req.headers.type === "add email to newsletter"){
-    const adminDataPromise = AdminData.find({});
-    adminDataPromise.then( async dataResponse => {
-      const adminData = dataResponse[0];
-     if(adminData.emails.indexOf(req.body.email) === -1){
-       dataResponse[0].emails.push(req.body.email);
-       await dataResponse[0].save();
-       res.send('Email added to newsletter list!!')
-     } else{
-       res.status(400).send('This email is already subscribed to our newsletter!')
-     }
-    }).catch(err => {
-      console.log(err);
-      res.status(400).send("Could not access admin data!");
     })
   }
 })
@@ -372,7 +381,6 @@ userRouter.post('/profile:id', auth, blockAdmin,  async(req, res) => {
 })
 
 userRouter.post('/checkout/finalize-purchase', auth, blockAdmin, async (req, res) => {
-  
   if (req.headers.type === "credit card") {
     let errorObject = [];
     let errorTrigger = false;

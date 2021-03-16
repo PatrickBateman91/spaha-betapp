@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import {withRouter} from 'react-router-dom';
-import Spinner from '../dumbComponents/Spinner';
-import {checkCorrectMailFormat, passwordCheck} from '../dumbComponents/ReusableFunctions';
-import {signInRequest} from '../axios/UserRequests';
 import {connect} from 'react-redux';
+import {checkCorrectMailFormat, passwordCheck} from '../SharedComponents/ReusableFunctions';
+import {signInRequest} from '../../services/axios/UserRequests';
+import {withRouter} from 'react-router-dom';
+import Spinner from '../SharedComponents/Spinner';
+import './styles.scss';
 
 const Login = (props) =>  {
 
